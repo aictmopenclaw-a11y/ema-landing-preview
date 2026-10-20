@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Puntos de Anclaje · Mentoría con Ema Chingolani</title>
+<meta name="description" content="Mentoría de 6 meses con Ema Chingolani para que la calma no te dure veinte minutos, sino el día entero. Reserva una llamada de 20 minutos.">
+<meta property="og:title" content="Tenés islas de calma. · Ema Chingolani">
+<meta property="og:description" content="Mentoría de 6 meses, grupal o 1:1. Reserva 20 minutos con Ema.">
+<meta property="og:image" content="img/og-ema-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/aileron" rel="stylesheet">
+<style>
+/* Marca de Dalila: guia-de-marca.md. Aileron = texto, Lora = titulos, Figtree = respaldo de Aileron */
+:root{
+  --azul:#263F80; --azul-osc:#1B2F63; --azul-2:#3A5394; --verde:#6C854A; --verde-osc:#55693A;
+  --terra:#BC5436; --terra-osc:#9A4329; --papel:#F7F8F5; --papel-2:#EEF0E9; --tinta:#252C35; --tinta-2:#59636F; --borde:#E6EADF;
+  --display:"Lora",Georgia,serif; --texto:"Aileron","Figtree","Helvetica Neue",Arial,sans-serif;
+  --m:20px; --ancho:1180px; --ease:cubic-bezier(.2,.8,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.wrap{max-width:var(--ancho);margin:0 auto;padding:0 var(--m)}
+h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--azul);letter-spacing:-.02em;line-height:1.12}
+p{max-width:62ch}
+.puente{font-family:var(--display);font-style:italic;font-weight:500;color:var(--terra-osc);font-size:20px;margin-bottom:14px}
+.claro .puente{color:#F2C2B2}
+
+/* Botones: un solo verbo en toda la pagina */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;background:var(--azul);color:#fff;font-family:var(--texto);font-weight:700;font-size:17px;text-decoration:none;border-radius:999px;border:0;cursor:pointer;transition:background-color .2s,transform .2s var(--ease)}
+.btn:hover{background:var(--azul-osc);transform:translateY(-2px)}
+.btn:active{transform:none}
+.btn.claro{background:var(--papel);color:var(--azul)}
+.btn.claro:hover{background:#fff}
+.btn.contorno{background:transparent;color:var(--azul);border:2px solid var(--azul)}
+.btn.contorno:hover{background:var(--azul);color:#fff}
+.sin-miedo{font-size:16px;color:var(--tinta-2);margin-top:10px}
+.claro .sin-miedo{color:#D9DFEE}
+.alt{display:inline-block;padding:12px 0;margin-top:2px;font-size:16px;font-weight:700;color:var(--azul);text-underline-offset:4px}
+.alt:hover{color:var(--terra-osc)}
+.pendiente{display:inline-block;font-size:14px;font-weight:700;color:#7A2F1B;background:#F3E3DD;padding:2px 10px;border-radius:999px}
+
+/* Encabezado */
+.top{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.96);border-bottom:1px solid transparent;transition:border-color .2s}
+.top.con-borde{border-color:var(--borde)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.top img{height:30px;width:auto}
+.top .wrap > a:first-child{display:flex;align-items:center;min-height:48px}
+.top .btn{min-height:46px;padding:0 18px;font-size:16px}
+
+/* Hero (pensado para 390x664 dentro de Instagram) */
+.hero{padding:22px 0 0}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+.retrato{position:relative;width:132px;height:132px}
+.retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 14%;border-radius:50%;background:var(--papel-2)}
+.retrato svg{position:absolute;inset:-9px;width:calc(100% + 18px);height:calc(100% + 18px);overflow:visible}
+.hero h1{font-size:clamp(40px,11vw,76px);line-height:1.04;letter-spacing:-.03em}
+.hero .segunda{font-family:var(--display);font-size:clamp(20px,4.6vw,32px);line-height:1.25;color:var(--tinta);margin-top:8px;max-width:22ch}
+.hero .sub{font-size:17px;margin-top:12px;max-width:44ch}
+.hero .accion{margin-top:18px}
+.hero .btn{width:100%}
+.dia{display:block;width:100%;height:46px;margin-top:28px}
+
+.vacio-cab h2{font-size:clamp(28px,4.2vw,46px);max-width:22ch}
+.hero-grid{display:block;max-width:var(--ancho);margin:0 auto;padding:0 var(--m)}
+.solo-esc{display:none}
+.retrato.solo-cel{margin:0 0 20px}
+.temporal{position:relative;margin:20px 0 0;border-radius:18px;overflow:hidden}
+.temporal img{width:100%;height:100%;object-fit:cover}
+.temporal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
+.f-vacio{aspect-ratio:16/10}
+.f-isla{aspect-ratio:16/10;margin-top:26px}
+.f-audio{aspect-ratio:16/9;margin:0 0 20px}
+/* Secciones */
+section{padding:72px 0}
+.vacio .lineas{margin-top:20px;max-width:640px}
+.vacio .lineas p{font-size:19px;line-height:1.5;padding:16px 0;border-top:1px solid var(--borde)}
+.vacio .lineas p:first-child{font-family:var(--display);font-size:24px;line-height:1.3;color:var(--azul);border-top:0;padding-top:0}
+
+.isla{background:var(--azul);color:var(--papel)}
+.isla h2{color:var(--papel);font-size:clamp(28px,4.4vw,46px);max-width:20ch}
+.isla p{color:#fff}
+.isla .cuerpo{display:grid;gap:22px;margin-top:22px}
+.isla .grande{font-family:var(--display);font-size:clamp(22px,3vw,30px);line-height:1.3;color:#fff}
+.isla .hilo{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.4vw,34px);color:#F2C2B2;margin-top:6px}
+.mapa-dia{margin-top:30px}
+.mapa-dia svg{width:100%;height:auto}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:15px;color:#fff}
+.leyenda span{display:inline-flex;align-items:center;gap:8px}
+.leyenda i{width:14px;height:14px;border-radius:50%;display:inline-block}
+
+.metodo h2{font-size:clamp(30px,4.6vw,52px);max-width:16ch}
+.metodo .intro p{font-size:18px;margin-top:14px}
+.metodo .intro .clave{font-family:var(--display);font-size:24px;color:var(--azul);line-height:1.3}
+.pilares{margin-top:36px;display:grid;gap:0}
+.pilar{display:grid;grid-template-columns:34px 1fr;gap:4px 14px;padding:14px 0}
+.pilar .ancla{width:14px;height:14px;border-radius:50%;background:var(--terra);margin-top:9px}
+.pilar h3{font-size:22px}
+.pilar p{grid-column:2;font-size:17px}
+.seis{margin-top:40px;background:var(--verde-osc);color:#fff;border-radius:24px;padding:28px 22px}
+.seis h3{color:#fff;font-size:26px}
+.seis p{margin-top:10px;color:#F1F4EC}
+.seis .pendiente{margin-top:14px;color:#7A2F1B}
+.metodo .accion{margin-top:32px}
+
+.audio{background:var(--papel-2)}
+.audio .caja{display:grid;gap:18px;align-items:center}
+.audio h2{font-size:clamp(26px,3.6vw,38px);max-width:18ch}
+.audio p{margin-top:10px}
+.audio form{display:flex;flex-direction:column;gap:10px;margin-top:6px;max-width:460px}
+.audio input{min-height:54px;border:2px solid #C9CFBF;border-radius:14px;padding:0 16px;font:inherit;font-size:17px;background:#fff;color:var(--tinta)}
+.audio input:focus{border-color:var(--azul);outline:none}
+.audio .legal{font-size:14px;color:var(--tinta-2)}
+.audio .o{font-size:16px}
+
+.prueba h2{font-size:clamp(28px,4vw,44px)}
+.prueba .cols{display:grid;gap:20px;margin-top:22px}
+.prueba .hueco{background:#fff;border-radius:20px;padding:22px}
+.prueba .hueco h3{font-size:20px}
+.prueba .hueco p{margin-top:8px;font-size:16px;color:var(--tinta-2)}
+.prueba .aviso{font-size:14px;color:var(--tinta-2);margin-top:16px}
+
+.quien .cols{display:grid;gap:26px;align-items:center}
+.video{position:relative;display:block;border-radius:22px;overflow:hidden;aspect-ratio:4/5;max-width:420px;background:var(--tinta);text-decoration:none}
+.video img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .6s var(--ease)}
+.video:hover img{transform:scale(1.03)}
+.video .play{position:absolute;left:16px;bottom:16px;display:inline-flex;align-items:center;gap:10px;background:var(--papel);color:var(--azul);font-weight:700;font-size:15px;padding:10px 16px 10px 10px;border-radius:999px}
+.video .play i{width:34px;height:34px;border-radius:50%;background:var(--terra);display:grid;place-items:center}
+.quien h2{font-size:clamp(30px,4.4vw,52px)}
+.quien .fuerte{font-family:var(--display);font-size:24px;line-height:1.35;color:var(--azul);margin-top:14px}
+.quien p{margin-top:14px;font-size:18px}
+.quien .accion{margin-top:24px}
+
+.para{background:var(--terra);color:#fff}
+.para .puente{color:#fff}
+.para h2{color:#fff;font-size:clamp(26px,3.4vw,38px);margin-bottom:12px}
+.para .cols{display:grid;gap:34px}
+.para ul{list-style:none}
+.para li{font-size:19px;padding:12px 0 12px 32px;position:relative;border-top:1px solid rgba(255,255,255,.28)}
+.para li::before{content:"";position:absolute;left:0;top:21px;width:15px;height:15px;border-radius:50%;background:#fff}
+.para .no li::before{background:transparent;border:2px solid #fff}
+
+.precio{background:var(--azul);color:var(--papel)}
+.precio h2{color:#fff;font-size:clamp(30px,4.4vw,52px)}
+.precio .lead{font-family:var(--display);font-size:22px;margin-top:10px;color:#fff}
+.planes{display:grid;gap:18px;margin-top:30px}
+.plan{background:var(--papel);color:var(--tinta);border-radius:24px;padding:26px 22px;display:flex;flex-direction:column}
+.plan.uno{border:3px solid #8394C2}
+.plan h3{font-size:26px}
+.plan .elige{font-size:16px;color:var(--tinta-2);margin-top:6px}
+.plan .monto{font-family:var(--display);font-weight:600;font-size:40px;color:var(--azul);line-height:1.1;margin-top:16px}
+.plan .detalle{font-size:16px;margin-top:4px}
+.plan ul{list-style:none;margin:18px 0 22px;flex:1}
+.plan li{padding:7px 0 7px 26px;position:relative;font-size:16px}
+.plan li::before{content:"";position:absolute;left:0;top:15px;width:12px;height:12px;border-radius:50%;background:var(--verde)}
+.plan li.no{color:#8A939E}
+.plan li.no::before{background:transparent;border:2px solid #B9BFC7}
+.plan .btn{width:100%}
+.plan .directo{display:block;margin-top:8px;padding:12px 0;text-align:center;font-size:16px;font-weight:700}
+.precio .notas{margin-top:20px;font-size:16px;color:#D9DFEE;display:grid;gap:6px}
+
+.reservar .caja{display:grid;gap:26px}
+.reservar h2{font-size:clamp(28px,4vw,44px)}
+.pasos{list-style:none;counter-reset:p;margin-top:18px}
+.pasos li{padding:14px 0 14px 46px;position:relative;border-top:1px solid var(--borde);font-size:17px}
+.pasos li::before{counter-increment:p;content:counter(p);position:absolute;left:0;top:12px;width:30px;height:30px;border-radius:50%;background:var(--azul);color:#fff;font-weight:700;font-size:15px;display:grid;place-items:center}
+.calendario{background:#fff;border-radius:22px;padding:24px;min-height:300px;display:flex;flex-direction:column;justify-content:center;gap:12px;border:2px dashed #C9CFBF}
+.calendario h3{font-size:20px}
+.calendario p{font-size:16px;color:var(--tinta-2)}
+
+.faq h2{font-size:clamp(28px,4vw,44px)}
+.faq details{border-top:1px solid var(--borde);padding:18px 0}
+.faq details:last-of-type{border-bottom:1px solid var(--borde)}
+.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:28px;line-height:1;color:var(--terra-osc);transition:transform .25s var(--ease);flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:10px;font-size:17px}
+.faq .accion{margin-top:30px}
+
+.cierre{background:var(--azul);color:var(--papel);text-align:center;padding:84px 0}
+.cierre img{width:56px;margin:0 auto 22px}
+.cierre h2{color:#fff;font-size:clamp(30px,5vw,58px);max-width:18ch;margin:0 auto}
+.cierre .accion{margin-top:28px}
+.cierre .dia{margin-top:40px}
+
+footer{padding:36px 0 110px;font-size:15px;color:var(--tinta-2)}
+footer .wrap{display:grid;gap:12px}
+footer img{height:30px;width:auto}
+
+/* Barra fija en el celular: la reserva siempre a mano */
+.fija{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;transform:translateY(140%);transition:transform .3s var(--ease)}
+.fija.on{transform:none}
+.fija .btn{width:100%;box-shadow:0 8px 24px rgba(27,47,99,.28)}
+
+/* Aparecer al hacer scroll (sin bloquear si falla el script) */
+@media (prefers-reduced-motion:no-preference){
+  .js [data-aparece]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .js [data-aparece].in{opacity:1;transform:none}
+  .anclas circle{transform-box:fill-box;transform-origin:center;transform:scale(.6);opacity:0;transition:transform .5s var(--ease),opacity .5s}
+  .in .anclas circle,.anclas.in circle{transform:scale(1);opacity:1}
+  .anclas circle:nth-child(2){transition-delay:.08s}.anclas circle:nth-child(3){transition-delay:.16s}.anclas circle:nth-child(4){transition-delay:.24s}.anclas circle:nth-child(5){transition-delay:.32s}.anclas circle:nth-child(6){transition-delay:.4s}
+}
+
+@media (min-width:760px){
+  :root{--m:36px}
+  body{font-size:18px}
+  section{padding:110px 0}
+  .hero{padding:56px 0 0}
+  .hero .grid{grid-template-columns:1.25fr .75fr;gap:56px}
+  .hero .texto{order:1}
+  .retrato{order:2;width:min(100%,380px);height:auto;aspect-ratio:1;justify-self:end}
+  .hero .btn{width:auto}
+  .dia{height:70px;margin-top:56px}
+  .isla .cuerpo{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .metodo .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
+  .pilar{grid-template-columns:40px 5fr 7fr;align-items:baseline}
+  .pilar p{grid-column:auto}
+  .seis{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;padding:44px}
+  .audio .caja{grid-template-columns:1fr 1fr;gap:56px}
+  .prueba .cols{grid-template-columns:repeat(3,1fr)}
+  .quien .cols{grid-template-columns:.85fr 1.15fr;gap:64px}
+  .para .cols{grid-template-columns:1fr 1fr;gap:56px}
+  .planes{grid-template-columns:1fr 1fr;gap:24px}
+  .plan{padding:34px}
+  .reservar .caja{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .faq .cols{display:grid;grid-template-columns:4fr 8fr;gap:56px}
+  .fija{display:none}
+  footer{padding-bottom:40px}
+  footer .wrap{grid-template-columns:auto 1fr;align-items:center;gap:28px}
+}
+@media (min-width:1024px){
+  :root{--ancho:1440px;--m:48px}
+  body{font-size:19px}
+  section{padding:96px 0}
+  .solo-cel{display:none}
+  .solo-esc{display:flex}
+  .hero{padding:0}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 60px),820px)}
+  .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - 1440px)/2 + 48px))}
+  .hero h1{font-size:clamp(56px,6.2vw,104px)}
+  .hero .segunda{font-size:clamp(26px,2.4vw,40px);margin-top:14px}
+  .hero .sub{font-size:20px;margin-top:20px}
+  .hero .accion{margin-top:30px}
+  .panel{background:var(--azul);flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:56px 48px;color:#fff;text-align:center}
+  .hero .texto{order:0}
+  .panel{order:1}
+  .retrato.grande{order:0;width:min(25vw,380px);height:min(25vw,380px);aspect-ratio:auto;justify-self:auto}
+  .panel .frase{font-family:var(--display);font-style:italic;font-size:clamp(22px,1.9vw,30px);line-height:1.35;max-width:20ch;margin:8px auto 0}
+  .panel .firma{font-size:16px;color:#fff;opacity:.9}
+  .dia{margin-top:0}
+  .vacio-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+  .vacio-cab{position:sticky;top:100px}
+  .vacio-cab h2{font-size:clamp(40px,3.8vw,60px)}
+  .vacio .lineas{margin-top:0;max-width:none}
+  .vacio .lineas p{font-size:21px;max-width:none}
+  .vacio .lineas p:first-child{font-size:30px}
+  .isla h2,.metodo h2,.quien h2,.precio h2{font-size:clamp(40px,3.8vw,60px)}
+  .pilares{grid-template-columns:repeat(3,1fr);gap:48px}
+  .pilar{grid-template-columns:1fr;border-top:0;padding:0;gap:12px}
+  .pilar .ancla{margin-top:0}
+  .pilar h3{font-size:26px}
+  .pilar p{grid-column:auto;font-size:18px}
+  .prueba h2,.reservar h2,.faq h2{font-size:clamp(36px,3.2vw,52px)}
+  .plan .monto{font-size:46px}
+  .f-vacio{aspect-ratio:4/5;margin-top:32px;max-width:440px}
+  .f-audio{aspect-ratio:4/3}
+}
+@media (min-width:1600px){
+  :root{--m:72px}
+  .hero .texto{padding:64px 72px 64px max(72px,calc((100vw - 1440px)/2 + 72px))}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a href="#"><img src="img/logo-azul.webp" alt="Emanuel Chingolani" width="602" height="197"></a>
+    <a class="btn" href="#reservar" data-cta="encabezado">Reservar 20 minutos</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio" style="padding-bottom:0">
+  <div class="hero-grid">
+    <div class="texto wrap-izq">
+      <div class="retrato solo-cel">
+        <img src="img/ema-retrato.webp" alt="Ema Chingolani sonriendo al aire libre" width="372" height="784" fetchpriority="high">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <h1>Tenés islas de calma.</h1>
+      <p class="segunda">Entre isla e isla, catorce horas a la deriva.</p>
+      <p class="sub">Lo lograste todo y aun así algo falta. Aprendé a que la calma no te dure veinte minutos, sino el día entero.</p>
+      <div class="accion">
+        <a class="btn" href="#reservar" data-cta="hero">Reservar 20 minutos con Ema</a>
+        <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
+        <a class="alt" href="https://ig.me/m/emachingolani" data-cta="hero-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
+      </div>
+    </div>
+    <div class="panel solo-esc" aria-hidden="true">
+      <div class="retrato grande">
+        <img src="img/ema-retrato.webp" alt="" width="372" height="784">
+        <svg viewBox="0 0 100 100"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="2.4" stroke-linecap="round"/></svg>
+      </div>
+      <p class="frase">«No para rescatarte cuando caés. Para que no caigas.»</p>
+      <p class="firma">Ema Chingolani · Puntos de Anclaje</p>
+    </div>
+  </div>
+  <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#8394C2" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/></svg>
+</section>
+
+<!-- EL VACIO -->
+<section class="vacio" aria-labelledby="t-vacio" style="padding-top:44px">
+  <div class="wrap vacio-grid" data-aparece>
+    <div class="vacio-cab">
+      <p class="puente">¿Suena familiar?</p>
+      <h2 id="t-vacio">Por fuera, todo resuelto. Por dentro, un vacío.</h2>
+      <figure class="temporal f-vacio"><img src="img/temp-isla-roca.webp" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+    </div>
+    <div class="lineas">
+      <p>Lo lograste. El trabajo, la vida que querías. Y aun así, algo falta.</p>
+      <p>Dormís bien, comés limpio, entrenás… y te levantás pesado.</p>
+      <p>Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</p>
+      <p>Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</p>
+      <p>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</p>
+      <p>A veces hace falta que algo se rompa —un contrato, una lesión, una pérdida— para ver que el piloto automático ya no da más.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EFECTO ISLA -->
+<section class="isla claro" aria-labelledby="t-isla">
+  <div class="wrap">
+    <div data-aparece>
+      <p class="puente">Y lo intentaste más de una vez.</p>
+      <h2 id="t-isla">Por qué nada de lo que probaste te duró</h2>
+    </div>
+    <div class="cuerpo" data-aparece>
+      <div>
+        <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
+        <p style="margin-top:12px">La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
+        <figure class="temporal f-isla"><img src="img/temp-islas-mar.webp" alt="Islas a lo lejos sobre un mar azul" width="1600" height="1000" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+      </div>
+      <div>
+        <p class="grande">Es el Efecto Isla. Islas de calma repartidas en la semana, y entre isla e isla, catorce horas a la deriva. No te falta saber calmarte. Te falta lo que une una isla con la otra.</p>
+        <p style="margin-top:16px">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
+        <p class="hilo">Lo que te falta es un hilo.</p>
+      </div>
+    </div>
+    <div class="mapa-dia" data-aparece>
+      <svg viewBox="0 0 1100 110" role="img" aria-label="Un día de 7 a 23 horas con tres islas de calma y largos tramos a la deriva">
+        <line x1="10" y1="45" x2="1090" y2="45" stroke="#8394C2" stroke-width="4" stroke-dasharray="2 13" stroke-linecap="round"/>
+        <rect x="20" y="25" width="44" height="40" rx="20" fill="#F7F8F5"/>
+        <rect x="430" y="25" width="64" height="40" rx="20" fill="#F7F8F5"/>
+        <rect x="905" y="25" width="38" height="40" rx="20" fill="#F7F8F5"/>
+        <g class="anclas" fill="#BC5436"><circle cx="170" cy="45" r="8"/><circle cx="300" cy="45" r="8"/><circle cx="590" cy="45" r="8"/><circle cx="710" cy="45" r="8"/><circle cx="820" cy="45" r="8"/><circle cx="1020" cy="45" r="8"/></g>
+        <g fill="#E7EAF4" font-family="Aileron, Figtree, Arial, sans-serif" font-size="18"><text x="10" y="102">7:00</text><text x="530" y="102">15:00</text><text x="1030" y="102">23:00</text></g>
+      </svg>
+      <div class="leyenda"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- METODO -->
+<section class="metodo" id="metodo" aria-labelledby="t-metodo">
+  <div class="wrap">
+    <p class="puente" data-aparece>¿Cómo se une una isla con la otra?</p>
+    <div class="intro" data-aparece>
+      <h2 id="t-metodo">Seis meses que duran para siempre</h2>
+      <div>
+        <p>Ese hilo se llama Puntos de Anclaje: pausas cortas, repartidas en tu día, que usan tu propio cuerpo para pasar de la aceleración a la calma. En una reunión. Después de una llamada difícil. Un domingo a la tarde.</p>
+        <p class="clave">No para rescatarte cuando caés. Para que no caigas.</p>
+      </div>
+    </div>
+    <div class="pilares" aria-label="Cómo trabajamos" data-aparece>
+      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Meditación profunda y respiración</h3><p>Abren la puerta: el cuerpo se suelta y graba un estado nuevo.</p></div>
+      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Puntos de Anclaje</h3><p>Llevan ese estado a tu día real, para que no se evapore.</p></div>
+      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Autonomía emocional</h3><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></div>
+    </div>
+    <div class="seis" data-aparece>
+      <div><h3>Por qué seis meses</h3><img src="img/marca-separadores.webp" alt="Separadores de libro con el monograma de Emanuel Chingolani" width="566" height="299" loading="lazy" style="border-radius:16px;margin-top:16px"></div>
+      <div>
+        <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
+        <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
+        <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
+      </div>
+    </div>
+    <div class="accion" data-aparece>
+      <a class="btn" href="#reservar" data-cta="metodo">Reservar 20 minutos con Ema</a>
+      <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEGUNDO CAMINO: AUDIO -->
+<section class="audio" id="audio" aria-labelledby="t-audio" style="padding:64px 0">
+  <div class="wrap caja" data-aparece>
+    <div>
+      <figure class="temporal f-audio"><img src="img/temp-muelle-pausa.webp" alt="Escalera de un muelle sobre agua quieta al atardecer" width="1200" height="900" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+      <h2 id="t-audio">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2>
+      <p>Un audio guiado por Ema para usar hoy mismo, en una pausa del trabajo o antes de dormir. Te llega al correo.</p>
+    </div>
+    <div>
+      <form action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir el audio por correo">
+        <label for="correo" class="o">Tu correo</label>
+        <input id="correo" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com">
+        <button class="btn contorno" type="submit" data-cta="audio">Enviarme el audio</button>
+        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
+      </form>
+      <p class="pendiente" style="margin-top:10px">Pendiente: grabar el audio y conectar el formulario</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRUEBA -->
+<section class="prueba" aria-labelledby="t-prueba">
+  <div class="wrap">
+    <p class="puente" data-aparece>¿Le funcionó a alguien que estaba donde estás hoy?</p>
+    <h2 id="t-prueba" data-aparece>Ellos ya cruzaron</h2>
+    <div class="cols" data-aparece>
+      <div class="hueco"><h3>Testimonio en video</h3><p>Pendiente de Ema: quién es, cómo estaba antes, qué cambió. Con permiso por escrito.</p></div>
+      <div class="hueco"><h3>Testimonio contado como historia</h3><p>Pendiente: idealmente alguien que llegó después de una ruptura concreta.</p></div>
+      <div class="hueco"><h3>Comentarios de alumnos</h3><p>Pendiente: frases reales, con permiso y sin nombre si lo prefieren.</p></div>
+    </div>
+    <p class="aviso" data-aparece>Son experiencias personales de cada alumno, no resultados de salud.</p>
+  </div>
+</section>
+
+<!-- QUIEN SOY -->
+<section class="quien" id="quien" aria-labelledby="t-quien" style="padding-top:20px">
+  <div class="wrap">
+    <p class="puente" data-aparece>Quién está detrás del método.</p>
+    <div class="cols">
+      <a class="video" href="#" data-cta="video-ema" aria-label="Ver el video de Ema (pendiente de grabación)" data-aparece>
+        <img src="img/ema-camara.webp" alt="Ema hablando a cámara" width="400" height="720" loading="lazy">
+        <span class="play"><i aria-hidden="true"><svg width="12" height="14" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i>Video de Ema (pendiente)</span>
+      </a>
+      <div data-aparece>
+        <h2 id="t-quien">Quién soy: Ema Chingolani</h2>
+        <p class="fuerte">Jugué al fútbol hasta los 28. Si metía goles, me amaban. Si erraba, era el peor.</p>
+        <p>Cuando se terminó, no sabía quién era sin la camiseta. Llegaron la ansiedad, la soledad, la depresión. Y un cuerpo que, después de cuatro operaciones, dijo basta.</p>
+        <p>Armé esta metodología para salir de ahí. Hoy la enseño mientras recorro el mundo buscando formas cada vez más simples de aplicarla.</p>
+        <div class="accion">
+          <a class="btn" href="#reservar" data-cta="quien">Reservar 20 minutos con Ema</a>
+          <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIEN -->
+<section class="para claro" aria-labelledby="t-para">
+  <div class="wrap">
+    <p class="puente" data-aparece>Antes del precio, para quién es (y para quién no).</p>
+    <div class="cols" data-aparece>
+      <div>
+        <h2 id="t-para">Es para vos si</h2>
+        <ul>
+          <li>Tu vida funciona, pero no la disfrutás.</li>
+          <li>Probaste de todo y nada te duró.</li>
+          <li>Querés dejar de darle al afuera el control de cómo te sentís.</li>
+          <li>Te comprometés con seis meses de trabajo real.</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h2>No es para vos si</h2>
+        <ul>
+          <li>Buscás una solución mágica y rápida.</li>
+          <li>Vas a hacerlo a medias y esperar resultados igual.</li>
+          <li>Esperás que alguien haga el trabajo por vos.</li>
+          <li>Necesitás un médico o un terapeuta antes que un mentor. Si es así, te lo digo en la llamada y te oriento.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section class="precio claro" id="precio" aria-labelledby="t-precio">
+  <div class="wrap">
+    <p class="puente" data-aparece>Si te reconociste en la primera lista, hay dos formas de empezar.</p>
+    <h2 id="t-precio" data-aparece>Elegí cómo querés hacerlo</h2>
+    <p class="lead" data-aparece>Los seis meses terminan. Los Puntos de Anclaje, no. Eso es lo que te llevás.</p>
+    <div class="planes" data-aparece>
+      <article class="plan">
+        <h3>Mentoría grupal</h3>
+        <p class="elige">Elige el grupal si quieres aprender el método con otros y a tu ritmo.</p>
+        <p class="monto">6 cuotas de 100 USD</p>
+        <p class="detalle">600 USD en total · 6 meses <span class="pendiente">por confirmar</span></p>
+        <ul>
+          <li>Acceso a la plataforma</li>
+          <li>Clase grupal semanal</li>
+          <li>Comunidad en WhatsApp</li>
+          <li class="no">Onboarding 1:1 con Ema</li>
+          <li class="no">Sesión 1:1 cada 15 días</li>
+          <li class="no">WhatsApp directo con Ema</li>
+        </ul>
+        <a class="btn" href="#reservar" data-cta="precio-grupal">Reservar 20 minutos con Ema</a>
+        <a class="directo" href="#" data-cta="pago-grupal">Si ya lo tenés claro, entrás directo →</a>
+      </article>
+      <article class="plan uno">
+        <h3>Mentoría 1:1</h3>
+        <p class="elige">Elige la 1:1 si quieres un mapa de ruta propio y a Ema contigo cada 15 días.</p>
+        <p class="monto">3.500 USD</p>
+        <p class="detalle">≈ 583 USD al mes durante 6 meses <span class="pendiente">por confirmar</span></p>
+        <ul>
+          <li>Acceso a la plataforma</li>
+          <li>Clase grupal semanal</li>
+          <li>Comunidad en WhatsApp</li>
+          <li>Onboarding 1:1 con Ema (mapa de ruta)</li>
+          <li>Sesión 1:1 con Ema cada 15 días</li>
+          <li>WhatsApp directo con Ema (lunes a viernes)</li>
+        </ul>
+        <a class="btn" href="#reservar" data-cta="precio-1a1">Reservar 20 minutos con Ema</a>
+        <p class="directo" style="font-weight:400">1:1: veinte minutos de llamada y te digo si es para vos.</p>
+      </article>
+    </div>
+    <div class="notas" data-aparece>
+      <p>Si hay duda entre la grupal y la 1:1, la llamada de 20 minutos sirve justo para decidirlo.</p>
+      <p><span class="pendiente">Pendiente de Ema</span> moneda final, pago con tarjeta desde cualquier país, garantía y un testimonio corto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAR -->
+<section class="reservar" id="reservar" aria-labelledby="t-reservar">
+  <div class="wrap caja">
+    <div data-aparece>
+      <h2 id="t-reservar">Reserva tus 20 minutos con Ema</h2>
+      <ol class="pasos">
+        <li>Eliges un horario. Se muestra en tu hora local.</li>
+        <li>Respondes dos preguntas: qué te trajo hasta aquí y si te interesa más la grupal o la 1:1.</li>
+        <li>Conversas con Ema y sales sabiendo si es para ti. Sin compromiso de compra.</li>
+      </ol>
+      <a class="alt" href="https://ig.me/m/emachingolani" data-cta="reservar-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
+    </div>
+    <div class="calendario" data-aparece>
+      <h3>Aquí va el calendario de reservas</h3>
+      <p>systeme.io trae calendario en su plan. Falta confirmar que muestre la hora local de quien reserva; si no, se usa Calendly.</p>
+      <p>Al confirmar: página con qué pasa en la llamada y cómo prepararse, y recordatorios por correo 24 horas y 1 hora antes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section class="faq" aria-labelledby="t-faq" style="padding-top:20px">
+  <div class="wrap cols">
+    <div>
+      <p class="puente">Lo que más preguntan antes de empezar.</p>
+      <h2 id="t-faq">Preguntas frecuentes</h2>
+    </div>
+    <div>
+      <details open><summary>¿Esto es terapia?</summary><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></details>
+      <details><summary>¿Cuánto tiempo por día necesito?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></details>
+      <details><summary>¿Necesito experiencia previa en meditación?</summary><p><span class="pendiente">Pendiente de Ema</span></p></details>
+      <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></details>
+      <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></details>
+      <details><summary>¿Y si una respiración me marea o me incomoda?</summary><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></details>
+      <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></details>
+      <details><summary>¿Cómo se paga?</summary><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></details>
+      <div class="accion"><a class="btn" href="#reservar" data-cta="faq">Reservar 20 minutos con Ema</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section class="cierre claro" aria-labelledby="t-cierre">
+  <div class="wrap" data-aparece>
+    <img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy">
+    <h2 id="t-cierre">La calma ya la conocés. Ahora hacé que se quede.</h2>
+    <div class="accion">
+      <a class="btn claro" href="#reservar" data-cta="cierre">Reservar 20 minutos con Ema</a>
+      <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
+    </div>
+  </div>
+  <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#BC5436" stroke-width="4" stroke-linecap="round"/></svg>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-azul.webp" alt="Emanuel Chingolani" width="602" height="197" loading="lazy">
+    <p>Mentoría de desarrollo personal; se diferencia de la psicoterapia y carece de función diagnóstica o clínica. · <a href="/politica-de-privacidad">Política de privacidad</a></p>
+  </div>
+</footer>
+
+<div class="fija" aria-hidden="true"><a class="btn" href="#reservar" data-cta="barra-celular" tabindex="-1">Reservar 20 minutos con Ema</a></div>
+
+<script>
+// Medicion: cada boton manda su seccion a GTM (GA4 + Pixel se configuran ahi). Scroll 50 % y 90 %.
+window.dataLayer=window.dataLayer||[];
+document.documentElement.classList.add('js');
+document.addEventListener('click',function(e){var a=e.target.closest('[data-cta]');if(a){window.dataLayer.push({event:'clic_cta',seccion:a.getAttribute('data-cta')});}});
+(function(){var hitos={50:false,90:false};window.addEventListener('scroll',function(){var p=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight*100;[50,90].forEach(function(h){if(!hitos[h]&&p>=h){hitos[h]=true;window.dataLayer.push({event:'scroll_profundidad',porcentaje:h});}});},{passive:true});})();
+function enviarAudio(e){e.preventDefault();window.dataLayer.push({event:'generate_lead',origen:'audio'});alert('Maqueta: aquí el formulario se conecta a systeme.io.');return false;}
+// Aparecer al entrar en pantalla, sin dejar nada oculto si falla
+(function(){var els=document.querySelectorAll('[data-aparece]');if(!('IntersectionObserver' in window)){els.forEach(function(x){x.classList.add('in')});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});els.forEach(function(x){io.observe(x)});
+setTimeout(function(){els.forEach(function(x){var r=x.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)x.classList.add('in')})},2500);})();
+// Encabezado con borde al bajar y barra fija en el celular (oculta en el hero y en la reserva)
+(function(){var top=document.getElementById('top'),fija=document.querySelector('.fija'),hero=document.getElementById('inicio'),res=document.getElementById('reservar');
+function u(){top.classList.toggle('con-borde',scrollY>8);var hb=hero.getBoundingClientRect().bottom,rt=res.getBoundingClientRect();fija.classList.toggle('on',hb<0&&!(rt.top<innerHeight&&rt.bottom>0));}
+addEventListener('scroll',u,{passive:true});u();})();
+</script>
+</body>
+</html>
