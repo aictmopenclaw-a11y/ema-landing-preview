@@ -53,8 +53,8 @@ p{max-width:62ch}
 /* Encabezado */
 .top{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.96);border-bottom:1px solid transparent;transition:border-color .2s}
 .top.con-borde{border-color:var(--borde)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.top img{height:30px;width:auto}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.top img{height:40px;width:auto}
 .top .wrap > a:first-child{display:flex;align-items:center;min-height:48px}
 .top .btn{min-height:46px;padding:0 18px;font-size:16px}
 
@@ -241,12 +241,14 @@ footer img{height:30px;width:auto}
 }
 @media (min-width:1024px){
   :root{--ancho:1440px;--m:48px}
+  .top .wrap{height:84px}
+  .top img{height:56px}
   body{font-size:19px}
   section{padding:96px 0}
   .solo-cel{display:none}
   .solo-esc{display:flex}
   .hero{padding:0}
-  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 60px),820px)}
+  .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 84px),820px)}
   .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - 1440px)/2 + 48px))}
   .hero h1{font-size:clamp(56px,6.2vw,104px)}
   .hero .segunda{font-size:clamp(26px,2.4vw,40px);margin-top:14px}
