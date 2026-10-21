@@ -16,18 +16,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <link rel="preload" as="font" type="font/woff" href="https://fonts.cdnfonts.com/s/16225/Aileron-Regular.woff" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"></noscript>
 <style>
 @font-face{font-family:'Aileron';font-style:normal;font-weight:400;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-Regular.woff') format('woff')}
 @font-face{font-family:'Aileron';font-style:italic;font-weight:400;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-Italic.woff') format('woff')}
 @font-face{font-family:'Aileron';font-style:normal;font-weight:600;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-SemiBold.woff') format('woff')}
 @font-face{font-family:'Aileron';font-style:normal;font-weight:700;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-Bold.woff') format('woff')}
-/* Marca de Dalila: guia-de-marca.md. Aileron = texto, Lora = titulos, Figtree = respaldo de Aileron */
+/* Marca de Dalila: guia-de-marca.md. Aileron = texto, Lora = titulos, Figtree = respaldo de Aileron.
+   Paleta web: azul profundo (principal), verde suave (apoyo), terracota (acentos puntuales), blanco calido (fondo). */
 :root{
-  --azul:#263F80; --azul-osc:#1B2F63; --azul-2:#3A5394; --verde:#6C854A; --verde-osc:#55693A;
-  --terra:#BC5436; --terra-osc:#9A4329; --papel:#F7F8F5; --papel-2:#EEF0E9; --tinta:#252C35; --tinta-2:#59636F; --borde:#E6EADF;
-  --display:"Lora",Georgia,serif; --texto:"Aileron","Helvetica Neue",Arial,sans-serif;
+  --azul:#263F80; --azul-osc:#1B2F63; --azul-2:#3A5394; --azul-claro:#8394C2; --verde:#6C854A; --verde-osc:#55693A;
+  --terra:#BC5436; --terra-osc:#9A4329; --terra-claro:#F2C2B2; --papel:#F7F8F5; --papel-2:#EEF0E9; --tinta:#252C35; --tinta-2:#59636F; --borde:#E6EADF;
+  --display:"Lora",Georgia,serif; --texto:"Aileron","Figtree","Helvetica Neue",Arial,sans-serif;
   --m:20px; --ancho:1180px; --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -41,13 +42,15 @@ h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--azul);letter-spa
 p{max-width:62ch}
 .puente{font-family:var(--display);font-style:italic;font-weight:500;color:var(--terra-osc);font-size:20px;margin-bottom:14px}
 .claro .puente{color:#F2C2B2}
+.etiqueta{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-2)}
+.claro .etiqueta{color:#C9D1E6}
 
 /* Botones: un solo verbo en toda la pagina */
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;background:var(--azul);color:#fff;font-family:var(--texto);font-weight:700;font-size:17px;text-decoration:none;border-radius:999px;border:0;cursor:pointer;transition:background-color .2s,transform .2s var(--ease)}
-.btn:hover{background:var(--azul-osc);transform:translateY(-2px)}
-.btn:active{transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;background:var(--azul);color:#fff;font-family:var(--texto);font-weight:700;font-size:17px;text-decoration:none;border-radius:999px;border:0;cursor:pointer;box-shadow:0 0 0 rgba(27,47,99,0);transition:background-color .2s,transform .25s var(--ease),box-shadow .25s var(--ease)}
+.btn:hover{background:var(--azul-osc);transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(27,47,99,.55)}
+.btn:active{transform:none;box-shadow:none}
 .btn.claro{background:var(--papel);color:var(--azul)}
-.btn.claro:hover{background:#fff}
+.btn.claro:hover{background:#fff;box-shadow:0 14px 28px -14px rgba(0,0,0,.45)}
 .btn.contorno{background:transparent;color:var(--azul);border:2px solid var(--azul)}
 .btn.contorno:hover{background:var(--azul);color:#fff}
 .sin-miedo{font-size:16px;color:var(--tinta-2);margin-top:10px}
@@ -56,35 +59,44 @@ p{max-width:62ch}
 .alt:hover{color:var(--terra-osc)}
 .pendiente{display:inline-block;font-size:14px;font-weight:700;color:#7A2F1B;background:#F3E3DD;padding:2px 10px;border-radius:999px}
 
-/* Encabezado */
-.top{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.96);border-bottom:1px solid transparent;transition:border-color .2s}
+/* Encabezado: fijo, con el "hilo" terracota que avanza al leer */
+.top{position:sticky;top:0;z-index:20;background:rgba(247,248,245,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
 .top.con-borde{border-color:var(--borde)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .top img{height:40px;width:auto}
 .top .wrap > a:first-child{display:flex;align-items:center;min-height:48px}
 .top .btn{min-height:46px;padding:0 18px;font-size:16px}
+.progreso{position:absolute;left:0;bottom:-1px;width:100%;height:3px;background:var(--terra);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
 
 /* Hero (pensado para 390x664 dentro de Instagram) */
 .hero{padding:22px 0 0}
-.hero .grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-.retrato{position:relative;width:132px;height:132px}
-.retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 14%;border-radius:50%;background:var(--papel-2)}
-.retrato svg{position:absolute;inset:-9px;width:calc(100% + 18px);height:calc(100% + 18px);overflow:visible}
+.hero-grid{display:block;max-width:var(--ancho);margin:0 auto;padding:0 var(--m)}
 .hero h1{font-size:clamp(40px,11vw,76px);line-height:1.04;letter-spacing:-.03em}
 .hero .segunda{font-family:var(--display);font-size:clamp(20px,4.6vw,32px);line-height:1.25;color:var(--tinta);margin-top:8px;max-width:22ch}
 .hero .sub{font-size:17px;margin-top:12px;max-width:44ch}
 .hero .accion{margin-top:18px}
 .hero .btn{width:100%}
-.dia{display:block;width:100%;height:46px;margin-top:28px}
+/* Panel azul: una sola frase, respirando */
+.panel{position:relative;overflow:hidden;isolation:isolate;background:var(--azul);color:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:64px 24px;margin:40px calc(-1*var(--m)) 0;min-height:420px}
+.respira{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none}
+.respira > *{grid-area:1/1}
+.respira .anillo{width:min(80vw,540px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:radial-gradient(circle,rgba(255,255,255,.09) 0%,rgba(255,255,255,0) 68%)}
+.respira .anillo.chico{width:min(56vw,380px);border-color:rgba(255,255,255,.2);background:none}
+.respira .arco{width:min(68vw,460px);height:auto;overflow:visible}
+.panel .mono{width:34px;height:auto;opacity:.92}
+.frase-grande{font-family:var(--display);font-weight:600;font-size:clamp(27px,7vw,34px);line-height:1.22;letter-spacing:-.015em;max-width:21ch;margin:0 auto}
+.frase-grande .l1{display:block;color:#C9D1E6}
+.frase-grande .l2{display:block;color:#fff;margin-top:.4em}
+.frase-grande em{font-style:italic;color:var(--terra-claro)}
+.panel .firma{font-size:14px;color:#C9D1E6;letter-spacing:.02em;margin-top:4px}
+.dia{display:block;width:100%;height:46px;margin-top:0}
 
-.vacio-cab h2{font-size:clamp(28px,4.2vw,46px);max-width:22ch}
-.hero-grid{display:block;max-width:var(--ancho);margin:0 auto;padding:0 var(--m)}
-.solo-esc{display:none}
-.retrato.solo-cel{margin:0 0 20px}
+/* Fotos temporales */
 .temporal{position:relative;margin:20px 0 0;border-radius:18px;overflow:hidden}
-.temporal img{width:100%;height:100%;object-fit:cover}
+.temporal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.temporal:hover img{transform:scale(1.03)}
 .temporal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
-.f-vacio{aspect-ratio:16/10}
+.f-vacio{aspect-ratio:16/10;margin-top:22px}
 .f-isla{aspect-ratio:16/10;margin-top:26px}
 .f-audio{aspect-ratio:16/9;margin:0 0 20px}
 .ejemplo{display:inline-block;font-size:13px;font-weight:700;color:#7A2F1B;background:#F3E3DD;padding:2px 10px;border-radius:999px}
@@ -145,37 +157,103 @@ p{max-width:62ch}
 #paso-ok p{margin-top:8px;font-weight:700}
 #paso-ok ul{margin:12px 0 0 20px}
 #paso-ok li{margin-top:6px;font-size:16px}
+
 /* Secciones */
 section{padding:72px 0;scroll-margin-top:72px}
-.vacio .lineas{margin-top:20px;max-width:640px}
-.vacio .lineas p{font-size:19px;line-height:1.5;padding:16px 0;border-top:1px solid var(--borde)}
-.vacio .lineas p:first-child{font-family:var(--display);font-size:24px;line-height:1.3;color:var(--azul);border-top:0;padding-top:0}
 
+/* El vacio: titulo + foto a la izquierda, senales para marcar a la derecha */
+.vacio-grid{display:grid;gap:28px}
+.vacio-cab h2{font-size:clamp(28px,4.2vw,46px);max-width:22ch}
+.vacio-txt{display:flex;flex-direction:column}
+.vacio .lead{font-family:var(--display);font-size:clamp(23px,2.4vw,32px);line-height:1.3;color:var(--azul);max-width:22ch}
+.vacio .lead .falta{color:var(--terra-osc)}
+.vacio .instr{margin-top:28px}
+.senales{list-style:none;margin-top:8px}
+.senales li{border-top:1px solid var(--borde)}
+.senales li:last-child{border-bottom:1px solid var(--borde)}
+.senal{display:grid;grid-template-columns:22px 1fr;gap:16px;align-items:start;width:100%;text-align:left;background:none;border:0;padding:16px 10px 16px 2px;font:inherit;font-size:18px;line-height:1.5;color:var(--tinta);cursor:pointer;border-radius:12px;transition:background-color .25s,color .3s}
+.senal:hover{background:rgba(38,63,128,.05)}
+.senal .punto{width:22px;height:22px;border-radius:50%;border:2px solid var(--terra);margin-top:3px;position:relative;transition:transform .3s var(--ease)}
+.senal .punto::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--terra);transform:scale(0);transition:transform .35s var(--ease)}
+.senal:hover .punto{transform:scale(1.1)}
+.senal[aria-pressed=true]{color:var(--azul)}
+.senal[aria-pressed=true] .punto::after{transform:scale(1)}
+.eco{min-height:1.6em;margin-top:14px;font-family:var(--display);font-style:italic;font-size:19px;color:var(--terra-osc);opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s var(--ease)}
+.eco.on{opacity:1;transform:none}
+.romper{margin-top:28px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(20px,1.9vw,25px);line-height:1.42;color:var(--azul);border-left:3px solid var(--terra);padding-left:20px;max-width:34ch}
+
+/* Efecto isla: texto a la derecha y, justo debajo, el mapa del dia con sus Puntos de Anclaje */
 .isla{background:var(--azul);color:var(--papel)}
 .isla h2{color:var(--papel);font-size:clamp(28px,4.4vw,46px);max-width:20ch}
 .isla p{color:#fff}
-.isla .cuerpo{display:grid;gap:22px;margin-top:22px}
-.isla .grande{font-family:var(--display);font-size:clamp(22px,3vw,30px);line-height:1.3;color:#fff}
-.isla .hilo{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.4vw,34px);color:#F2C2B2;margin-top:6px}
-.mapa-dia{margin-top:30px}
-.mapa-dia svg{width:100%;height:auto}
-.leyenda{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:12px;font-size:15px;color:#fff}
+.isla-grid{display:grid;gap:28px}
+.isla-izq > p{margin-top:14px;font-size:18px;color:#E3E8F4}
+.isla-izq h2 + p{margin-top:18px}
+.isla .grande{font-family:var(--display);font-size:clamp(22px,2.6vw,32px);line-height:1.32;color:#fff}
+.isla .nota{margin-top:16px;color:#D9DFEE}
+.isla .hilo{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.2vw,36px);color:var(--terra-claro);margin-top:14px;line-height:1.25}
+.trazo{position:relative;white-space:nowrap}
+.trazo svg{position:absolute;left:-1%;bottom:-.16em;width:102%;height:.32em;overflow:visible}
+.trazo path{stroke:var(--terra);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.2s var(--ease) .6s}
+.in .trazo path{stroke-dashoffset:0}
+.mapa-dia{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:18px}
+.mapa-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.conmutador{display:inline-flex;background:rgba(255,255,255,.1);border-radius:999px;padding:4px;gap:2px}
+.conmutador button{border:0;background:transparent;color:#D9DFEE;font:inherit;font-size:14px;font-weight:700;padding:0 14px;min-height:38px;border-radius:999px;cursor:pointer;transition:background-color .25s,color .25s}
+.conmutador button:hover{color:#fff}
+.conmutador button[aria-pressed=true]{background:var(--papel);color:var(--azul)}
+.pista{position:relative;height:64px;margin:22px 26px 0}
+.pista .deriva{position:absolute;left:0;right:0;top:50%;height:6px;transform:translateY(-50%);background:radial-gradient(circle,#8394C2 2.2px,transparent 2.9px) 0 50%/15px 6px repeat-x;transition:opacity .6s}
+.pista .hilo-linea{position:absolute;left:0;top:50%;height:4px;width:0;transform:translateY(-50%);background:var(--terra);border-radius:2px;transition:width 1.8s var(--ease) .55s}
+.pista .islita{position:absolute;left:var(--x);top:50%;width:42px;height:38px;border-radius:999px;background:var(--papel);transform:translate(-50%,-50%);box-shadow:0 6px 18px -8px rgba(0,0,0,.5)}
+.pista .islita.grande{width:64px}
+.pista .ancla{position:absolute;left:var(--x);top:50%;width:16px;height:16px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 4px rgba(188,84,54,.28);transform:translate(-50%,-50%) scale(0);opacity:0;transition:transform .5s var(--ease) calc(var(--i)*90ms + .1s),opacity .4s calc(var(--i)*90ms + .1s)}
+.mapa-dia.anclado .ancla{transform:translate(-50%,-50%) scale(1);opacity:1}
+.mapa-dia.anclado .hilo-linea{width:100%}
+.mapa-dia.anclado .deriva{opacity:.3}
+.horas{display:flex;justify-content:space-between;margin:8px 26px 0;font-size:14px;color:#D9DFEE}
+.mapa-nota{margin-top:14px;font-family:var(--display);font-style:italic;font-size:17px;color:#fff;min-height:1.6em}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:12px;font-size:14px;color:#D9DFEE}
 .leyenda span{display:inline-flex;align-items:center;gap:8px}
-.leyenda i{width:14px;height:14px;border-radius:50%;display:inline-block}
+.leyenda i{width:13px;height:13px;border-radius:50%;display:inline-block}
+.leyenda .anc{opacity:.45;transition:opacity .4s}
+.mapa-dia.anclado .leyenda .anc{opacity:1}
 
-.metodo h2{font-size:clamp(30px,4.6vw,52px);max-width:16ch}
-.metodo .intro p{font-size:18px;margin-top:14px}
-.metodo .intro .clave{font-family:var(--display);font-size:24px;color:var(--azul);line-height:1.3}
-.pilares{margin-top:36px;display:grid;gap:0}
-.pilar{display:grid;grid-template-columns:34px 1fr;gap:4px 14px;padding:14px 0}
-.pilar .ancla{width:14px;height:14px;border-radius:50%;background:var(--terra);margin-top:9px}
-.pilar h3{font-size:22px}
-.pilar p{grid-column:2;font-size:17px}
-.seis{margin-top:40px;background:var(--verde-osc);color:#fff;border-radius:24px;padding:28px 22px}
-.seis h3{color:#fff;font-size:26px}
-.seis p{margin-top:10px;color:#F1F4EC}
-.seis .pendiente{margin-top:14px;color:#7A2F1B}
-.metodo .accion{margin-top:32px}
+/* Metodo: Puntos de Anclaje como protagonista, tres pasos y los seis meses */
+.def-grid{display:grid;gap:24px}
+.metodo h2{font-size:clamp(32px,4.6vw,52px);max-width:14ch}
+.metodo h2 .marca{color:var(--terra-osc)}
+.def{font-family:var(--display);font-size:clamp(21px,2.2vw,29px);line-height:1.35;color:var(--azul);max-width:26ch}
+.momentos{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.momentos li{display:inline-flex;align-items:center;gap:10px;padding:9px 18px 9px 14px;border:1px solid var(--borde);border-radius:999px;background:#fff;font-size:16px;color:var(--tinta);transition:transform .3s var(--ease),border-color .3s}
+.momentos li:hover{transform:translateY(-2px);border-color:var(--terra)}
+.momentos i{width:10px;height:10px;border-radius:50%;background:var(--terra);flex:none}
+.clave{font-family:var(--display);font-size:clamp(24px,2.7vw,38px);line-height:1.22;color:var(--azul);margin-top:30px;max-width:22ch}
+.clave em{font-style:italic;color:var(--terra-osc)}
+.etiqueta-pilares{margin-top:56px}
+.pilares{position:relative;margin-top:18px;display:grid;gap:26px}
+.pilar{position:relative;padding-top:22px;border-top:1px solid var(--borde)}
+.pilar::before{content:"";position:absolute;left:0;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--terra);transform:scale(0);transition:transform .5s var(--ease) calc(var(--i)*140ms + .2s)}
+.in .pilar::before{transform:scale(1)}
+.pilar .num{font-family:var(--display);font-size:15px;letter-spacing:.1em;color:var(--terra-osc)}
+.pilar h3{font-size:23px;margin-top:8px}
+.pilar p{margin-top:10px;font-size:17px;color:var(--tinta-2)}
+.seis{margin-top:56px;background:var(--verde-osc);color:#fff;border-radius:28px;padding:32px 24px}
+.seis-grid{display:grid;gap:18px}
+.seis h3{color:#fff;font-size:clamp(26px,3vw,38px);max-width:14ch;line-height:1.12}
+.seis p{color:#F1F4EC;font-size:18px}
+.seis p + p{margin-top:12px}
+.seis-linea{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
+.barra{position:relative;height:6px;border-radius:999px;background:rgba(255,255,255,.22);overflow:hidden}
+.barra i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--terra-claro);border-radius:999px;transition:width 2.4s var(--ease) .3s}
+.in .barra i{width:100%}
+.meses{display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:#DCE4D0;letter-spacing:.04em}
+.hitos{display:flex;justify-content:space-between;gap:16px;margin-top:16px}
+.hitos div:last-child{text-align:right}
+.hitos b{display:block;font-family:var(--display);font-size:19px;font-weight:600;color:#fff}
+.hitos span{font-size:15px;color:#DCE4D0}
+.seis .pendiente{margin-top:18px;color:#7A2F1B}
+.metodo .accion{margin-top:44px}
 
 .audio{background:var(--papel-2)}
 .audio .caja{display:grid;gap:18px;align-items:center}
@@ -218,7 +296,8 @@ section{padding:72px 0;scroll-margin-top:72px}
 .precio h2{color:#fff;font-size:clamp(30px,4.4vw,52px)}
 .precio .lead{font-family:var(--display);font-size:22px;margin-top:10px;color:#fff}
 .planes{display:grid;gap:18px;margin-top:30px}
-.plan{background:var(--papel);color:var(--tinta);border-radius:24px;padding:26px 22px;display:flex;flex-direction:column}
+.plan{background:var(--papel);color:var(--tinta);border-radius:24px;padding:26px 22px;display:flex;flex-direction:column;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.plan:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(0,0,0,.5)}
 .plan.uno{border:3px solid #8394C2}
 .plan h3{font-size:26px}
 .plan .elige{font-size:16px;color:var(--tinta-2);margin-top:6px}
@@ -267,13 +346,27 @@ footer img{height:30px;width:auto}
 .fija.on{transform:none}
 .fija .btn{width:100%;box-shadow:0 8px 24px rgba(27,47,99,.28)}
 
-/* Aparecer al hacer scroll (sin bloquear si falla el script) */
+/* Movimiento: todo respeta "reducir movimiento" y nada queda oculto si falla el script */
 @media (prefers-reduced-motion:no-preference){
   .js [data-aparece]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .js [data-aparece].in{opacity:1;transform:none}
-  .anclas circle{transform-box:fill-box;transform-origin:center;transform:scale(.6);opacity:0;transition:transform .5s var(--ease),opacity .5s}
-  .in .anclas circle,.anclas.in circle{transform:scale(1);opacity:1}
-  .anclas circle:nth-child(2){transition-delay:.08s}.anclas circle:nth-child(3){transition-delay:.16s}.anclas circle:nth-child(4){transition-delay:.24s}.anclas circle:nth-child(5){transition-delay:.32s}.anclas circle:nth-child(6){transition-delay:.4s}
+  .js .senales li{opacity:0;transform:translateY(12px);transition:opacity .6s var(--ease) calc(var(--i)*90ms + .25s),transform .6s var(--ease) calc(var(--i)*90ms + .25s)}
+  .js .in .senales li{opacity:1;transform:none}
+  .js .momentos li{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease) calc(var(--i)*90ms + .3s),transform .5s var(--ease) calc(var(--i)*90ms + .3s)}
+  .js .in .momentos li{opacity:1;transform:none}
+  .js .revela.lista .palabra{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);animation:palabra .8s var(--ease) forwards;animation-delay:calc(var(--d,0ms) + var(--i)*55ms)}
+  @keyframes palabra{to{opacity:1;transform:none;filter:blur(0)}}
+  .respira .anillo{animation:respirar 9s ease-in-out infinite}
+  .respira .anillo.chico{animation-delay:-.7s}
+  .respira .arco{animation:girar 48s linear infinite}
+  @keyframes respirar{0%,100%{transform:scale(.9)}50%{transform:scale(1.06)}}
+  @keyframes girar{to{transform:rotate(360deg)}}
+  .pista .deriva{animation:derivar 3s linear infinite}
+  @keyframes derivar{to{background-position-x:-15px}}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+  html{scroll-behavior:auto}
 }
 
 @media (min-width:760px){
@@ -281,16 +374,20 @@ footer img{height:30px;width:auto}
   body{font-size:18px}
   section{padding:110px 0}
   .hero{padding:56px 0 0}
-  .hero .grid{grid-template-columns:1.25fr .75fr;gap:56px}
-  .hero .texto{order:1}
-  .retrato{order:2;width:min(100%,380px);height:auto;aspect-ratio:1;justify-self:end}
   .hero .btn{width:auto}
-  .dia{height:70px;margin-top:56px}
-  .isla .cuerpo{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  .metodo .intro{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end}
-  .pilar{grid-template-columns:40px 5fr 7fr;align-items:baseline}
-  .pilar p{grid-column:auto}
-  .seis{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;padding:44px}
+  .panel{margin-top:48px;min-height:460px;border-radius:28px;margin-left:0;margin-right:0}
+  .frase-grande{font-size:clamp(30px,3.6vw,40px)}
+  .dia{height:70px;margin-top:40px}
+  .vacio-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:stretch}
+  .vacio-cab{align-self:start}
+  .vacio-txt .romper{margin-top:auto;padding-top:28px}
+  .isla-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
+  .def-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
+  .pilares{grid-template-columns:repeat(3,1fr);gap:32px}
+  .pilares::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--borde)}
+  .pilar{border-top:0}
+  .seis{padding:44px}
+  .seis-grid{grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
   .audio .caja{grid-template-columns:1fr 1fr;gap:56px}
   .prueba .cols{grid-template-columns:repeat(3,1fr)}
   .quien .cols{grid-template-columns:.85fr 1.15fr;gap:64px}
@@ -309,8 +406,6 @@ footer img{height:30px;width:auto}
   .top img{height:56px}
   body{font-size:19px}
   section{padding:96px 0}
-  .solo-cel{display:none}
-  .solo-esc{display:flex}
   .hero{padding:0}
   .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 84px),820px)}
   .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - 1440px)/2 + 48px))}
@@ -318,32 +413,30 @@ footer img{height:30px;width:auto}
   .hero .segunda{font-size:clamp(26px,2.4vw,40px);margin-top:14px}
   .hero .sub{font-size:20px;margin-top:20px}
   .hero .accion{margin-top:30px}
-  .panel{background:var(--azul);flex-direction:column;justify-content:center;align-items:center;gap:26px;padding:56px 48px;color:#fff;text-align:center}
-  .hero .texto{order:0}
-  .panel{order:1}
-  .retrato.grande{order:0;width:min(25vw,380px);height:min(25vw,380px);aspect-ratio:auto;justify-self:auto}
-  .panel .frase{font-family:var(--display);font-style:italic;font-size:clamp(22px,1.9vw,30px);line-height:1.35;max-width:20ch;margin:8px auto 0}
-  .panel .firma{font-size:16px;color:#fff;opacity:.9}
+  .panel{margin:0;padding:64px 48px;min-height:100%;border-radius:0;gap:20px}
+  .panel .mono{width:40px}
+  .frase-grande{font-size:clamp(30px,2.5vw,42px)}
+  .panel .firma{font-size:15px}
   .dia{margin-top:0}
-  .vacio-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px;align-items:start}
+  .vacio-grid{gap:72px}
   .vacio-cab{position:sticky;top:100px}
   .vacio-cab h2{font-size:clamp(40px,3.8vw,60px)}
-  .vacio .lineas{margin-top:0;max-width:none}
-  .vacio .lineas p{font-size:21px;max-width:none}
-  .vacio .lineas p:first-child{font-size:30px}
-  .isla h2,.metodo h2,.quien h2,.precio h2{font-size:clamp(40px,3.8vw,60px)}
-  .pilares{grid-template-columns:repeat(3,1fr);gap:48px}
-  .pilar{grid-template-columns:1fr;border-top:0;padding:0;gap:12px}
-  .pilar .ancla{margin-top:0}
+  .f-vacio{aspect-ratio:4/5;margin-top:32px;max-width:420px}
+  .senal{font-size:19px}
+  .isla-grid{gap:64px}
+  .def-grid{gap:64px}
+  .isla h2,.quien h2,.precio h2{font-size:clamp(40px,3.8vw,60px)}
+  .metodo h2{font-size:clamp(38px,3.6vw,56px)}
+  .pilares{gap:48px}
   .pilar h3{font-size:26px}
-  .pilar p{grid-column:auto;font-size:18px}
+  .pilar p{font-size:18px}
+  .seis{padding:52px}
   .prueba h2,.reservar h2,.faq h2{font-size:clamp(36px,3.2vw,52px)}
   .plan .monto{font-size:46px}
   section{scroll-margin-top:92px}
   .testi{grid-template-columns:7fr 5fr;align-items:stretch;gap:24px}
   .historia{padding:40px}
   .comentarios{grid-template-columns:repeat(3,1fr);gap:20px}
-  .f-vacio{aspect-ratio:4/5;margin-top:32px;max-width:440px}
   .f-audio{aspect-ratio:4/3}
 }
 @media (min-width:1600px){
@@ -359,19 +452,16 @@ footer img{height:30px;width:auto}
     <a href="#"><img src="img/logo-azul.webp" alt="Emanuel Chingolani" width="602" height="197"></a>
     <a class="btn" href="#reservar" data-cta="encabezado">Reservar 20 minutos</a>
   </div>
+  <span class="progreso" aria-hidden="true"></span>
 </header>
 
 <main>
 <!-- HERO -->
 <section class="hero" id="inicio" style="padding-bottom:0">
   <div class="hero-grid">
-    <div class="texto wrap-izq">
-      <div class="retrato solo-cel">
-        <img src="img/ema-retrato.webp" alt="Ema Chingolani sonriendo al aire libre" width="372" height="784" fetchpriority="high">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="3" stroke-linecap="round"/></svg>
-      </div>
-      <h1>Tenés islas de calma.</h1>
-      <p class="segunda">Entre isla e isla, catorce horas a la deriva.</p>
+    <div class="texto">
+      <h1 class="revela">Tenés islas de calma.</h1>
+      <p class="segunda revela" style="--d:260ms">Entre isla e isla, catorce horas a la deriva.</p>
       <p class="sub">Lo lograste todo y aun así algo falta. Aprendé a que la calma no te dure veinte minutos, sino el día entero.</p>
       <div class="accion">
         <a class="btn" href="#reservar" data-cta="hero">Reservar 20 minutos con Ema</a>
@@ -379,13 +469,18 @@ footer img{height:30px;width:auto}
         <a class="alt" href="https://ig.me/m/emachingolani" data-cta="hero-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
       </div>
     </div>
-    <div class="panel solo-esc" aria-hidden="true">
-      <div class="retrato grande">
-        <img src="img/ema-retrato.webp" alt="" width="372" height="784">
-        <svg viewBox="0 0 100 100"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <div class="panel">
+      <div class="respira" aria-hidden="true">
+        <span class="anillo"></span>
+        <span class="anillo chico"></span>
+        <svg class="arco" viewBox="0 0 100 100"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="1.8" stroke-linecap="round" opacity=".9"/></svg>
       </div>
-      <p class="frase">«No para rescatarte cuando caés. Para que no caigas.»</p>
-      <p class="firma">Ema Chingolani · Puntos de Anclaje</p>
+      <img class="mono" src="img/monograma-blanco.webp" alt="" width="166" height="197">
+      <p class="frase-grande revela" style="--d:520ms">
+        <span class="l1">Dejá de sobrevivir en piloto automático.</span>
+        <span class="l2">Empezá a <em>disfrutar</em> lo que construiste.</span>
+      </p>
+      <p class="firma">Puntos de Anclaje · Mentoría de seis meses con Ema Chingolani</p>
     </div>
   </div>
   <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#8394C2" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/></svg>
@@ -393,19 +488,25 @@ footer img{height:30px;width:auto}
 
 <!-- EL VACIO -->
 <section class="vacio" aria-labelledby="t-vacio" style="padding-top:44px">
-  <div class="wrap vacio-grid" data-aparece>
-    <div class="vacio-cab">
-      <p class="puente">¿Suena familiar?</p>
-      <h2 id="t-vacio">Por fuera, todo resuelto. Por dentro, un vacío.</h2>
-      <figure class="temporal f-vacio"><img src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 45vw, 92vw" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
-    </div>
-    <div class="lineas">
-      <p>Lo lograste. El trabajo, la vida que querías. Y aun así, algo falta.</p>
-      <p>Dormís bien, comés limpio, entrenás… y te levantás pesado.</p>
-      <p>Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</p>
-      <p>Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</p>
-      <p>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</p>
-      <p>A veces hace falta que algo se rompa —un contrato, una lesión, una pérdida— para ver que el piloto automático ya no da más.</p>
+  <div class="wrap">
+    <p class="puente" data-aparece>¿Suena familiar?</p>
+    <div class="vacio-grid">
+      <div class="vacio-cab" data-aparece>
+        <h2 id="t-vacio">Por fuera, todo resuelto. Por dentro, un vacío.</h2>
+        <figure class="temporal f-vacio"><img src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 45vw, 92vw" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+      </div>
+      <div class="vacio-txt" data-aparece>
+        <p class="lead">Lo lograste. El trabajo, la vida que querías. <span class="falta">Y aun así, algo falta.</span></p>
+        <p class="etiqueta instr">Marcá las que te suenan</p>
+        <ul class="senales">
+          <li style="--i:0"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Dormís bien, comés limpio, entrenás… y te levantás pesado.</span></button></li>
+          <li style="--i:1"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</span></button></li>
+          <li style="--i:2"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</span></button></li>
+          <li style="--i:3"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span></button></li>
+        </ul>
+        <p class="eco" aria-live="polite"></p>
+        <blockquote class="romper">A veces hace falta que algo se rompa —un contrato, una lesión, una pérdida— para ver que el piloto automático ya no da más.</blockquote>
+      </div>
     </div>
   </div>
 </section>
@@ -413,32 +514,44 @@ footer img{height:30px;width:auto}
 <!-- EFECTO ISLA -->
 <section class="isla claro" aria-labelledby="t-isla">
   <div class="wrap">
-    <div data-aparece>
-      <p class="puente">Y lo intentaste más de una vez.</p>
-      <h2 id="t-isla">Por qué nada de lo que probaste te duró</h2>
-    </div>
-    <div class="cuerpo" data-aparece>
-      <div>
+    <p class="puente" data-aparece>Y lo intentaste más de una vez.</p>
+    <div class="isla-grid">
+      <div class="isla-izq" data-aparece>
+        <h2 id="t-isla">Por qué nada de lo que probaste te duró</h2>
         <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
-        <p style="margin-top:12px">La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
-        <figure class="temporal f-isla"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="(min-width:1024px) 45vw, 92vw" alt="Islas a lo lejos sobre un mar azul" width="1600" height="1000" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+        <p>La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
+        <figure class="temporal f-isla"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="(min-width:1024px) 40vw, 92vw" alt="Islas a lo lejos sobre un mar azul" width="1600" height="1000" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
       </div>
-      <div>
+      <div class="isla-der" data-aparece>
         <p class="grande">Es el Efecto Isla. Islas de calma repartidas en la semana, y entre isla e isla, catorce horas a la deriva. No te falta saber calmarte. Te falta lo que une una isla con la otra.</p>
-        <p style="margin-top:16px">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
-        <p class="hilo">Lo que te falta es un hilo.</p>
+        <p class="nota">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
+        <p class="hilo">Lo que te falta es <span class="trazo">un hilo<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></span>.</p>
+        <div class="mapa-dia" id="mapa-dia">
+          <div class="mapa-cab">
+            <p class="etiqueta">Tu día, de 7:00 a 23:00</p>
+            <div class="conmutador" role="group" aria-label="Elegí cómo ver el día">
+              <button type="button" data-modo="hoy" aria-pressed="true">Hoy</button>
+              <button type="button" data-modo="anclado" aria-pressed="false">Con Puntos de Anclaje</button>
+            </div>
+          </div>
+          <div class="pista" role="img" aria-label="Línea del día con tres islas de calma. Al activar los Puntos de Anclaje aparecen seis pausas cortas y un hilo continuo que une las islas.">
+            <span class="deriva"></span>
+            <span class="hilo-linea"></span>
+            <span class="islita" style="--x:0%"></span>
+            <span class="islita grande" style="--x:50%"></span>
+            <span class="islita" style="--x:100%"></span>
+            <span class="ancla" style="--x:15%;--i:0"></span>
+            <span class="ancla" style="--x:27%;--i:1"></span>
+            <span class="ancla" style="--x:39%;--i:2"></span>
+            <span class="ancla" style="--x:61%;--i:3"></span>
+            <span class="ancla" style="--x:73%;--i:4"></span>
+            <span class="ancla" style="--x:85%;--i:5"></span>
+          </div>
+          <div class="horas" aria-hidden="true"><span>7:00</span><span>15:00</span><span>23:00</span></div>
+          <p class="mapa-nota" id="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
+          <div class="leyenda" aria-hidden="true"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span class="anc"><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
+        </div>
       </div>
-    </div>
-    <div class="mapa-dia" data-aparece>
-      <svg viewBox="0 0 1100 110" role="img" aria-label="Un día de 7 a 23 horas con tres islas de calma y largos tramos a la deriva">
-        <line x1="10" y1="45" x2="1090" y2="45" stroke="#8394C2" stroke-width="4" stroke-dasharray="2 13" stroke-linecap="round"/>
-        <rect x="20" y="25" width="44" height="40" rx="20" fill="#F7F8F5"/>
-        <rect x="430" y="25" width="64" height="40" rx="20" fill="#F7F8F5"/>
-        <rect x="905" y="25" width="38" height="40" rx="20" fill="#F7F8F5"/>
-        <g class="anclas" fill="#BC5436"><circle cx="170" cy="45" r="8"/><circle cx="300" cy="45" r="8"/><circle cx="590" cy="45" r="8"/><circle cx="710" cy="45" r="8"/><circle cx="820" cy="45" r="8"/><circle cx="1020" cy="45" r="8"/></g>
-        <g fill="#E7EAF4" font-family="Aileron, Figtree, Arial, sans-serif" font-size="18"><text x="10" y="102">7:00</text><text x="530" y="102">15:00</text><text x="1030" y="102">23:00</text></g>
-      </svg>
-      <div class="leyenda"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
     </div>
   </div>
 </section>
@@ -447,25 +560,38 @@ footer img{height:30px;width:auto}
 <section class="metodo" id="metodo" aria-labelledby="t-metodo">
   <div class="wrap">
     <p class="puente" data-aparece>¿Cómo se une una isla con la otra?</p>
-    <div class="intro" data-aparece>
-      <h2 id="t-metodo">Seis meses que duran para siempre</h2>
-      <div>
-        <p>Ese hilo se llama Puntos de Anclaje: pausas cortas, repartidas en tu día, que usan tu propio cuerpo para pasar de la aceleración a la calma. En una reunión. Después de una llamada difícil. Un domingo a la tarde.</p>
-        <p class="clave">No para rescatarte cuando caés. Para que no caigas.</p>
+    <div class="def-grid">
+      <h2 id="t-metodo" data-aparece>Ese hilo se llama <span class="marca">Puntos de Anclaje</span>.</h2>
+      <div data-aparece>
+        <p class="def">Pausas cortas, repartidas en tu día, que usan tu propio cuerpo para pasar de la aceleración a la calma.</p>
+        <ul class="momentos" aria-label="Cuándo se usan">
+          <li style="--i:0"><i aria-hidden="true"></i>En una reunión.</li>
+          <li style="--i:1"><i aria-hidden="true"></i>Después de una llamada difícil.</li>
+          <li style="--i:2"><i aria-hidden="true"></i>Un domingo a la tarde.</li>
+        </ul>
+        <p class="clave">No para rescatarte cuando caés. <em class="trazo">Para que no caigas.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></em></p>
       </div>
     </div>
+    <p class="etiqueta etiqueta-pilares" data-aparece>Cómo trabajamos</p>
     <div class="pilares" aria-label="Cómo trabajamos" data-aparece>
-      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Meditación profunda y respiración</h3><p>Abren la puerta: el cuerpo se suelta y graba un estado nuevo.</p></div>
-      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Puntos de Anclaje</h3><p>Llevan ese estado a tu día real, para que no se evapore.</p></div>
-      <div class="pilar"><span class="ancla" aria-hidden="true"></span><h3>Autonomía emocional</h3><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></div>
+      <div class="pilar" style="--i:0"><span class="num">01</span><h3>Meditación profunda y respiración</h3><p>Abren la puerta: el cuerpo se suelta y graba un estado nuevo.</p></div>
+      <div class="pilar" style="--i:1"><span class="num">02</span><h3>Puntos de Anclaje</h3><p>Llevan ese estado a tu día real, para que no se evapore.</p></div>
+      <div class="pilar" style="--i:2"><span class="num">03</span><h3>Autonomía emocional</h3><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></div>
     </div>
     <div class="seis" data-aparece>
-      <div><h3>Por qué seis meses</h3><img src="img/marca-separadores.webp" alt="Separadores de libro con el monograma de Emanuel Chingolani" width="566" height="299" loading="lazy" style="border-radius:16px;margin-top:16px"></div>
-      <div>
-        <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
-        <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
-        <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
+      <div class="seis-grid">
+        <h3>Seis meses que duran para siempre</h3>
+        <div>
+          <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
+          <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
+        </div>
       </div>
+      <div class="seis-linea" aria-hidden="true">
+        <div class="barra"><i></i></div>
+        <div class="meses"><span>Mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>Mes 6</span></div>
+        <div class="hitos"><div><b>Semana 1</b><span>Lo sentís.</span></div><div><b>Mes 6</b><span>Lo tenés instalado.</span></div></div>
+      </div>
+      <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
     </div>
     <div class="accion" data-aparece>
       <a class="btn" href="#reservar" data-cta="metodo">Reservar 20 minutos con Ema</a>
@@ -730,6 +856,61 @@ setTimeout(function(){els.forEach(function(x){var r=x.getBoundingClientRect();if
 (function(){var top=document.getElementById('top'),fija=document.querySelector('.fija'),hero=document.getElementById('inicio'),res=document.getElementById('reservar');
 function u(){top.classList.toggle('con-borde',scrollY>8);var hb=hero.getBoundingClientRect().bottom,rt=res.getBoundingClientRect();fija.classList.toggle('on',hb<0&&!(rt.top<innerHeight&&rt.bottom>0));}
 addEventListener('scroll',u,{passive:true});u();})();
+
+// Palabras que aparecen una a una (titulo del hero y frase del panel azul)
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.revela').forEach(function(el){
+    var i=0;
+    function envolver(nodo){
+      if(nodo.nodeType===3){
+        var partes=nodo.nodeValue.split(/(\s+)/),frag=document.createDocumentFragment();
+        partes.forEach(function(p){
+          if(!p) return;
+          if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(p));return;}
+          var s=document.createElement('span');s.className='palabra';s.style.setProperty('--i',i++);s.textContent=p;frag.appendChild(s);
+        });
+        nodo.parentNode.replaceChild(frag,nodo);
+      } else if(nodo.nodeType===1&&nodo.tagName.toLowerCase()!=='svg'){
+        Array.prototype.slice.call(nodo.childNodes).forEach(envolver);
+      }
+    }
+    envolver(el); el.classList.add('lista');
+  });
+})();
+// El hilo terracota del encabezado avanza con la lectura
+(function(){var p=document.querySelector('.progreso');if(!p)return;
+function u(){var h=document.documentElement.scrollHeight-innerHeight;p.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';}
+addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
+// Senales: marcar las que te pasan
+(function(){
+  var lista=document.querySelector('.senales'),eco=document.querySelector('.eco');if(!lista||!eco)return;
+  var frases={1:'Una ya alcanza para notarlo.',2:'Dos. No es casualidad.',3:'Tres de cuatro. No es falta de disciplina.',4:'Las cuatro. Lo que falta no es voluntad: es un hilo.'};
+  lista.addEventListener('click',function(e){
+    var b=e.target.closest('.senal');if(!b)return;
+    var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on?'true':'false');
+    var n=lista.querySelectorAll('.senal[aria-pressed="true"]').length;
+    if(n){eco.textContent=frases[n];eco.classList.add('on');}else{eco.classList.remove('on');}
+    window.dataLayer&&dataLayer.push({event:'senal_marcada',total:n});
+  });
+})();
+// Mapa del dia: hoy vs. con Puntos de Anclaje. Al entrar en pantalla, a los dos segundos se ancla solo.
+(function(){
+  var mapa=document.getElementById('mapa-dia');if(!mapa)return;
+  var nota=document.getElementById('mapa-nota'),botones=mapa.querySelectorAll('.conmutador button'),tocado=false;
+  var textos={hoy:'Tres islas de calma. Entre una y otra, horas a la deriva.',anclado:'Las mismas islas. Ahora hay un hilo entre una y otra: la calma no se corta.'};
+  function modo(m,manual){
+    mapa.classList.toggle('anclado',m==='anclado');
+    botones.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-modo')===m?'true':'false');});
+    nota.textContent=textos[m];
+    if(manual){tocado=true;window.dataLayer&&dataLayer.push({event:'mapa_modo',modo:m});}
+  }
+  botones.forEach(function(b){b.addEventListener('click',function(){modo(b.getAttribute('data-modo'),true);});});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();setTimeout(function(){if(!tocado)modo('anclado');},2200);}});},{threshold:.5});
+    io.observe(mapa);
+  } else {modo('anclado');}
+})();
 
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
