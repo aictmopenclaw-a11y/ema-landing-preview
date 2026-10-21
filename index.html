@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Puntos de Anclaje · Mentoría con Ema Chingolani</title>
 <meta name="description" content="Mentoría de 6 meses con Ema Chingolani para que la calma no te dure veinte minutos, sino el día entero. Reserva una llamada de 20 minutos.">
-<meta property="og:title" content="Tenés islas de calma. · Ema Chingolani">
+<meta property="og:title" content="Tenés el negocio, la vida que querías, y te sentís vacío. · Ema Chingolani">
 <meta property="og:description" content="Mentoría de 6 meses, grupal o 1:1. Reserva 20 minutos con Ema.">
 <meta property="og:image" content="img/og-ema-1200x630.jpg">
 <meta property="og:image:width" content="1200">
@@ -16,8 +16,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
 <link rel="preload" as="font" type="font/woff" href="https://fonts.cdnfonts.com/s/16225/Aileron-Regular.woff" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Lora:ital,wght@0,500;0,600;1,500&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@500&family=League+Gothic&family=Lora:ital,wght@0,400;0,500;0,600;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=IBM+Plex+Mono:wght@500&family=League+Gothic&family=Lora:ital,wght@0,400;0,500;0,600;1,500&display=swap"></noscript>
 <style>
 @font-face{font-family:'Aileron';font-style:normal;font-weight:400;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-Regular.woff') format('woff')}
 @font-face{font-family:'Aileron';font-style:italic;font-weight:400;font-display:swap;src:url('https://fonts.cdnfonts.com/s/16225/Aileron-Italic.woff') format('woff')}
@@ -28,7 +28,7 @@
 :root{
   --azul:#263F80; --azul-osc:#1B2F63; --azul-2:#3A5394; --azul-claro:#8394C2; --verde:#6C854A; --verde-osc:#55693A;
   --terra:#BC5436; --terra-osc:#9A4329; --terra-claro:#F2C2B2; --papel:#F7F8F5; --papel-2:#EEF0E9; --tinta:#252C35; --tinta-2:#59636F; --borde:#E6EADF;
-  --display:"Lora",Georgia,serif; --texto:"Aileron","Figtree","Helvetica Neue",Arial,sans-serif;
+  --display:"Lora",Georgia,serif; --cond:"League Gothic","Oswald","Arial Narrow",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --texto:"Aileron","Figtree","Helvetica Neue",Arial,sans-serif;
   --m:20px; --ancho:1180px; --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -69,26 +69,32 @@ p{max-width:62ch}
 .progreso{position:absolute;left:0;bottom:-1px;width:100%;height:3px;background:var(--terra);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
 
 /* Hero (pensado para 390x664 dentro de Instagram) */
-.hero{padding:22px 0 0}
+.hero{padding:26px 0 0}
 .hero-grid{display:block;max-width:var(--ancho);margin:0 auto;padding:0 var(--m)}
-.hero h1{font-size:clamp(40px,11vw,76px);line-height:1.04;letter-spacing:-.03em}
-.hero .segunda{font-family:var(--display);font-size:clamp(20px,4.6vw,32px);line-height:1.25;color:var(--tinta);margin-top:8px;max-width:22ch}
-.hero .sub{font-size:17px;margin-top:12px;max-width:44ch}
-.hero .accion{margin-top:18px}
-.hero .btn{width:100%}
-/* Panel azul: una sola frase, respirando */
-.panel{position:relative;overflow:hidden;isolation:isolate;background:var(--azul);color:#fff;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:64px 24px;margin:40px calc(-1*var(--m)) 0;min-height:420px}
+.hero h1{font-family:var(--cond);font-weight:400;text-transform:uppercase;font-size:clamp(52px,14.5vw,84px);line-height:.95;letter-spacing:.005em;color:var(--azul);max-width:9.2em}
+.hero .sub{font-family:var(--display);font-weight:400;font-size:clamp(19px,4.8vw,22px);line-height:1.5;color:var(--tinta-2);margin-top:18px;max-width:30ch}
+.hero .accion{margin-top:24px}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+.btn-h{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 20px;border:1.5px solid var(--azul);border-radius:6px;background:transparent;color:var(--azul);font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:background-color .25s,color .25s,transform .25s var(--ease),box-shadow .25s var(--ease)}
+.btn-h:hover{background:var(--azul);color:#fff;transform:translateY(-2px)}
+.btn-h.primario{background:var(--azul);color:#fff;flex:1 1 auto}
+.btn-h.primario:hover{background:var(--azul-osc);box-shadow:0 14px 28px -14px rgba(27,47,99,.55)}
+.btn-h:active{transform:none;box-shadow:none}
+.hero .sin-miedo{font-size:15px;margin-top:12px}
+/* Panel azul: la frase vive dentro del circulo y escala con el */
+.panel{position:relative;overflow:hidden;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;padding:36px 20px;margin:36px calc(-1*var(--m)) 0}
+.circulo{position:relative;width:min(100%,560px);aspect-ratio:1;display:grid;place-items:center;container-type:inline-size;isolation:isolate}
 .respira{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none}
 .respira > *{grid-area:1/1}
-.respira .anillo{width:min(80vw,540px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:radial-gradient(circle,rgba(255,255,255,.09) 0%,rgba(255,255,255,0) 68%)}
-.respira .anillo.chico{width:min(56vw,380px);border-color:rgba(255,255,255,.2);background:none}
-.respira .arco{width:min(68vw,460px);height:auto;overflow:visible}
-.panel .mono{width:34px;height:auto;opacity:.92}
-.frase-grande{font-family:var(--display);font-weight:600;font-size:clamp(27px,7vw,34px);line-height:1.22;letter-spacing:-.015em;max-width:21ch;margin:0 auto}
+.respira .anillo{width:100%;aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.13);background:radial-gradient(circle,rgba(255,255,255,.09) 0%,rgba(255,255,255,0) 66%)}
+.respira .anillo.chico{width:74%;border-color:rgba(255,255,255,.18);background:none}
+.respira .arco{width:100%;height:auto;overflow:visible}
+.circulo-txt{width:58%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:22px;gap:4.5cqi}
+.panel .mono{width:30px;width:6.5cqi;height:auto;opacity:.92}
+.frase-grande{font-family:var(--cond);font-weight:400;text-transform:uppercase;font-size:28px;font-size:7.4cqi;line-height:1.02;letter-spacing:.012em;margin:0 auto;max-width:none}
 .frase-grande .l1{display:block;color:#C9D1E6}
-.frase-grande .l2{display:block;color:#fff;margin-top:.4em}
-.frase-grande em{font-style:italic;color:var(--terra-claro)}
-.panel .firma{font-size:14px;color:#C9D1E6;letter-spacing:.02em;margin-top:4px}
+.frase-grande .l2{display:block;color:#fff;margin-top:.35em}
+.frase-grande em{font-style:normal;color:var(--terra-claro)}
 .dia{display:block;width:100%;height:46px;margin-top:0}
 
 /* Fotos temporales */
@@ -96,7 +102,8 @@ p{max-width:62ch}
 .temporal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .temporal:hover img{transform:scale(1.03)}
 .temporal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
-.f-vacio{aspect-ratio:16/10;margin-top:22px}
+.f-vacio{aspect-ratio:4/3;margin-top:22px}
+.f-vacio img{object-position:50% 76%}
 .f-isla{aspect-ratio:16/10;margin-top:26px}
 .f-audio{aspect-ratio:16/9;margin:0 0 20px}
 .ejemplo{display:inline-block;font-size:13px;font-weight:700;color:#7A2F1B;background:#F3E3DD;padding:2px 10px;border-radius:999px}
@@ -106,18 +113,26 @@ p{max-width:62ch}
 .historia figcaption{display:flex;align-items:center;gap:12px;margin-top:20px;font-size:16px;color:var(--tinta-2)}
 .historia figcaption b{display:block;color:var(--tinta)}
 .inicial{width:46px;height:46px;border-radius:50%;background:var(--verde-osc);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:20px;flex:none}
-.testi-video{position:relative;display:block;border-radius:24px;overflow:hidden;min-height:260px;background:var(--azul-osc);text-decoration:none;color:#fff}
-.testi-video img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75;transition:transform .6s var(--ease)}
-.testi-video:hover img{transform:scale(1.03)}
-.testi-video .ejemplo{position:absolute;left:16px;top:16px}
-.testi-video .play{position:absolute;inset:0;display:grid;place-items:center}
-.testi-video .play i{width:72px;height:72px;border-radius:50%;background:var(--terra);display:grid;place-items:center;transition:transform .25s var(--ease)}
-.testi-video:hover .play i{transform:scale(1.08)}
-.testi-video .pie{position:absolute;left:16px;bottom:16px;background:rgba(27,47,99,.85);padding:6px 12px;border-radius:999px;font-size:15px}
-.comentarios{display:grid;gap:14px;margin-top:20px}
-.comentarios figure{margin:0;background:var(--papel-2);border-radius:20px;padding:20px}
-.comentarios blockquote{font-size:18px;line-height:1.5;margin-top:10px;color:var(--tinta)}
-.comentarios figcaption{font-size:15px;color:var(--tinta-2);margin-top:10px}
+.testi-video{margin:0;background:var(--azul-osc);border-radius:24px;overflow:hidden;color:#fff;display:flex;flex-direction:column}
+.testi-video .marco{position:relative;background:#000}
+.testi-video video{display:block;width:100%;height:auto;aspect-ratio:832/464;object-fit:cover;background:#000}
+.play-btn{position:absolute;inset:0;display:grid;place-items:center;width:100%;border:0;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(27,47,99,0) 35%,rgba(27,47,99,.6) 100%)}
+.play-btn i{width:76px;height:76px;border-radius:50%;background:var(--terra);display:grid;place-items:center;transition:transform .25s var(--ease)}
+.play-btn i svg{margin-left:4px}
+.play-btn:hover i{transform:scale(1.08)}
+.play-btn .dur{position:absolute;right:14px;top:14px;background:rgba(27,47,99,.88);color:#fff;font-size:14px;font-weight:700;padding:3px 10px;border-radius:999px}
+.testi-video.reproduciendo .play-btn,.testi-video.reproduciendo .real{display:none}
+.testi-video figcaption{display:flex;align-items:center;gap:12px;padding:16px 20px;margin-top:auto;font-size:15px;color:#D9DFEE}
+.testi-video figcaption b{display:block;color:#fff;font-size:17px}
+.real{position:absolute;left:14px;top:14px;pointer-events:none;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--azul-osc);background:var(--terra-claro);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.carrusel{margin-top:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.carrusel.vivo{overflow:hidden;cursor:pointer}
+.carrusel .pista-c{display:flex;width:max-content}
+.carrusel .grupo{display:flex;gap:16px;padding-right:16px}
+.carrusel figure{margin:0;width:min(78vw,400px);flex:none;scroll-snap-align:start;background:var(--papel-2);border-radius:20px;padding:22px;display:flex;flex-direction:column}
+.carrusel blockquote{font-size:18px;line-height:1.5;margin-top:10px;color:var(--tinta);flex:1}
+.carrusel figcaption{font-size:15px;color:var(--tinta-2);margin-top:12px}
+.carrusel .ejemplo{align-self:flex-start}
 .cal{background:#fff;border-radius:24px;padding:22px;border:1px solid var(--borde)}
 .cal-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--borde)}
 .cal-cab img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 14%;background:var(--papel-2)}
@@ -180,7 +195,6 @@ section{padding:72px 0;scroll-margin-top:72px}
 .senal[aria-pressed=true] .punto::after{transform:scale(1)}
 .eco{min-height:1.6em;margin-top:14px;font-family:var(--display);font-style:italic;font-size:19px;color:var(--terra-osc);opacity:0;transform:translateY(4px);transition:opacity .4s,transform .4s var(--ease)}
 .eco.on{opacity:1;transform:none}
-.romper{margin-top:28px;font-family:var(--display);font-style:italic;font-weight:500;font-size:clamp(20px,1.9vw,25px);line-height:1.42;color:var(--azul);border-left:3px solid var(--terra);padding-left:20px;max-width:34ch}
 
 /* Efecto isla: texto a la derecha y, justo debajo, el mapa del dia con sus Puntos de Anclaje */
 .isla{background:var(--azul);color:var(--papel)}
@@ -362,6 +376,11 @@ footer img{height:30px;width:auto}
   @keyframes respirar{0%,100%{transform:scale(.9)}50%{transform:scale(1.06)}}
   @keyframes girar{to{transform:rotate(360deg)}}
   .pista .deriva{animation:derivar 3s linear infinite}
+  .carrusel.vivo .pista-c{animation:desfile 42s linear infinite}
+  .carrusel.vivo:hover .pista-c,.carrusel.vivo:focus-within .pista-c,.carrusel.pausa .pista-c{animation-play-state:paused}
+  @keyframes desfile{to{transform:translateX(-50%)}}
+  .play-btn i{animation:pulso 2.6s ease-out infinite}
+  @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(188,84,54,.55)}70%,100%{box-shadow:0 0 0 18px rgba(188,84,54,0)}}
   @keyframes derivar{to{background-position-x:-15px}}
 }
 @media (prefers-reduced-motion:reduce){
@@ -375,12 +394,14 @@ footer img{height:30px;width:auto}
   section{padding:110px 0}
   .hero{padding:56px 0 0}
   .hero .btn{width:auto}
-  .panel{margin-top:48px;min-height:460px;border-radius:28px;margin-left:0;margin-right:0}
-  .frase-grande{font-size:clamp(30px,3.6vw,40px)}
+  .panel{margin:48px 0 0;border-radius:28px;padding:48px}
+  .circulo{width:min(100%,480px)}
+  .hero h1{font-size:clamp(76px,10vw,100px)}
+  .btn-h{padding:0 28px}
+  .btn-h.primario{flex:0 0 auto}
   .dia{height:70px;margin-top:40px}
   .vacio-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:stretch}
   .vacio-cab{align-self:start}
-  .vacio-txt .romper{margin-top:auto;padding-top:28px}
   .isla-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
   .def-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
   .pilares{grid-template-columns:repeat(3,1fr);gap:32px}
@@ -409,19 +430,16 @@ footer img{height:30px;width:auto}
   .hero{padding:0}
   .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 84px),820px)}
   .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - 1440px)/2 + 48px))}
-  .hero h1{font-size:clamp(56px,6.2vw,104px)}
-  .hero .segunda{font-size:clamp(26px,2.4vw,40px);margin-top:14px}
-  .hero .sub{font-size:20px;margin-top:20px}
-  .hero .accion{margin-top:30px}
-  .panel{margin:0;padding:64px 48px;min-height:100%;border-radius:0;gap:20px}
-  .panel .mono{width:40px}
-  .frase-grande{font-size:clamp(30px,2.5vw,42px)}
-  .panel .firma{font-size:15px}
+  .hero h1{font-size:clamp(68px,6.8vw,116px)}
+  .hero .sub{font-size:clamp(21px,1.6vw,25px);margin-top:26px}
+  .hero .accion{margin-top:36px}
+  .panel{margin:0;padding:56px 40px;min-height:100%;border-radius:0}
+  .circulo{width:min(100%,600px)}
   .dia{margin-top:0}
   .vacio-grid{gap:72px}
   .vacio-cab{position:sticky;top:100px}
   .vacio-cab h2{font-size:clamp(40px,3.8vw,60px)}
-  .f-vacio{aspect-ratio:4/5;margin-top:32px;max-width:420px}
+  .f-vacio{margin-top:32px}
   .senal{font-size:19px}
   .isla-grid{gap:64px}
   .def-grid{gap:64px}
@@ -460,27 +478,29 @@ footer img{height:30px;width:auto}
 <section class="hero" id="inicio" style="padding-bottom:0">
   <div class="hero-grid">
     <div class="texto">
-      <h1 class="revela">Tenés islas de calma.</h1>
-      <p class="segunda revela" style="--d:260ms">Entre isla e isla, catorce horas a la deriva.</p>
-      <p class="sub">Lo lograste todo y aun así algo falta. Aprendé a que la calma no te dure veinte minutos, sino el día entero.</p>
+      <h1 class="revela">Tenés el negocio, la vida que querías, y te sentís vacío.</h1>
+      <p class="sub">Aprendé a manejar tu estado desde el cuerpo en minutos, y a sostenerlo toda la vida.</p>
       <div class="accion">
-        <a class="btn" href="#reservar" data-cta="hero">Reservar 20 minutos con Ema</a>
+        <div class="ctas">
+          <a class="btn-h primario" href="#reservar" data-cta="hero-agendar">Agendar llamada</a>
+          <a class="btn-h" href="#precio" data-cta="hero-comprar">Comprar</a>
+        </div>
         <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
         <a class="alt" href="https://ig.me/m/emachingolani" data-cta="hero-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
       </div>
     </div>
     <div class="panel">
-      <div class="respira" aria-hidden="true">
-        <span class="anillo"></span>
-        <span class="anillo chico"></span>
-        <svg class="arco" viewBox="0 0 100 100"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="1.8" stroke-linecap="round" opacity=".9"/></svg>
+      <div class="circulo">
+        <div class="respira" aria-hidden="true">
+          <span class="anillo"></span>
+          <span class="anillo chico"></span>
+          <svg class="arco" viewBox="0 0 100 100"><path d="M86 30 A44 44 0 1 0 86 70" fill="none" stroke="#BC5436" stroke-width="1.4" stroke-linecap="round" opacity=".9"/></svg>
+        </div>
+        <div class="circulo-txt">
+          <img class="mono" src="img/monograma-blanco.webp" alt="" width="166" height="197">
+          <p class="frase-grande revela" style="--d:520ms"><span class="l1">Dejá de sobrevivir en piloto automático.</span> <span class="l2">Empezá a <em>disfrutar</em> lo que construiste.</span></p>
+        </div>
       </div>
-      <img class="mono" src="img/monograma-blanco.webp" alt="" width="166" height="197">
-      <p class="frase-grande revela" style="--d:520ms">
-        <span class="l1">Dejá de sobrevivir en piloto automático.</span>
-        <span class="l2">Empezá a <em>disfrutar</em> lo que construiste.</span>
-      </p>
-      <p class="firma">Puntos de Anclaje · Mentoría de seis meses con Ema Chingolani</p>
     </div>
   </div>
   <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#8394C2" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/></svg>
@@ -489,7 +509,7 @@ footer img{height:30px;width:auto}
 <!-- EL VACIO -->
 <section class="vacio" aria-labelledby="t-vacio" style="padding-top:44px">
   <div class="wrap">
-    <p class="puente" data-aparece>¿Suena familiar?</p>
+    <p class="puente" data-aparece>¿Te suena familiar?</p>
     <div class="vacio-grid">
       <div class="vacio-cab" data-aparece>
         <h2 id="t-vacio">Por fuera, todo resuelto. Por dentro, un vacío.</h2>
@@ -505,7 +525,6 @@ footer img{height:30px;width:auto}
           <li style="--i:3"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span></button></li>
         </ul>
         <p class="eco" aria-live="polite"></p>
-        <blockquote class="romper">A veces hace falta que algo se rompa —un contrato, una lesión, una pérdida— para ver que el piloto automático ya no da más.</blockquote>
       </div>
     </div>
   </div>
@@ -626,22 +645,28 @@ footer img{height:30px;width:auto}
     <p class="puente" data-aparece>¿Le funcionó a alguien que estaba donde estás hoy?</p>
     <h2 id="t-prueba" data-aparece>Ellos ya cruzaron</h2>
     <div class="testi" data-aparece>
+      <figure class="testi-video" id="testi-video">
+        <div class="marco">
+          <video src="video/testimonio-bruno.mp4" poster="img/testimonio-bruno-poster.jpg" preload="none" playsinline controls width="832" height="464" aria-label="Testimonio en video de Bruno Gomez Castilla"></video>
+          <button class="play-btn" type="button" data-cta="testimonio-video" aria-label="Reproducir el testimonio de Bruno Gomez Castilla, 2 minutos 24 segundos"><i aria-hidden="true"><svg width="18" height="20" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i><span class="dur" aria-hidden="true">2:24</span></button>
+          <span class="real">Testimonio real</span>
+        </div>
+        <figcaption><span class="inicial" aria-hidden="true">B</span><span><b>Bruno Gomez Castilla</b>Testimonio en video · 2 min 24 s</span></figcaption>
+      </figure>
       <figure class="historia">
         <span class="ejemplo">Texto de ejemplo</span>
         <blockquote>«Llegué después de cerrar una etapa de diez años. Meditaba todas las mañanas y a media mañana ya estaba otra vez acelerada. Lo que me cambió fue usar los anclajes en momentos chicos: antes de una reunión, al llegar a casa. Hoy no espero al fin de semana para estar tranquila.»</blockquote>
         <figcaption><span class="inicial" aria-hidden="true">A</span><span><b>Nombre de la alumna</b>País · primera cohorte</span></figcaption>
       </figure>
-      <a class="testi-video" href="#" data-cta="testimonio-video" aria-label="Testimonio en video (ejemplo)">
-        <img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="(min-width:1024px) 45vw, 92vw" alt="" width="1600" height="1000" loading="lazy">
-        <span class="ejemplo">Video de ejemplo</span>
-        <span class="play" aria-hidden="true"><i><svg width="14" height="16" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i></span>
-        <span class="pie"><b>Nombre del alumno</b> · 1 min 40 s</span>
-      </a>
     </div>
-    <div class="comentarios" data-aparece>
-      <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Pensé que era otro curso de meditación. Lo distinto fue llevarlo al día real.»</blockquote><figcaption>Alumno de la primera cohorte</figcaption></figure>
-      <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Lo que más me sirvió: dos minutos antes de contestar un mensaje que me sacaba de quicio.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
-      <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Las clases grupales me ordenaron la semana. Y no me sentí sola en el proceso.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
+    <div class="carrusel" data-aparece role="region" aria-label="Comentarios de alumnos">
+      <div class="pista-c">
+        <div class="grupo">
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Pensé que era otro curso de meditación. Lo distinto fue llevarlo al día real.»</blockquote><figcaption>Alumno de la primera cohorte</figcaption></figure>
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Lo que más me sirvió: dos minutos antes de contestar un mensaje que me sacaba de quicio.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Las clases grupales me ordenaron la semana. Y no me sentí sola en el proceso.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
+        </div>
+      </div>
     </div>
     <p class="aviso" data-aparece>Son experiencias personales de cada alumno, no resultados de salud.</p>
   </div>
@@ -912,6 +937,23 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
   } else {modo('anclado');}
 })();
 
+// Video del testimonio: portada propia; los controles nativos aparecen al reproducir
+(function(){
+  var fig=document.getElementById('testi-video');if(!fig)return;
+  var v=fig.querySelector('video'),b=fig.querySelector('.play-btn');
+  v.removeAttribute('controls');
+  b.addEventListener('click',function(){fig.classList.add('reproduciendo');v.controls=true;var p=v.play();if(p&&p.catch)p.catch(function(){});v.focus();});
+  v.addEventListener('ended',function(){window.dataLayer&&dataLayer.push({event:'video_testimonio_fin'});});
+})();
+// Carrusel de comentarios: desfile continuo, pausa al pasar el cursor o al tocar
+(function(){
+  var c=document.querySelector('.carrusel');if(!c)return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var pista=c.querySelector('.pista-c'),g=pista.querySelector('.grupo'),copia=g.cloneNode(true);
+  copia.setAttribute('aria-hidden','true');copia.setAttribute('inert','');pista.appendChild(copia);
+  c.classList.add('vivo');
+  c.addEventListener('click',function(){c.classList.toggle('pausa');});
+})();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
   var zonas=[["Europe/Madrid","España (Madrid)"],["America/Argentina/Buenos_Aires","Argentina"],["America/Santiago","Chile"],["America/Mexico_City","México"],["America/Lima","Perú"],["America/Bogota","Colombia"]];
