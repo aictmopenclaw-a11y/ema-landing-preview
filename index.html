@@ -99,8 +99,7 @@ p{max-width:62ch}
 
 /* Fotos temporales */
 .temporal{position:relative;margin:20px 0 0;border-radius:18px;overflow:hidden}
-.temporal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.temporal:hover img{transform:scale(1.03)}
+.temporal img{width:100%;height:100%;object-fit:cover;transform-origin:60% 55%}
 .temporal figcaption{position:absolute;left:10px;bottom:10px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
 .f-vacio{aspect-ratio:4/3;margin-top:22px}
 .f-vacio img{object-position:50% 76%}
@@ -133,6 +132,28 @@ p{max-width:62ch}
 .carrusel blockquote{font-size:18px;line-height:1.5;margin-top:10px;color:var(--tinta);flex:1}
 .carrusel figcaption{font-size:15px;color:var(--tinta-2);margin-top:12px}
 .carrusel .ejemplo{align-self:flex-start}
+
+/* Reserva sobre foto a pantalla completa */
+.reservar{position:relative;overflow:hidden;isolation:isolate;color:#fff}
+.isla{position:relative;overflow:hidden;isolation:isolate}
+.reservar-fondo,.isla-fondo{position:absolute;inset:0;z-index:-1;background:var(--azul-osc)}
+.reservar-fondo img,.isla-fondo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.reservar-fondo::after,.isla-fondo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,47,99,.93) 0%,rgba(27,47,99,.8) 50%,rgba(27,47,99,.9) 100%)}
+.reservar h2{color:#fff}
+.reservar .pasos li{border-top-color:rgba(255,255,255,.22);color:#E3E8F4}
+.reservar .pasos li::before{background:var(--papel);color:var(--azul)}
+.reservar .alt{color:#fff}
+.reservar .alt:hover{color:var(--terra-claro)}
+.reservar .cal-grilla button{width:100%;max-width:44px;height:auto;aspect-ratio:1}
+.reservar .cal{border:0;color:var(--tinta);box-shadow:0 34px 70px -34px rgba(0,0,0,.7)}
+.foto-nota{position:absolute;right:12px;bottom:12px;font-size:12px;font-weight:700;color:var(--tinta);background:rgba(247,248,245,.85);padding:2px 9px;border-radius:999px}
+
+/* Banda de cifras que suben al aparecer */
+.cifras{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px;margin-top:48px;padding:30px 20px;background:var(--papel-2);border-radius:24px;text-align:center}
+.cifra b{display:block;font-family:var(--cond);font-weight:400;font-size:clamp(50px,13vw,76px);line-height:1;color:var(--azul);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.cifra span{display:block;margin:8px auto 0;font-size:15px;line-height:1.4;color:var(--tinta-2);max-width:18ch}
+.cifra.pend b{color:#A9B0B9}
+.cifra .pendiente{margin-top:8px;font-size:12px}
 .cal{background:#fff;border-radius:24px;padding:22px;border:1px solid var(--borde)}
 .cal-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--borde)}
 .cal-cab img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 14%;background:var(--papel-2)}
@@ -210,7 +231,11 @@ section{padding:72px 0;scroll-margin-top:72px}
 .trazo svg{position:absolute;left:-1%;bottom:-.16em;width:102%;height:.32em;overflow:visible}
 .trazo path{stroke:var(--terra);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 1.2s var(--ease) .6s}
 .in .trazo path{stroke-dashoffset:0}
-.mapa-dia{margin-top:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:18px}
+.mapa-dia{margin-top:30px;background:rgba(27,47,99,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:22px;padding:18px}
+.isla-centro{max-width:940px;margin:56px auto 0;text-align:center}
+.isla-centro .hilo{margin-top:0}
+.isla-centro .mapa-cab{flex-direction:column;align-items:center;gap:12px}
+.isla-centro .leyenda{justify-content:center}
 .mapa-cab{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .conmutador{display:inline-flex;background:rgba(255,255,255,.1);border-radius:999px;padding:4px;gap:2px}
 .conmutador button{border:0;background:transparent;color:#D9DFEE;font:inherit;font-size:14px;font-weight:700;padding:0 14px;min-height:38px;border-radius:999px;cursor:pointer;transition:background-color .25s,color .25s}
@@ -326,7 +351,7 @@ section{padding:72px 0;scroll-margin-top:72px}
 .plan .directo{display:block;margin-top:8px;padding:12px 0;text-align:center;font-size:16px;font-weight:700}
 .precio .notas{margin-top:20px;font-size:16px;color:#D9DFEE;display:grid;gap:6px}
 
-.reservar .caja{display:grid;gap:26px}
+.reservar .caja{display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
 .reservar h2{font-size:clamp(28px,4vw,44px)}
 .pasos{list-style:none;counter-reset:p;margin-top:18px}
 .pasos li{padding:14px 0 14px 46px;position:relative;border-top:1px solid var(--borde);font-size:17px}
@@ -336,13 +361,17 @@ section{padding:72px 0;scroll-margin-top:72px}
 .calendario p{font-size:16px;color:var(--tinta-2)}
 
 .faq h2{font-size:clamp(28px,4vw,44px)}
-.faq details{border-top:1px solid var(--borde);padding:18px 0}
-.faq details:last-of-type{border-bottom:1px solid var(--borde)}
-.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.lista-faq{display:grid;gap:12px}
+.faq details{background:#fff;border:1px solid var(--borde);border-radius:18px;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.faq details:hover{border-color:#C9CFBF}
+.faq details[open]{border-color:var(--azul);box-shadow:0 18px 40px -28px rgba(27,47,99,.45)}
+.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:17px;line-height:1.4;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 18px 16px 20px;min-height:64px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--display);font-size:28px;line-height:1;color:var(--terra-osc);transition:transform .25s var(--ease);flex:none}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{margin-top:10px;font-size:17px}
+.faq summary:focus-visible{outline-offset:-3px;border-radius:18px}
+.faq summary::after{content:"";flex:none;width:36px;height:36px;border-radius:50%;background:var(--papel-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23263F80' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") center/15px no-repeat;transition:transform .35s var(--ease),background-color .3s}
+.faq details[open] summary::after{transform:rotate(180deg);background-color:#E3E8F4}
+.faq .resp{overflow:hidden}
+.faq .resp p{padding:0 20px 20px;font-size:17px;color:var(--tinta-2);max-width:62ch}
 .faq .accion{margin-top:30px}
 
 .cierre{background:var(--azul);color:var(--papel);text-align:center;padding:84px 0}
@@ -379,6 +408,8 @@ footer img{height:30px;width:auto}
   .carrusel.vivo .pista-c{animation:desfile 42s linear infinite}
   .carrusel.vivo:hover .pista-c,.carrusel.vivo:focus-within .pista-c,.carrusel.pausa .pista-c{animation-play-state:paused}
   @keyframes desfile{to{transform:translateX(-50%)}}
+  .js .in .temporal img,.js .reservar-fondo img,.js .isla-fondo img{animation:lento 26s ease-in-out infinite alternate}
+  @keyframes lento{from{transform:scale(1)}to{transform:scale(1.08) translate(-1.2%,-1%)}}
   .play-btn i{animation:pulso 2.6s ease-out infinite}
   @keyframes pulso{0%{box-shadow:0 0 0 0 rgba(188,84,54,.55)}70%,100%{box-shadow:0 0 0 18px rgba(188,84,54,0)}}
   @keyframes derivar{to{background-position-x:-15px}}
@@ -416,6 +447,7 @@ footer img{height:30px;width:auto}
   .planes{grid-template-columns:1fr 1fr;gap:24px}
   .plan{padding:34px}
   .reservar .caja{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .cifras{grid-template-columns:repeat(4,1fr);padding:40px 28px}
   .faq .cols{display:grid;grid-template-columns:4fr 8fr;gap:56px}
   .fija{display:none}
   footer{padding-bottom:40px}
@@ -454,6 +486,8 @@ footer img{height:30px;width:auto}
   section{scroll-margin-top:92px}
   .testi{grid-template-columns:7fr 5fr;align-items:stretch;gap:24px}
   .historia{padding:40px}
+  .isla-fondo::after{background:linear-gradient(180deg,rgba(27,47,99,.9) 0%,rgba(27,47,99,.76) 45%,rgba(27,47,99,.9) 100%)}
+  .reservar-fondo::after{background:linear-gradient(90deg,rgba(27,47,99,.95) 0%,rgba(27,47,99,.78) 48%,rgba(27,47,99,.45) 100%)}
   .comentarios{grid-template-columns:repeat(3,1fr);gap:20px}
   .f-audio{aspect-ratio:4/3}
 }
@@ -532,6 +566,7 @@ footer img{height:30px;width:auto}
 
 <!-- EFECTO ISLA -->
 <section class="isla claro" aria-labelledby="t-isla">
+  <div class="isla-fondo" aria-hidden="true"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="100vw" alt="" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></div>
   <div class="wrap">
     <p class="puente" data-aparece>Y lo intentaste más de una vez.</p>
     <div class="isla-grid">
@@ -539,11 +574,13 @@ footer img{height:30px;width:auto}
         <h2 id="t-isla">Por qué nada de lo que probaste te duró</h2>
         <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
         <p>La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
-        <figure class="temporal f-isla"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="(min-width:1024px) 40vw, 92vw" alt="Islas a lo lejos sobre un mar azul" width="1600" height="1000" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
       </div>
       <div class="isla-der" data-aparece>
         <p class="grande">Es el Efecto Isla. Islas de calma repartidas en la semana, y entre isla e isla, catorce horas a la deriva. No te falta saber calmarte. Te falta lo que une una isla con la otra.</p>
         <p class="nota">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
+      </div>
+    </div>
+    <div class="isla-centro" data-aparece>
         <p class="hilo">Lo que te falta es <span class="trazo">un hilo<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></span>.</p>
         <div class="mapa-dia" id="mapa-dia">
           <div class="mapa-cab">
@@ -570,7 +607,6 @@ footer img{height:30px;width:auto}
           <p class="mapa-nota" id="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
           <div class="leyenda" aria-hidden="true"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span class="anc"><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
         </div>
-      </div>
     </div>
   </div>
 </section>
@@ -588,7 +624,6 @@ footer img{height:30px;width:auto}
           <li style="--i:1"><i aria-hidden="true"></i>Después de una llamada difícil.</li>
           <li style="--i:2"><i aria-hidden="true"></i>Un domingo a la tarde.</li>
         </ul>
-        <p class="clave">No para rescatarte cuando caés. <em class="trazo">Para que no caigas.<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></em></p>
       </div>
     </div>
     <p class="etiqueta etiqueta-pilares" data-aparece>Cómo trabajamos</p>
@@ -692,6 +727,12 @@ footer img{height:30px;width:auto}
         </div>
       </div>
     </div>
+    <div class="cifras" data-aparece>
+      <div class="cifra" data-to="8000" data-prefix="+"><b data-valor>+8.000</b><span>personas siguen a Ema en Instagram</span></div>
+      <div class="cifra" data-to="6"><b data-valor>6</b><span>meses para que la calma se instale</span></div>
+      <div class="cifra pend"><b>—</b><span>alumnos acompañados</span><em class="pendiente">Pendiente de Ema</em></div>
+      <div class="cifra pend"><b>—</b><span>países donde enseñó</span><em class="pendiente">Pendiente de Ema</em></div>
+    </div>
   </div>
 </section>
 
@@ -771,6 +812,7 @@ footer img{height:30px;width:auto}
 
 <!-- RESERVAR -->
 <section class="reservar" id="reservar" aria-labelledby="t-reservar">
+  <div class="reservar-fondo" aria-hidden="true"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="100vw" alt="" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></div>
   <div class="wrap caja">
     <div data-aparece>
       <h2 id="t-reservar">Reserva tus 20 minutos con Ema</h2>
@@ -830,14 +872,16 @@ footer img{height:30px;width:auto}
       <h2 id="t-faq">Preguntas frecuentes</h2>
     </div>
     <div>
-      <details open><summary>¿Esto es terapia?</summary><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></details>
-      <details><summary>¿Cuánto tiempo por día necesito?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></details>
-      <details><summary>¿Necesito experiencia previa en meditación?</summary><p><span class="pendiente">Pendiente de Ema</span></p></details>
-      <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></details>
-      <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></details>
-      <details><summary>¿Y si una respiración me marea o me incomoda?</summary><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></details>
-      <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></details>
-      <details><summary>¿Cómo se paga?</summary><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></details>
+      <div class="lista-faq">
+        <details open><summary>¿Esto es terapia?</summary><div class="resp"><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></div></details>
+        <details><summary>¿Cuánto tiempo por día necesito?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></div></details>
+        <details><summary>¿Necesito experiencia previa en meditación?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span></p></div></details>
+        <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></div></details>
+        <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><div class="resp"><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></div></details>
+        <details><summary>¿Y si una respiración me marea o me incomoda?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></div></details>
+        <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></div></details>
+        <details><summary>¿Cómo se paga?</summary><div class="resp"><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></div></details>
+      </div>
       <div class="accion"><a class="btn" href="#reservar" data-cta="faq">Reservar 20 minutos con Ema</a></div>
     </div>
   </div>
@@ -953,6 +997,29 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
   copia.setAttribute('aria-hidden','true');copia.setAttribute('inert','');pista.appendChild(copia);
   c.classList.add('vivo');
   c.addEventListener('click',function(){c.classList.toggle('pausa');});
+})();
+// Preguntas frecuentes: se abren y cierran con animacion; solo una abierta a la vez
+(function(){
+  var ds=[].slice.call(document.querySelectorAll('.faq details'));if(!ds.length)return;
+  var quieto=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var curva='cubic-bezier(.2,.8,.2,1)';
+  function cerrar(d){var r=d.querySelector('.resp');if(quieto||!r||!r.animate){d.open=false;return;}
+    var listo=false,fin=function(){if(!listo){listo=true;d.open=false;}};var a=r.animate([{height:r.offsetHeight+'px',opacity:1},{height:'0px',opacity:0}],{duration:260,easing:curva});a.onfinish=fin;setTimeout(fin,300);}
+  function abrir(d){d.open=true;var r=d.querySelector('.resp');if(quieto||!r||!r.animate)return;
+    r.animate([{height:'0px',opacity:0},{height:r.offsetHeight+'px',opacity:1}],{duration:340,easing:curva});}
+  ds.forEach(function(d){d.querySelector('summary').addEventListener('click',function(e){e.preventDefault();
+    if(d.open){cerrar(d);return;}
+    ds.forEach(function(x){if(x!==d&&x.open)cerrar(x);});abrir(d);
+    window.dataLayer&&dataLayer.push({event:'faq_abierta',pregunta:d.querySelector('summary').textContent});});});
+})();
+// Cifras que suben al aparecer (el HTML ya trae el valor final por si falla el script)
+(function(){
+  var els=document.querySelectorAll('.cifra[data-to]');if(!els.length||!('IntersectionObserver' in window))return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  [].forEach.call(els,function(el){var b=el.querySelector('[data-valor]'),to=parseFloat(el.getAttribute('data-to')),pre=el.getAttribute('data-prefix')||'';b.textContent=pre+'0';
+    var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;io.disconnect();var t0=null;
+      function paso(t){t0=t0||t;var k=Math.min((t-t0)/1600,1),e=1-Math.pow(1-k,3);b.textContent=pre+Math.round(e*to).toLocaleString('es-AR');if(k<1)requestAnimationFrame(paso);}
+      requestAnimationFrame(paso);},{threshold:.6});io.observe(el);});
 })();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
