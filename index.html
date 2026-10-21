@@ -444,8 +444,11 @@ section{padding:72px 0;scroll-margin-top:72px}
 .plan-ctas{display:grid;gap:10px}
 .seis-cta{margin-top:28px}
 .seis-cta .btn{white-space:normal;text-align:center}
-.quien{padding-bottom:40px}
-.prueba{padding-top:40px}
+.prueba{padding-bottom:32px}
+.quien{padding-top:48px}
+.reservar .puente{color:var(--terra-claro)}
+.reserva-bajada{margin-top:14px;font-size:clamp(18px,1.6vw,21px);line-height:1.5;color:#E3E8F4}
+.reservar h2{max-width:16ch}
 .cierre-bajada{margin:18px auto 0;font-size:clamp(18px,1.8vw,22px);line-height:1.5;color:#D9DFEE;max-width:44ch}
 .precio .notas{margin-top:20px;font-size:16px;color:#D9DFEE;display:grid;gap:6px}
 
@@ -691,8 +694,6 @@ footer img{height:30px;width:auto}
 }
 /* Menu con color (estilo Pewman): 1 terracota (por defecto) · 2 azul · 3 grafito */
 .top{--top-bg:var(--terra);--top-btn-bg:var(--papel);--top-btn-fg:var(--terra-osc);--top-acento:var(--papel);background:var(--top-bg);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0;color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
-html[data-menu="2"] .top{--top-bg:var(--azul);--top-btn-bg:var(--terra);--top-btn-fg:#fff;--top-acento:var(--terra-claro)}
-html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg:#fff;--top-acento:var(--terra)}
 .top.con-borde{box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
 .top .logo-azul{display:none}
 .top .logo-blanco{display:block}
@@ -702,14 +703,53 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
 .top .btn:hover{background:#fff;color:var(--top-btn-fg)}
 .top .progreso{background:var(--top-acento)}
 .top-nav{display:none}
-.menu-prop{position:fixed;left:16px;bottom:16px;z-index:32;display:none;align-items:center;gap:4px;background:rgba(37,44,53,.93);color:#fff;border-radius:999px;padding:5px 5px 5px 14px;font-size:13px;box-shadow:0 14px 34px -14px rgba(0,0,0,.55)}
-.menu-prop span{margin-right:6px}
-.menu-prop button{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;color:#fff}
-.menu-prop button[data-m="1"]{background:var(--terra)}
-.menu-prop button[data-m="2"]{background:var(--azul)}
-.menu-prop button[data-m="3"]{background:#1F252C;border-color:rgba(255,255,255,.3)}
-.menu-prop button[aria-pressed=true]{outline:2px solid #fff;outline-offset:2px}
+/* Menu · alternativa 2: capsula flotante */
+html[data-menu="2"] .top{--top-btn-bg:var(--azul);--top-btn-fg:#fff;--top-acento:var(--terra);background:transparent;box-shadow:none;color:var(--tinta);padding:10px 12px 0}
+html[data-menu="2"] .top > .wrap{max-width:1240px;height:64px;padding:0 8px 0 22px;background:rgba(247,248,245,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(37,44,53,.09);border-radius:999px;box-shadow:0 16px 36px -24px rgba(27,47,99,.5)}
+html[data-menu="2"] .top.con-borde > .wrap{background:rgba(247,248,245,.96);box-shadow:0 18px 40px -20px rgba(27,47,99,.55)}
+html[data-menu="2"] .top img{height:38px}
+html[data-menu="2"] .top .progreso{display:none}
+/* Menu · alternativa 3: dos niveles con franja de aviso */
+.top-anuncio{display:none}
+html[data-menu="3"] .top{--top-bg:var(--papel);--top-btn-bg:var(--terra);--top-btn-fg:#fff;--top-acento:var(--terra);color:var(--tinta);box-shadow:0 1px 0 var(--borde)}
+html[data-menu="3"] .top-anuncio{display:block;background:var(--azul-osc);color:#E3E8F4;font-size:13px}
+.anuncio-in{display:flex;align-items:center;justify-content:center;gap:14px;min-height:36px;padding:0 var(--m)}
+.anuncio-in b{color:#fff}
+.anuncio-in a{color:var(--terra-claro);font-weight:700;text-underline-offset:3px}
+/* Comun a 2 y 3: fondo claro, logo azul */
+html[data-menu="2"] .top .logo-azul,html[data-menu="3"] .top .logo-azul{display:block}
+html[data-menu="2"] .top .logo-blanco,html[data-menu="3"] .top .logo-blanco{display:none}
+html[data-menu="2"] .top .red,html[data-menu="3"] .top .red{color:var(--azul)}
+html[data-menu="2"] .top .red:hover,html[data-menu="3"] .top .red:hover{background:var(--papel-2);color:var(--terra-osc)}
+html[data-menu="2"] .top .btn:hover{background:var(--azul-osc);color:#fff}
+html[data-menu="3"] .top .btn:hover{background:var(--terra-osc);color:#fff}
+html[data-menu="3"] section,html[data-menu="3"] .propuestas{scroll-margin-top:108px}
+html[data-menu="3"] .prop-barra{top:108px}
+@media (max-width:599px){.anuncio-mas{display:none}}
+@media (min-width:1024px){
+  html[data-menu="2"] .top{padding:14px 24px 0}
+  html[data-menu="2"] .top > .wrap{height:70px}
+  html[data-menu="2"] .top img{height:44px}
+  html[data-menu="3"] section,html[data-menu="3"] .propuestas{scroll-margin-top:128px}
+  html[data-menu="3"] .prop-barra{top:130px}
+}
+@media (min-width:1200px){
+  html[data-menu="2"] .top-nav a,html[data-menu="3"] .top-nav a{color:var(--tinta-2)}
+  html[data-menu="2"] .top-nav a:hover,html[data-menu="2"] .top-nav a.activo,html[data-menu="3"] .top-nav a:hover,html[data-menu="3"] .top-nav a.activo{color:var(--azul)}
+}
+/* Carrusel de revision del menu */
+.menu-prop{position:fixed;left:16px;bottom:16px;z-index:32;display:none;align-items:center;gap:6px;background:rgba(37,44,53,.94);color:#fff;border-radius:999px;padding:6px 6px 6px 16px;font-size:13px;white-space:nowrap;box-shadow:0 14px 34px -14px rgba(0,0,0,.55)}
+.menu-prop .mp-etq{margin-right:4px}
+.menu-prop .mp-etq b{font-weight:700}
+.menu-prop .mp-nombre{color:#C9D1E6}
+.menu-prop .mp-flecha{width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer}
+.menu-prop .mp-flecha:hover{background:rgba(255,255,255,.24)}
+.menu-prop .mp-tabs{display:flex;gap:2px}
+.menu-prop .mp-tabs button{width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer}
+.menu-prop .mp-tabs button[aria-pressed=true]{background:var(--papel);color:var(--tinta)}
 @media (min-width:760px){.menu-prop{display:inline-flex}}
+.top.cambiando{animation:menu-entra .45s var(--ease)}
+@keyframes menu-entra{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 @media (min-width:1200px){
   .top-nav{display:flex;gap:30px;margin:0 auto 0 48px}
   .top-nav a{position:relative;padding:10px 0;color:rgba(255,255,255,.86);font-size:16px;font-weight:600;text-decoration:none;transition:color .2s}
@@ -872,9 +912,10 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
 <body>
 
 <header class="top" id="top">
+  <div class="top-anuncio"><div class="anuncio-in"><span><b>Llamada gratuita de 20 minutos</b><span class="anuncio-mas"> · Sin compromiso de compra</span></span><a href="#reservar" data-cta="anuncio">Agendar</a></div></div>
   <div class="wrap">
     <a href="#" class="top-logo" aria-label="Emanuel Chingolani, volver al inicio"><img class="logo-azul" src="img/logo-azul.webp" alt="" width="602" height="197"><img class="logo-blanco" src="img/logo-blanco.webp" alt="" width="602" height="197"></a>
-    <nav class="top-nav" aria-label="Secciones de la página"><a href="#metodo">El método</a><a href="#quien">Quién soy</a><a href="#testimonios">Testimonios</a><a href="#precio">Precios</a><a href="#preguntas">Preguntas</a></nav>
+    <nav class="top-nav" aria-label="Secciones de la página"><a href="#metodo">El método</a><a href="#testimonios">Testimonios</a><a href="#quien">Quién soy</a><a href="#precio">Precios</a><a href="#preguntas">Preguntas</a></nav>
     <div class="top-der">
       <a class="red" href="https://www.instagram.com/emachingolani/" target="_blank" rel="noopener" data-cta="header-instagram" aria-label="Instagram de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a class="red" href="https://www.youtube.com/@emachingolani" target="_blank" rel="noopener" data-cta="header-youtube" aria-label="Canal de YouTube de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
@@ -1181,59 +1222,38 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
   </div>
 </section>
 
-<!-- LEAD MAGNET · 3 PROPUESTAS -->
-<div class="propuestas" id="audio" data-propuestas="lead" role="region" aria-label="Propuestas de diseño: Meditación gratis">
-  <div class="prop-barra"><div class="prop-barra-in">
-    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Banda terracota</span></span>
-    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
-    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Banda terracota">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Tarjeta con ondas">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Onda de audio">3</button></div>
-    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
-  </div></div>
-  <div class="prop-vista"><div class="prop-pista">
-<div class="prop-slide" role="tabpanel" data-nombre="Banda terracota">
-<section class="lm lm-a claro" aria-labelledby="t-lm-1">
-  <div class="wrap lm-a-grid" data-aparece>
-    <div class="lm-txt"><span class="lm-gratis">Gratis</span><h2 id="t-lm-1">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2><p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p></div>
-    <div><form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
-        <label class="sr" for="correo-1">Tu correo</label>
-        <div class="lm-fila"><input id="correo-1" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-1">Enviarme la meditación</button></div>
-        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
-      </form><p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p></div>
-  </div>
-</section>
-</div>
-<div class="prop-slide" role="tabpanel" data-nombre="Tarjeta con ondas">
-<section class="lm lm-b" aria-labelledby="t-lm-2">
+<!-- PRUEBA -->
+<section class="prueba" id="testimonios" aria-labelledby="t-prueba">
   <div class="wrap">
-    <div class="lm-card claro" data-aparece>
-      <div class="lm-ondas" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><span class="lm-play"><svg width="22" height="24" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="currentColor"/></svg></span></div>
-      <div class="lm-txt"><span class="lm-gratis">Meditación gratis</span><h2 id="t-lm-2">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2><p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p><form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
-        <label class="sr" for="correo-2">Tu correo</label>
-        <div class="lm-fila"><input id="correo-2" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-2">Enviarme la meditación</button></div>
-        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
-      </form><p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p></div>
+    <p class="puente" data-aparece>¿Le funcionó a alguien que estaba donde estás hoy?</p>
+    <h2 id="t-prueba" data-aparece>Ellos ya cruzaron</h2>
+    <div class="testi" data-aparece>
+      <figure class="testi-video" id="testi-video">
+        <div class="marco">
+          <video src="video/testimonio-bruno.mp4" poster="img/testimonio-bruno-poster.jpg" preload="none" playsinline controls width="832" height="464" aria-label="Testimonio en video de Bruno Gomez Castilla"></video>
+          <button class="play-btn" type="button" data-cta="testimonio-video" aria-label="Reproducir el testimonio de Bruno Gomez Castilla, 2 minutos 24 segundos"><i aria-hidden="true"><svg width="18" height="20" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i><span class="dur" aria-hidden="true">2:24</span></button>
+          <span class="real">Testimonio real</span>
+        </div>
+        <figcaption><span class="inicial" aria-hidden="true">B</span><span><b>Bruno Gomez Castilla</b>Testimonio en video · 2 min 24 s</span></figcaption>
+      </figure>
+      <figure class="historia">
+        <span class="ejemplo">Texto de ejemplo</span>
+        <blockquote>«Llegué después de cerrar una etapa de diez años. Meditaba todas las mañanas y a media mañana ya estaba otra vez acelerada. Lo que me cambió fue usar los anclajes en momentos chicos: antes de una reunión, al llegar a casa. Hoy no espero al fin de semana para estar tranquila.»</blockquote>
+        <figcaption><span class="inicial" aria-hidden="true">A</span><span><b>Nombre de la alumna</b>País · primera cohorte</span></figcaption>
+      </figure>
     </div>
+    <div class="carrusel" data-aparece role="region" aria-label="Comentarios de alumnos">
+      <div class="pista-c">
+        <div class="grupo">
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Pensé que era otro curso de meditación. Lo distinto fue llevarlo al día real.»</blockquote><figcaption>Alumno de la primera cohorte</figcaption></figure>
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Lo que más me sirvió: dos minutos antes de contestar un mensaje que me sacaba de quicio.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
+          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Las clases grupales me ordenaron la semana. Y no me sentí sola en el proceso.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
+        </div>
+      </div>
+    </div>
+    <p class="aviso" data-aparece>Son experiencias personales de cada alumno, no resultados de salud.</p>
   </div>
 </section>
-</div>
-<div class="prop-slide" role="tabpanel" data-nombre="Onda de audio">
-<section class="lm lm-c claro" aria-labelledby="t-lm-3">
-  <div class="wrap lm-c-in" data-aparece>
-    <div class="lm-wave" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i></div>
-    <h2 id="t-lm-3">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2>
-    <p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p>
-    <form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
-        <label class="sr" for="correo-3">Tu correo</label>
-        <div class="lm-fila"><input id="correo-3" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-3">Enviarme la meditación</button></div>
-        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
-      </form>
-    <ul class="lm-confianza"><li>Gratis</li><li>Llega a tu correo</li><li>Sin spam</li></ul>
-    <p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p>
-  </div>
-</section>
-</div>
-  </div></div>
-</div>
 
 <!-- QUIEN SOY -->
 <section class="quien" id="quien" aria-labelledby="t-quien">
@@ -1265,39 +1285,6 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- PRUEBA -->
-<section class="prueba" id="testimonios" aria-labelledby="t-prueba">
-  <div class="wrap">
-    <p class="puente" data-aparece>¿Le funcionó a alguien que estaba donde estás hoy?</p>
-    <h2 id="t-prueba" data-aparece>Ellos ya cruzaron</h2>
-    <div class="testi" data-aparece>
-      <figure class="testi-video" id="testi-video">
-        <div class="marco">
-          <video src="video/testimonio-bruno.mp4" poster="img/testimonio-bruno-poster.jpg" preload="none" playsinline controls width="832" height="464" aria-label="Testimonio en video de Bruno Gomez Castilla"></video>
-          <button class="play-btn" type="button" data-cta="testimonio-video" aria-label="Reproducir el testimonio de Bruno Gomez Castilla, 2 minutos 24 segundos"><i aria-hidden="true"><svg width="18" height="20" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i><span class="dur" aria-hidden="true">2:24</span></button>
-          <span class="real">Testimonio real</span>
-        </div>
-        <figcaption><span class="inicial" aria-hidden="true">B</span><span><b>Bruno Gomez Castilla</b>Testimonio en video · 2 min 24 s</span></figcaption>
-      </figure>
-      <figure class="historia">
-        <span class="ejemplo">Texto de ejemplo</span>
-        <blockquote>«Llegué después de cerrar una etapa de diez años. Meditaba todas las mañanas y a media mañana ya estaba otra vez acelerada. Lo que me cambió fue usar los anclajes en momentos chicos: antes de una reunión, al llegar a casa. Hoy no espero al fin de semana para estar tranquila.»</blockquote>
-        <figcaption><span class="inicial" aria-hidden="true">A</span><span><b>Nombre de la alumna</b>País · primera cohorte</span></figcaption>
-      </figure>
-    </div>
-    <div class="carrusel" data-aparece role="region" aria-label="Comentarios de alumnos">
-      <div class="pista-c">
-        <div class="grupo">
-          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Pensé que era otro curso de meditación. Lo distinto fue llevarlo al día real.»</blockquote><figcaption>Alumno de la primera cohorte</figcaption></figure>
-          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Lo que más me sirvió: dos minutos antes de contestar un mensaje que me sacaba de quicio.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
-          <figure><span class="ejemplo">Texto de ejemplo</span><blockquote>«Las clases grupales me ordenaron la semana. Y no me sentí sola en el proceso.»</blockquote><figcaption>Alumna de la primera cohorte</figcaption></figure>
-        </div>
-      </div>
-    </div>
-    <p class="aviso" data-aparece>Son experiencias personales de cada alumno, no resultados de salud.</p>
   </div>
 </section>
 
@@ -1418,12 +1405,39 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
   </div>
 </section>
 
+<!-- PREGUNTAS -->
+<section class="faq" id="preguntas" aria-labelledby="t-faq">
+  <div class="wrap">
+    <div class="faq-cab">
+      <p class="puente">Lo que más preguntan antes de empezar.</p>
+      <h2 id="t-faq">Preguntas frecuentes</h2>
+    </div>
+    <div class="lista-faq">
+      <div class="faq-col">
+        <details><summary>¿Esto es terapia?</summary><div class="resp"><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></div></details>
+        <details><summary>¿Cuánto tiempo por día necesito?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></div></details>
+        <details><summary>¿Necesito experiencia previa en meditación?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span></p></div></details>
+        <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></div></details>
+      </div>
+      <div class="faq-col">
+        <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><div class="resp"><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></div></details>
+        <details><summary>¿Y si una respiración me marea o me incomoda?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></div></details>
+        <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></div></details>
+        <details><summary>¿Cómo se paga?</summary><div class="resp"><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></div></details>
+      </div>
+    </div>
+    <div class="faq-ctas"><a class="btn" href="#reservar" data-cta="faq-agendar">Agendar una llamada</a><a class="btn contorno" href="#precio" data-cta="faq-comprar">Comprar ahora</a></div>
+  </div>
+</section>
+
 <!-- RESERVAR -->
 <section class="reservar" id="reservar" aria-labelledby="t-reservar">
   <div class="reservar-fondo" aria-hidden="true"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="100vw" alt="" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></div>
   <div class="wrap caja">
     <div data-aparece>
-      <h2 id="t-reservar">Reserva tus 20 minutos con Ema</h2>
+      <p class="puente">Reserva tus 20 minutos con Ema</p>
+      <h2 id="t-reservar">La calma ya la conocés. Ahora hacé que se quede.</h2>
+      <p class="reserva-bajada">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
       <ol class="pasos">
         <li>Eliges un horario. Se muestra en tu hora local.</li>
         <li>Respondes dos preguntas: qué te trajo hasta aquí y si te interesa más la grupal o la 1:1.</li>
@@ -1471,43 +1485,60 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
   </div>
 </section>
 
-<!-- PREGUNTAS -->
-<section class="faq" id="preguntas" aria-labelledby="t-faq">
+<!-- LEAD MAGNET · 3 PROPUESTAS -->
+<div class="propuestas" id="audio" data-propuestas="lead" role="region" aria-label="Propuestas de diseño: Meditación gratis">
+  <div class="prop-barra"><div class="prop-barra-in">
+    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Banda terracota</span></span>
+    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
+    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Banda terracota">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Tarjeta con ondas">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Onda de audio">3</button></div>
+    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div></div>
+  <div class="prop-vista"><div class="prop-pista">
+<div class="prop-slide" role="tabpanel" data-nombre="Banda terracota">
+<section class="lm lm-a claro" aria-labelledby="t-lm-1">
+  <div class="wrap lm-a-grid" data-aparece>
+    <div class="lm-txt"><span class="lm-gratis">Gratis</span><h2 id="t-lm-1">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2><p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p></div>
+    <div><form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
+        <label class="sr" for="correo-1">Tu correo</label>
+        <div class="lm-fila"><input id="correo-1" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-1">Enviarme la meditación</button></div>
+        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
+      </form><p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p></div>
+  </div>
+</section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Tarjeta con ondas">
+<section class="lm lm-b" aria-labelledby="t-lm-2">
   <div class="wrap">
-    <div class="faq-cab">
-      <p class="puente">Lo que más preguntan antes de empezar.</p>
-      <h2 id="t-faq">Preguntas frecuentes</h2>
+    <div class="lm-card claro" data-aparece>
+      <div class="lm-ondas" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><span class="lm-play"><svg width="22" height="24" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="currentColor"/></svg></span></div>
+      <div class="lm-txt"><span class="lm-gratis">Meditación gratis</span><h2 id="t-lm-2">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2><p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p><form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
+        <label class="sr" for="correo-2">Tu correo</label>
+        <div class="lm-fila"><input id="correo-2" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-2">Enviarme la meditación</button></div>
+        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
+      </form><p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p></div>
     </div>
-    <div class="lista-faq">
-      <div class="faq-col">
-        <details><summary>¿Esto es terapia?</summary><div class="resp"><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></div></details>
-        <details><summary>¿Cuánto tiempo por día necesito?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></div></details>
-        <details><summary>¿Necesito experiencia previa en meditación?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span></p></div></details>
-        <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></div></details>
-      </div>
-      <div class="faq-col">
-        <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><div class="resp"><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></div></details>
-        <details><summary>¿Y si una respiración me marea o me incomoda?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></div></details>
-        <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></div></details>
-        <details><summary>¿Cómo se paga?</summary><div class="resp"><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></div></details>
-      </div>
-    </div>
-    <div class="faq-ctas"><a class="btn" href="#reservar" data-cta="faq-agendar">Agendar una llamada</a><a class="btn contorno" href="#precio" data-cta="faq-comprar">Comprar ahora</a></div>
   </div>
 </section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Onda de audio">
+<section class="lm lm-c claro" aria-labelledby="t-lm-3">
+  <div class="wrap lm-c-in" data-aparece>
+    <div class="lm-wave" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i><i style="--i:10"></i><i style="--i:11"></i><i style="--i:12"></i><i style="--i:13"></i><i style="--i:14"></i><i style="--i:15"></i><i style="--i:16"></i><i style="--i:17"></i><i style="--i:18"></i><i style="--i:19"></i><i style="--i:20"></i><i style="--i:21"></i><i style="--i:22"></i><i style="--i:23"></i></div>
+    <h2 id="t-lm-3">¿Todavía no? Prueba un Punto de Anclaje de 2 minutos.</h2>
+    <p>Una meditación guiada por mí, para que utilices durante la mañana o antes de dormir. Solo debes dejar tu correo.</p>
+    <form class="lm-form" action="#" onsubmit="return enviarAudio(event)" aria-label="Recibir la meditación por correo">
+        <label class="sr" for="correo-3">Tu correo</label>
+        <div class="lm-fila"><input id="correo-3" name="email" type="email" autocomplete="email" required placeholder="Tu correo"><button class="btn claro" type="submit" data-cta="lead-magnet-3">Enviarme la meditación</button></div>
+        <p class="legal">Te escribimos solo sobre la mentoría y puedes darte de baja cuando quieras. <a href="/politica-de-privacidad">Política de privacidad</a>.</p>
+      </form>
+    <ul class="lm-confianza"><li>Gratis</li><li>Llega a tu correo</li><li>Sin spam</li></ul>
+    <p class="pendiente lm-pend">Pendiente: grabar la meditación y conectar el formulario</p>
+  </div>
+</section>
+</div>
+  </div></div>
+</div>
 
-<!-- CIERRE -->
-<section class="cierre claro" aria-labelledby="t-cierre">
-  <div class="wrap" data-aparece>
-    <img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy">
-    <h2 id="t-cierre">La calma ya la conocés. Ahora hacé que se quede.</h2>
-    <p class="cierre-bajada">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
-    <div class="accion">
-      <a class="btn claro" href="#reservar" data-cta="cierre">Reservar 20 minutos con Ema</a>
-    </div>
-  </div>
-  <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#BC5436" stroke-width="4" stroke-linecap="round"/></svg>
-</section>
 </main>
 
 <footer>
@@ -1522,7 +1553,7 @@ html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg
 </footer>
 
 <div class="fija" aria-hidden="true"><a class="btn" href="#reservar" data-cta="barra-celular" tabindex="-1">Reservar 20 minutos con Ema</a></div>
-<div class="menu-prop" role="group" aria-label="Probar color del menú"><span>Menú</span><button type="button" data-m="1" aria-pressed="true" aria-label="Menú terracota">1</button><button type="button" data-m="2" aria-pressed="false" aria-label="Menú azul">2</button><button type="button" data-m="3" aria-pressed="false" aria-label="Menú grafito">3</button></div>
+<div class="menu-prop" role="group" aria-label="Propuestas de menú"><span class="mp-etq">Menú <b data-mp-num>1 de 3</b><span class="mp-nombre" data-mp-nombre> · Barra terracota</span></span><button type="button" class="mp-flecha" data-mp-dir="-1" aria-label="Menú anterior"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button><div class="mp-tabs"><button type="button" data-m="1" aria-pressed="true" aria-label="Menú 1: barra terracota">1</button><button type="button" data-m="2" aria-pressed="false" aria-label="Menú 2: cápsula flotante">2</button><button type="button" data-m="3" aria-pressed="false" aria-label="Menú 3: dos niveles con aviso">3</button></div><button type="button" class="mp-flecha" data-mp-dir="1" aria-label="Menú siguiente"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button></div>
 <a class="wa-flotante" href="https://wa.me/393778479886?text=Hola%20Ema%21%20Vengo%20de%20la%20web.%20Me%20gustar%C3%ADa%20tener%20m%C3%A1s%20informaci%C3%B3n%21" target="_blank" rel="noopener" data-cta="whatsapp-flotante" aria-label="Escribir a Ema por WhatsApp (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-tip" aria-hidden="true">¿Dudas? Escribile a Ema</span></a>
 
 <script>
@@ -1698,12 +1729,18 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     links.forEach(function(a,k){a.classList.toggle('activo',k===act);});}
   if(links.length){addEventListener('scroll',function(){if(!rq)rq=requestAnimationFrame(espiar);},{passive:true});addEventListener('resize',espiar);espiar();}
   var sel=document.querySelector('.menu-prop');if(!sel)return;
-  var bs=[].slice.call(sel.querySelectorAll('button'));
-  function poner(m){if(m==='1')document.documentElement.removeAttribute('data-menu');else document.documentElement.setAttribute('data-menu',m);
-    bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-m')===m?'true':'false');});}
-  var ini=document.documentElement.getAttribute('data-menu')||'1';poner(ini);
-  bs.forEach(function(b){b.addEventListener('click',function(){var m=b.getAttribute('data-m');poner(m);
-    try{var u=new URL(location.href);if(m==='1')u.searchParams.delete('menu');else u.searchParams.set('menu',m);history.replaceState(null,'',u);}catch(e){}});});
+  var nombres={'1':'Barra terracota','2':'Cápsula flotante','3':'Dos niveles con aviso'};
+  var bs=[].slice.call(sel.querySelectorAll('[data-m]')),cab=document.getElementById('top'),actual='1';
+  function poner(m,animar){if(!nombres[m])m='1';actual=m;
+    if(m==='1')document.documentElement.removeAttribute('data-menu');else document.documentElement.setAttribute('data-menu',m);
+    bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-m')===m?'true':'false');});
+    sel.querySelector('[data-mp-num]').textContent=m+' de 3';sel.querySelector('[data-mp-nombre]').textContent=' · '+nombres[m];
+    if(animar){cab.classList.remove('cambiando');void cab.offsetWidth;cab.classList.add('cambiando');
+      try{var u=new URL(location.href);if(m==='1')u.searchParams.delete('menu');else u.searchParams.set('menu',m);history.replaceState(null,'',u);}catch(e){}
+      window.dataLayer&&dataLayer.push({event:'propuesta_menu',menu:m});}}
+  poner(document.documentElement.getAttribute('data-menu')||'1',false);
+  bs.forEach(function(b){b.addEventListener('click',function(){poner(b.getAttribute('data-m'),true);});});
+  [].forEach.call(sel.querySelectorAll('[data-mp-dir]'),function(b){b.addEventListener('click',function(){var n=((parseInt(actual,10)-1+parseInt(b.getAttribute('data-mp-dir'),10)+3)%3)+1;poner(String(n),true);});});
 })();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
