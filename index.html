@@ -15,6 +15,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<script>try{var m=new URLSearchParams(location.search).get("menu");if(m)document.documentElement.setAttribute("data-menu",m);}catch(e){}</script>
 <meta name="twitter:image" content="https://aictmopenclaw-a11y.github.io/ema-landing-preview/img/og-ema-2026-10-21.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -345,27 +346,33 @@ section{padding:72px 0;scroll-margin-top:72px}
 .mapa-dia.anclado .leyenda .anc{opacity:1}
 
 /* Metodo: Puntos de Anclaje como protagonista, tres pasos y los seis meses */
-.def-grid{display:grid;gap:24px}
+.def-grid{display:grid;gap:18px}
 .metodo h2{font-size:clamp(32px,4.6vw,52px);max-width:14ch}
 .metodo h2 .marca{color:var(--terra-osc)}
 .def{font-family:var(--display);font-size:clamp(21px,2.2vw,29px);line-height:1.35;color:var(--azul);max-width:26ch}
-.momentos{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.momentos li{display:inline-flex;align-items:center;gap:10px;padding:9px 18px 9px 14px;border:1px solid var(--borde);border-radius:999px;background:#fff;font-size:16px;color:var(--tinta);transition:transform .3s var(--ease),border-color .3s}
-.momentos li:hover{transform:translateY(-2px);border-color:var(--terra)}
-.momentos i{width:10px;height:10px;border-radius:50%;background:var(--terra);flex:none}
-.clave{font-family:var(--display);font-size:clamp(24px,2.7vw,38px);line-height:1.22;color:var(--azul);margin-top:30px;max-width:22ch}
-.clave em{font-style:italic;color:var(--terra-osc)}
-.etiqueta-pilares{margin-top:56px}
-.pilares{position:relative;margin-top:18px;display:grid;gap:26px}
-.pilar{position:relative;padding-top:22px;border-top:1px solid var(--borde)}
-.pilar::before{content:"";position:absolute;left:0;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--terra);transform:scale(0);transition:transform .5s var(--ease) calc(var(--i)*140ms + .2s)}
+/* Como trabajamos: bloque destacado con el hilo que une los tres pasos */
+.trabajo{position:relative;overflow:hidden;margin-top:48px;background:var(--azul);color:#fff;border-radius:28px;padding:34px 22px 30px}
+.trabajo::after{content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(242,194,178,.16),rgba(242,194,178,0) 68%);pointer-events:none}
+.trabajo-cab .etiqueta{color:var(--terra-claro)}
+.trabajo-titulo{margin-top:6px;color:#fff;font-size:clamp(30px,3.6vw,48px);line-height:1.08}
+.pilares{position:relative;display:grid;gap:14px;margin-top:28px;padding-left:30px}
+.pilares-hilo{position:absolute;left:8px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--terra);transform:scaleY(0);transform-origin:50% 0;transition:transform 1.6s var(--ease) .2s}
+.in .pilares-hilo{transform:none}
+.pilar{position:relative;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:22px 22px 24px;transition:transform .35s var(--ease),background-color .35s}
+.pilar:hover{transform:translateY(-4px);background:rgba(255,255,255,.11)}
+.pilar::before{content:"";position:absolute;left:-29px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--terra);box-shadow:0 0 0 5px var(--azul);transform:scale(0);transition:transform .5s var(--ease) calc(var(--i)*220ms + .5s)}
 .in .pilar::before{transform:scale(1)}
-.pilar .num{font-family:var(--display);font-size:15px;letter-spacing:.1em;color:var(--terra-osc)}
-.pilar h3{font-size:23px;margin-top:8px}
-.pilar p{margin-top:10px;font-size:17px;color:var(--tinta-2)}
-.seis{margin-top:56px;background:var(--verde-osc);color:#fff;border-radius:28px;padding:32px 24px}
+.pilar .num{display:block;font-family:var(--cond);font-size:60px;line-height:.9;color:var(--terra-claro)}
+.pilar h4{margin-top:10px;font-family:var(--display);font-weight:600;font-size:23px;line-height:1.2;color:#fff}
+.pilar p{margin-top:10px;font-size:17px;line-height:1.5;color:#D9DFEE}
+.pilar.destacado{background:var(--terra);border-color:var(--terra)}
+.pilar.destacado:hover{background:#C65E40}
+.pilar.destacado .num{color:var(--papel)}
+.pilar.destacado p{color:#FBE3DA}
+.seis{margin-top:20px;background:var(--verde-osc);color:#fff;border-radius:28px;padding:32px 24px}
 .seis-grid{display:grid;gap:18px}
-.seis h3{color:#fff;font-size:clamp(26px,3vw,38px);max-width:14ch;line-height:1.12}
+.seis h3{color:#fff;font-size:clamp(26px,3vw,40px);max-width:14ch;line-height:1.12}
+.seis h3 em{font-style:italic;color:var(--terra-claro)}
 .seis p{color:#F1F4EC;font-size:18px}
 .seis p + p{margin-top:12px}
 .seis-linea{margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.22)}
@@ -682,6 +689,34 @@ footer img{height:30px;width:auto}
   .lm-fila .btn.claro{background:var(--azul);color:#fff}
   .lm-fila .btn.claro:hover{background:var(--azul-osc)}
 }
+/* Menu con color (estilo Pewman): 1 terracota (por defecto) · 2 azul · 3 grafito */
+.top{--top-bg:var(--terra);--top-btn-bg:var(--papel);--top-btn-fg:var(--terra-osc);--top-acento:var(--papel);background:var(--top-bg);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0;color:#fff;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+html[data-menu="2"] .top{--top-bg:var(--azul);--top-btn-bg:var(--terra);--top-btn-fg:#fff;--top-acento:var(--terra-claro)}
+html[data-menu="3"] .top{--top-bg:#1F252C;--top-btn-bg:var(--terra);--top-btn-fg:#fff;--top-acento:var(--terra)}
+.top.con-borde{box-shadow:0 10px 30px -18px rgba(0,0,0,.45)}
+.top .logo-azul{display:none}
+.top .logo-blanco{display:block}
+.top .red{color:#fff}
+.top .red:hover{background:rgba(255,255,255,.16);color:#fff}
+.top .btn{background:var(--top-btn-bg);color:var(--top-btn-fg)}
+.top .btn:hover{background:#fff;color:var(--top-btn-fg)}
+.top .progreso{background:var(--top-acento)}
+.top-nav{display:none}
+.menu-prop{position:fixed;left:16px;bottom:16px;z-index:32;display:none;align-items:center;gap:4px;background:rgba(37,44,53,.93);color:#fff;border-radius:999px;padding:5px 5px 5px 14px;font-size:13px;box-shadow:0 14px 34px -14px rgba(0,0,0,.55)}
+.menu-prop span{margin-right:6px}
+.menu-prop button{width:30px;height:30px;border-radius:50%;border:2px solid transparent;cursor:pointer;font:inherit;font-weight:700;color:#fff}
+.menu-prop button[data-m="1"]{background:var(--terra)}
+.menu-prop button[data-m="2"]{background:var(--azul)}
+.menu-prop button[data-m="3"]{background:#1F252C;border-color:rgba(255,255,255,.3)}
+.menu-prop button[aria-pressed=true]{outline:2px solid #fff;outline-offset:2px}
+@media (min-width:760px){.menu-prop{display:inline-flex}}
+@media (min-width:1200px){
+  .top-nav{display:flex;gap:30px;margin:0 auto 0 48px}
+  .top-nav a{position:relative;padding:10px 0;color:rgba(255,255,255,.86);font-size:16px;font-weight:600;text-decoration:none;transition:color .2s}
+  .top-nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;border-radius:2px;background:var(--top-acento);transform:scaleX(0);transform-origin:0 50%;transition:transform .35s var(--ease)}
+  .top-nav a:hover,.top-nav a.activo{color:#fff}
+  .top-nav a:hover::after,.top-nav a.activo::after{transform:none}
+}
 @media (prefers-reduced-motion:no-preference){
   .js [data-aparece]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .js [data-aparece].in{opacity:1;transform:none}
@@ -693,6 +728,8 @@ footer img{height:30px;width:auto}
   @keyframes palabra{to{opacity:1;transform:none;filter:blur(0)}}
   .bajar-linea i{animation:caer 2.4s var(--ease) infinite}
   @keyframes subir{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+  .js .trabajo .pilar{opacity:0}
+  .js .trabajo.in .pilar{animation:subir .7s var(--ease) both;animation-delay:calc(var(--i)*160ms + .25s)}
   .lm-a::before{animation:brillo 6s ease-in-out infinite}
   @keyframes brillo{0%{background-position:150% 0}60%,100%{background-position:-50% 0}}
   .lm-a .lm-gratis{animation:latido 2.6s ease-in-out infinite}
@@ -753,9 +790,11 @@ footer img{height:30px;width:auto}
   .vacio-cab{align-self:start}
   .isla-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
   .def-grid{grid-template-columns:5fr 7fr;gap:44px;align-items:start}
-  .pilares{grid-template-columns:repeat(3,1fr);gap:32px}
-  .pilares::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--borde)}
-  .pilar{border-top:0}
+  .def-grid{align-items:end}
+  .trabajo{padding:48px 44px 44px}
+  .pilares{grid-template-columns:repeat(3,1fr);gap:20px;padding:34px 0 0}
+  .pilares-hilo{left:0;right:0;top:0;bottom:auto;width:auto;height:3px;transform:scaleX(0);transform-origin:0 50%}
+  .pilar::before{left:24px;top:-42px}
   .seis{padding:44px}
   .seis-grid{grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
   .audio .caja{grid-template-columns:1fr 1fr;gap:56px}
@@ -808,8 +847,10 @@ footer img{height:30px;width:auto}
   .def-grid{gap:64px}
   .isla h2,.quien h2,.precio h2{font-size:clamp(40px,3.8vw,60px)}
   .metodo h2{font-size:clamp(38px,3.6vw,56px)}
-  .pilares{gap:48px}
-  .pilar h3{font-size:26px}
+  .pilares{gap:24px}
+  .pilar{padding:30px 28px 32px}
+  .pilar .num{font-size:76px}
+  .pilar h4{font-size:26px}
   .pilar p{font-size:18px}
   .seis{padding:52px}
   .prueba h2,.reservar h2,.faq h2{font-size:clamp(36px,3.2vw,52px)}
@@ -832,7 +873,8 @@ footer img{height:30px;width:auto}
 
 <header class="top" id="top">
   <div class="wrap">
-    <a href="#"><img src="img/logo-azul.webp" alt="Emanuel Chingolani" width="602" height="197"></a>
+    <a href="#" class="top-logo" aria-label="Emanuel Chingolani, volver al inicio"><img class="logo-azul" src="img/logo-azul.webp" alt="" width="602" height="197"><img class="logo-blanco" src="img/logo-blanco.webp" alt="" width="602" height="197"></a>
+    <nav class="top-nav" aria-label="Secciones de la página"><a href="#metodo">El método</a><a href="#quien">Quién soy</a><a href="#testimonios">Testimonios</a><a href="#precio">Precios</a><a href="#preguntas">Preguntas</a></nav>
     <div class="top-der">
       <a class="red" href="https://www.instagram.com/emachingolani/" target="_blank" rel="noopener" data-cta="header-instagram" aria-label="Instagram de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a class="red" href="https://www.youtube.com/@emachingolani" target="_blank" rel="noopener" data-cta="header-youtube" aria-label="Canal de YouTube de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
@@ -855,7 +897,6 @@ footer img{height:30px;width:auto}
           <a class="btn-h" href="#precio" data-cta="hero-comprar">Comprar</a>
         </div>
         <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
-        <a class="alt" href="https://ig.me/m/emachingolani" data-cta="hero-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
       </div>
       <a class="bajar" href="#sigue"><span class="bajar-linea" aria-hidden="true"><i></i></span>Seguí bajando</a>
     </div>
@@ -1108,22 +1149,23 @@ footer img{height:30px;width:auto}
       <h2 id="t-metodo" data-aparece>Ese hilo se llama <span class="marca">Puntos de Anclaje</span>.</h2>
       <div data-aparece>
         <p class="def">Pausas cortas, repartidas en tu día, que usan tu propio cuerpo para pasar de la aceleración a la calma.</p>
-        <ul class="momentos" aria-label="Cuándo se usan">
-          <li style="--i:0"><i aria-hidden="true"></i>En una reunión.</li>
-          <li style="--i:1"><i aria-hidden="true"></i>Después de una llamada difícil.</li>
-          <li style="--i:2"><i aria-hidden="true"></i>Un domingo a la tarde.</li>
-        </ul>
       </div>
     </div>
-    <p class="etiqueta etiqueta-pilares" data-aparece>Cómo trabajamos</p>
-    <div class="pilares" aria-label="Cómo trabajamos" data-aparece>
-      <div class="pilar" style="--i:0"><span class="num">01</span><h3>Meditación profunda y respiración</h3><p>Abren la puerta: el cuerpo se suelta y graba un estado nuevo.</p></div>
-      <div class="pilar" style="--i:1"><span class="num">02</span><h3>Puntos de Anclaje</h3><p>Llevan ese estado a tu día real, para que no se evapore.</p></div>
-      <div class="pilar" style="--i:2"><span class="num">03</span><h3>Autonomía emocional</h3><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></div>
+    <div class="trabajo" data-aparece>
+      <div class="trabajo-cab">
+        <p class="etiqueta">El método</p>
+        <h3 class="trabajo-titulo">Cómo trabajamos</h3>
+      </div>
+      <div class="pilares">
+        <span class="pilares-hilo" aria-hidden="true"></span>
+        <article class="pilar" style="--i:0"><span class="num">01</span><h4>Meditación profunda y respiración</h4><p>Abren la puerta: el cuerpo se suelta y graba un estado nuevo.</p></article>
+        <article class="pilar destacado" style="--i:1"><span class="num">02</span><h4>Puntos de Anclaje</h4><p>Llevan ese estado a tu día real, para que no se evapore.</p></article>
+        <article class="pilar" style="--i:2"><span class="num">03</span><h4>Autonomía emocional</h4><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></article>
+      </div>
     </div>
     <div class="seis" data-aparece>
       <div class="seis-grid">
-        <h3>Seis meses que duran para siempre</h3>
+        <h3>Seis meses que duran para <em>siempre</em></h3>
         <div>
           <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
           <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
@@ -1134,7 +1176,6 @@ footer img{height:30px;width:auto}
         <div class="meses"><span>Mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>Mes 6</span></div>
         <div class="hitos"><div><b>Semana 1</b><span>Lo sentís.</span></div><div><b>Mes 6</b><span>Lo tenés instalado.</span></div></div>
       </div>
-      <div class="seis-cta"><a class="btn claro" href="#reservar" data-cta="metodo">Agenda una llamada gratuita conmigo</a></div>
       <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
     </div>
   </div>
@@ -1228,7 +1269,7 @@ footer img{height:30px;width:auto}
 </section>
 
 <!-- PRUEBA -->
-<section class="prueba" aria-labelledby="t-prueba">
+<section class="prueba" id="testimonios" aria-labelledby="t-prueba">
   <div class="wrap">
     <p class="puente" data-aparece>¿Le funcionó a alguien que estaba donde estás hoy?</p>
     <h2 id="t-prueba" data-aparece>Ellos ya cruzaron</h2>
@@ -1431,7 +1472,7 @@ footer img{height:30px;width:auto}
 </section>
 
 <!-- PREGUNTAS -->
-<section class="faq" aria-labelledby="t-faq">
+<section class="faq" id="preguntas" aria-labelledby="t-faq">
   <div class="wrap">
     <div class="faq-cab">
       <p class="puente">Lo que más preguntan antes de empezar.</p>
@@ -1481,6 +1522,7 @@ footer img{height:30px;width:auto}
 </footer>
 
 <div class="fija" aria-hidden="true"><a class="btn" href="#reservar" data-cta="barra-celular" tabindex="-1">Reservar 20 minutos con Ema</a></div>
+<div class="menu-prop" role="group" aria-label="Probar color del menú"><span>Menú</span><button type="button" data-m="1" aria-pressed="true" aria-label="Menú terracota">1</button><button type="button" data-m="2" aria-pressed="false" aria-label="Menú azul">2</button><button type="button" data-m="3" aria-pressed="false" aria-label="Menú grafito">3</button></div>
 <a class="wa-flotante" href="https://wa.me/393778479886?text=Hola%20Ema%21%20Vengo%20de%20la%20web.%20Me%20gustar%C3%ADa%20tener%20m%C3%A1s%20informaci%C3%B3n%21" target="_blank" rel="noopener" data-cta="whatsapp-flotante" aria-label="Escribir a Ema por WhatsApp (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-tip" aria-hidden="true">¿Dudas? Escribile a Ema</span></a>
 
 <script>
@@ -1646,6 +1688,22 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;visible?arrancar():parar();},{threshold:.4}).observe(g);}
     ir(0,false);
   });
+})();
+// Menu: seccion activa subrayada y selector de color (?menu=1|2|3)
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.top-nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  var rq=null;function espiar(){rq=null;var y=innerHeight*.45,act=-1;
+    secs.forEach(function(s,k){if(!s)return;var r=s.getBoundingClientRect();if(r.top<=y&&r.bottom>y)act=k;});
+    links.forEach(function(a,k){a.classList.toggle('activo',k===act);});}
+  if(links.length){addEventListener('scroll',function(){if(!rq)rq=requestAnimationFrame(espiar);},{passive:true});addEventListener('resize',espiar);espiar();}
+  var sel=document.querySelector('.menu-prop');if(!sel)return;
+  var bs=[].slice.call(sel.querySelectorAll('button'));
+  function poner(m){if(m==='1')document.documentElement.removeAttribute('data-menu');else document.documentElement.setAttribute('data-menu',m);
+    bs.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-m')===m?'true':'false');});}
+  var ini=document.documentElement.getAttribute('data-menu')||'1';poner(ini);
+  bs.forEach(function(b){b.addEventListener('click',function(){var m=b.getAttribute('data-m');poner(m);
+    try{var u=new URL(location.href);if(m==='1')u.searchParams.delete('menu');else u.searchParams.set('menu',m);history.replaceState(null,'',u);}catch(e){}});});
 })();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
