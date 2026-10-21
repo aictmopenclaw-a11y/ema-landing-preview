@@ -82,7 +82,9 @@ p{max-width:62ch}
 .btn-h:active{transform:none;box-shadow:none}
 .hero .sin-miedo{font-size:15px;margin-top:12px}
 /* Panel azul: la frase vive dentro del circulo y escala con el */
-.panel{position:relative;overflow:hidden;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;padding:36px 20px;margin:36px calc(-1*var(--m)) 0}
+.panel{position:relative;overflow:hidden;background:var(--azul);color:#fff;display:flex;align-items:center;justify-content:center;padding:36px 20px;margin:36px calc(-1*var(--m)) 0;border-radius:0 0 32px 32px}
+.bajar{display:none}
+.vacio{padding-top:64px}
 .circulo{position:relative;width:min(100%,560px);aspect-ratio:1;display:grid;place-items:center;container-type:inline-size;isolation:isolate}
 .respira{position:absolute;inset:0;z-index:-1;display:grid;place-items:center;pointer-events:none}
 .respira > *{grid-area:1/1}
@@ -133,6 +135,92 @@ p{max-width:62ch}
 .carrusel figcaption{font-size:15px;color:var(--tinta-2);margin-top:12px}
 .carrusel .ejemplo{align-self:flex-start}
 
+
+/* Revision de propuestas: barra flotante y carril horizontal */
+.propuestas{position:relative}
+.prop-barra{position:sticky;top:72px;z-index:18;height:0;display:flex;justify-content:center;pointer-events:none}
+.prop-barra-in{pointer-events:auto;transform:translateY(14px);display:inline-flex;align-items:center;gap:8px;background:rgba(37,44,53,.93);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:#fff;border-radius:999px;padding:6px 6px 6px 16px;box-shadow:0 14px 34px -14px rgba(0,0,0,.55);font-size:13px;white-space:nowrap}
+.prop-etq{margin-right:6px}
+.prop-etq b{font-weight:700}
+.prop-nombre{color:#C9D1E6}
+.prop-flecha{width:34px;height:34px;flex:none;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;cursor:pointer;transition:background-color .2s}
+.prop-flecha:hover{background:rgba(255,255,255,.24)}
+.prop-tabs{display:flex;gap:2px}
+.prop-tabs button{width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background-color .2s,color .2s}
+.prop-tabs button[aria-selected=true]{background:var(--papel);color:var(--tinta)}
+.prop-vista{overflow:hidden;transition:height .5s var(--ease)}
+.prop-pista{display:flex;align-items:flex-start;transition:transform .65s var(--ease)}
+.prop-slide{flex:0 0 100%;min-width:0}
+@media (max-width:420px){.prop-nombre{display:none}}
+
+/* Efecto Isla · mapa aparte y mapa en tarjeta clara */
+.isla-aparte{background:var(--papel);padding:72px 0}
+.isla-aparte .isla-centro{margin-top:0}
+.isla-aparte .hilo{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.2vw,38px);line-height:1.25;color:var(--terra-osc)}
+.mapa-dia.mapa-claro{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid var(--borde);box-shadow:0 30px 60px -40px rgba(27,47,99,.55)}
+.mapa-dia.mapa-claro .etiqueta{color:var(--tinta-2)}
+.mapa-dia.mapa-claro .conmutador{background:var(--papel-2)}
+.mapa-dia.mapa-claro .conmutador button{color:var(--tinta-2)}
+.mapa-dia.mapa-claro .conmutador button:hover{color:var(--azul)}
+.mapa-dia.mapa-claro .conmutador button[aria-pressed=true]{background:var(--azul);color:#fff}
+.mapa-dia.mapa-claro .islita{background:var(--azul);box-shadow:0 6px 16px -8px rgba(27,47,99,.6)}
+.mapa-dia.mapa-claro .horas,.mapa-dia.mapa-claro .leyenda{color:var(--tinta-2)}
+.mapa-dia.mapa-claro .mapa-nota{color:var(--azul)}
+.mapa-dia.mapa-claro .leyenda span:first-child i{background:var(--azul)!important}
+/* Efecto Isla · foto partida */
+.isla-partida{padding-top:0;background:var(--azul)}
+.partida{display:grid}
+.partida-foto{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden}
+.partida-foto img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.partida-texto{padding:40px var(--m) 0}
+.partida-der{margin-top:28px}
+
+/* Es para vos · tarjetas */
+.para-b{background:var(--papel-2)}
+.para-b-cab{text-align:center;margin-bottom:32px}
+.para-b-cab .puente{margin-left:auto;margin-right:auto}
+.para-b h2{font-size:clamp(30px,4vw,50px);margin:0 auto}
+.para-b-grid{display:grid;gap:18px;max-width:1180px;margin:0 auto}
+.pb-card{border-radius:24px;padding:28px 24px}
+.pb-si{background:#fff;border-top:5px solid var(--verde);box-shadow:0 26px 50px -38px rgba(27,47,99,.5)}
+.pb-no{background:transparent;border:1.5px dashed #C2C8B8}
+.pb-card h3{display:flex;align-items:center;gap:12px;font-size:24px}
+.pb-ico{width:40px;height:40px;flex:none;border-radius:50%;display:grid;place-items:center}
+.pb-si .pb-ico{background:var(--verde);color:#fff}
+.pb-no .pb-ico{background:#EADBD5;color:var(--terra-osc)}
+.pb-card ul{list-style:none;margin-top:18px}
+.pb-card li{position:relative;padding:13px 0 13px 34px;border-top:1px solid var(--borde);font-size:17px;line-height:1.5}
+.pb-si li::before{content:"";position:absolute;left:4px;top:20px;width:13px;height:7px;border-left:2.5px solid var(--verde);border-bottom:2.5px solid var(--verde);transform:rotate(-45deg)}
+.pb-no li{color:var(--tinta-2)}
+.pb-no li::before{content:"";position:absolute;left:4px;top:25px;width:13px;height:2.5px;border-radius:2px;background:#C29A8D}
+
+/* Es para vos · checklist */
+.para-c{background:var(--verde-osc);color:#fff}
+.para-c .puente{color:#E8EFDC}
+.para-c h2{color:#fff;font-size:clamp(28px,3.6vw,46px);max-width:16ch}
+.para-c-sub{margin-top:14px;color:#E8EFDC;font-size:18px}
+.para-c-no{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.22)}
+.para-c-no .etiqueta{color:#DCE4D0}
+.para-c-no ul{list-style:none;margin-top:8px}
+.para-c-no li{position:relative;padding:6px 0 6px 22px;font-size:15px;line-height:1.5;color:#DCE4D0}
+.para-c-no li::before{content:"";position:absolute;left:0;top:17px;width:10px;height:2px;background:#DCE4D0}
+.para-c-grid{display:grid;gap:32px}
+.para-c-lista{display:grid;gap:10px}
+.pc-item{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;color:#fff;font:inherit;font-size:18px;line-height:1.4;cursor:pointer;transition:background-color .25s,border-color .25s,color .25s,transform .25s var(--ease)}
+.pc-item:hover{background:rgba(255,255,255,.14)}
+.pc-item:active{transform:scale(.99)}
+.pc-item[aria-pressed=true]{background:var(--papel);border-color:var(--papel);color:var(--tinta)}
+.pc-caja{flex:none;width:26px;height:26px;border-radius:8px;border:2px solid rgba(255,255,255,.7);display:grid;place-items:center;color:#fff;transition:background-color .25s,border-color .25s}
+.pc-caja svg{opacity:0;transform:scale(.4);transition:opacity .25s,transform .3s var(--ease)}
+.pc-item[aria-pressed=true] .pc-caja{background:var(--verde-osc);border-color:var(--verde-osc)}
+.pc-item[aria-pressed=true] .pc-caja svg{opacity:1;transform:none}
+.pc-resultado{margin-top:8px;padding:20px;border-radius:18px;background:rgba(0,0,0,.16)}
+.pc-medidor{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.pc-medidor i{height:6px;border-radius:999px;background:rgba(255,255,255,.22);transition:background-color .35s}
+.pc-medidor i.on{background:var(--terra-claro)}
+.pc-msg{margin-top:12px;font-family:var(--display);font-style:italic;font-size:20px;color:#fff;min-height:1.5em}
+.pc-cta{margin-top:14px;width:100%}
+
 /* Reserva sobre foto a pantalla completa */
 .reservar{position:relative;overflow:hidden;isolation:isolate;color:#fff}
 .isla{position:relative;overflow:hidden;isolation:isolate}
@@ -148,12 +236,6 @@ p{max-width:62ch}
 .reservar .cal{border:0;color:var(--tinta);box-shadow:0 34px 70px -34px rgba(0,0,0,.7)}
 .foto-nota{position:absolute;right:12px;bottom:12px;font-size:12px;font-weight:700;color:var(--tinta);background:rgba(247,248,245,.85);padding:2px 9px;border-radius:999px}
 
-/* Banda de cifras que suben al aparecer */
-.cifras{display:grid;grid-template-columns:1fr 1fr;gap:28px 16px;margin-top:48px;padding:30px 20px;background:var(--papel-2);border-radius:24px;text-align:center}
-.cifra b{display:block;font-family:var(--cond);font-weight:400;font-size:clamp(50px,13vw,76px);line-height:1;color:var(--azul);letter-spacing:.01em;font-variant-numeric:tabular-nums}
-.cifra span{display:block;margin:8px auto 0;font-size:15px;line-height:1.4;color:var(--tinta-2);max-width:18ch}
-.cifra.pend b{color:#A9B0B9}
-.cifra .pendiente{margin-top:8px;font-size:12px}
 .cal{background:#fff;border-radius:24px;padding:22px;border:1px solid var(--borde)}
 .cal-cab{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-bottom:16px;border-bottom:1px solid var(--borde)}
 .cal-cab img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:50% 14%;background:var(--papel-2)}
@@ -361,7 +443,9 @@ section{padding:72px 0;scroll-margin-top:72px}
 .calendario p{font-size:16px;color:var(--tinta-2)}
 
 .faq h2{font-size:clamp(28px,4vw,44px)}
-.lista-faq{display:grid;gap:12px}
+.faq-cab{margin-bottom:28px}
+.lista-faq{display:grid;gap:12px;align-items:start}
+.faq-col{display:grid;gap:12px;align-content:start}
 .faq details{background:#fff;border:1px solid var(--borde);border-radius:18px;overflow:hidden;transition:border-color .3s,box-shadow .3s}
 .faq details:hover{border-color:#C9CFBF}
 .faq details[open]{border-color:var(--azul);box-shadow:0 18px 40px -28px rgba(27,47,99,.45)}
@@ -399,6 +483,8 @@ footer img{height:30px;width:auto}
   .js .in .momentos li{opacity:1;transform:none}
   .js .revela.lista .palabra{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);animation:palabra .8s var(--ease) forwards;animation-delay:calc(var(--d,0ms) + var(--i)*55ms)}
   @keyframes palabra{to{opacity:1;transform:none;filter:blur(0)}}
+  .bajar-linea i{animation:caer 2.4s var(--ease) infinite}
+  @keyframes caer{from{transform:translateY(-110%)}to{transform:translateY(260%)}}
   .respira .anillo{animation:respirar 9s ease-in-out infinite}
   .respira .anillo.chico{animation-delay:-.7s}
   .respira .arco{animation:girar 48s linear infinite}
@@ -447,25 +533,33 @@ footer img{height:30px;width:auto}
   .planes{grid-template-columns:1fr 1fr;gap:24px}
   .plan{padding:34px}
   .reservar .caja{grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-  .cifras{grid-template-columns:repeat(4,1fr);padding:40px 28px}
-  .faq .cols{display:grid;grid-template-columns:4fr 8fr;gap:56px}
+  .lista-faq{grid-template-columns:1fr 1fr;gap:16px}
+  .faq-cab{margin-bottom:36px}
+  .para-b-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .pb-card{padding:40px}
+  .isla-aparte{padding:96px 0}
   .fija{display:none}
   footer{padding-bottom:40px}
   footer .wrap{grid-template-columns:auto 1fr;align-items:center;gap:28px}
 }
 @media (min-width:1024px){
-  :root{--ancho:1440px;--m:48px}
+  :root{--ancho:1760px;--m:48px}
   .top .wrap{height:84px}
   .top img{height:56px}
   body{font-size:19px}
   section{padding:96px 0}
   .hero{padding:0}
   .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;max-width:none;padding:0;min-height:min(calc(100svh - 84px),820px)}
-  .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - 1440px)/2 + 48px))}
+  .hero .texto{align-self:center;padding:64px 48px 64px max(48px,calc((100vw - var(--ancho))/2 + 48px))}
   .hero h1{font-size:clamp(68px,6.8vw,116px)}
   .hero .sub{font-size:clamp(21px,1.6vw,25px);margin-top:26px}
   .hero .accion{margin-top:36px}
-  .panel{margin:0;padding:56px 40px;min-height:100%;border-radius:0}
+  .panel{margin:0;padding:56px 40px;min-height:100%;border-radius:0 0 0 64px}
+  .bajar{display:inline-flex;align-items:center;gap:14px;margin-top:40px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-2);text-decoration:none}
+  .bajar:hover{color:var(--azul)}
+  .bajar-linea{position:relative;width:2px;height:44px;border-radius:2px;background:var(--borde);overflow:hidden}
+  .bajar-linea i{position:absolute;left:0;top:0;width:100%;height:40%;background:var(--terra)}
+  .vacio{padding-top:88px}
   .circulo{width:min(100%,600px)}
   .dia{margin-top:0}
   .vacio-grid{gap:72px}
@@ -474,6 +568,11 @@ footer img{height:30px;width:auto}
   .f-vacio{margin-top:32px}
   .senal{font-size:19px}
   .isla-grid{gap:64px}
+  .prop-barra{top:94px}
+  .partida{grid-template-columns:1fr 1fr;min-height:640px}
+  .partida-foto{aspect-ratio:auto}
+  .partida-texto{align-self:center;padding:80px var(--m) 40px 64px}
+  .para-c-grid{grid-template-columns:5fr 7fr;gap:64px;align-items:start}
   .def-grid{gap:64px}
   .isla h2,.quien h2,.precio h2{font-size:clamp(40px,3.8vw,60px)}
   .metodo h2{font-size:clamp(38px,3.6vw,56px)}
@@ -493,7 +592,7 @@ footer img{height:30px;width:auto}
 }
 @media (min-width:1600px){
   :root{--m:72px}
-  .hero .texto{padding:64px 72px 64px max(72px,calc((100vw - 1440px)/2 + 72px))}
+  .hero .texto{padding:64px 72px 64px max(72px,calc((100vw - var(--ancho))/2 + 72px))}
 }
 </style>
 </head>
@@ -522,6 +621,7 @@ footer img{height:30px;width:auto}
         <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
         <a class="alt" href="https://ig.me/m/emachingolani" data-cta="hero-dm">¿Prefieres escribir? Manda ORIGEN por Instagram</a>
       </div>
+      <a class="bajar" href="#sigue"><span class="bajar-linea" aria-hidden="true"><i></i></span>Seguí bajando</a>
     </div>
     <div class="panel">
       <div class="circulo">
@@ -537,11 +637,10 @@ footer img{height:30px;width:auto}
       </div>
     </div>
   </div>
-  <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#8394C2" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round"/></svg>
 </section>
 
 <!-- EL VACIO -->
-<section class="vacio" aria-labelledby="t-vacio" style="padding-top:44px">
+<section class="vacio" id="sigue" aria-labelledby="t-vacio">
   <div class="wrap">
     <p class="puente" data-aparece>¿Te suena familiar?</p>
     <div class="vacio-grid">
@@ -564,14 +663,23 @@ footer img{height:30px;width:auto}
   </div>
 </section>
 
-<!-- EFECTO ISLA -->
-<section class="isla claro" aria-labelledby="t-isla">
+<!-- EFECTO ISLA · 3 PROPUESTAS -->
+<div class="propuestas" data-propuestas="isla" role="region" aria-label="Propuestas de diseño: Efecto Isla">
+  <div class="prop-barra"><div class="prop-barra-in">
+    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Inmersiva</span></span>
+    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
+    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Inmersiva">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Mapa aparte">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Foto partida">3</button></div>
+    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div></div>
+  <div class="prop-vista"><div class="prop-pista">
+<div class="prop-slide" role="tabpanel" data-nombre="Inmersiva">
+<section class="isla claro" aria-labelledby="t-isla-1">
   <div class="isla-fondo" aria-hidden="true"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="100vw" alt="" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></div>
   <div class="wrap">
     <p class="puente" data-aparece>Y lo intentaste más de una vez.</p>
     <div class="isla-grid">
       <div class="isla-izq" data-aparece>
-        <h2 id="t-isla">Por qué nada de lo que probaste te duró</h2>
+        <h2 id="t-isla-1">Por qué nada de lo que probaste te duró</h2>
         <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
         <p>La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
       </div>
@@ -582,7 +690,7 @@ footer img{height:30px;width:auto}
     </div>
     <div class="isla-centro" data-aparece>
         <p class="hilo">Lo que te falta es <span class="trazo">un hilo<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></span>.</p>
-        <div class="mapa-dia" id="mapa-dia">
+        <div class="mapa-dia">
           <div class="mapa-cab">
             <p class="etiqueta">Tu día, de 7:00 a 23:00</p>
             <div class="conmutador" role="group" aria-label="Elegí cómo ver el día">
@@ -604,12 +712,115 @@ footer img{height:30px;width:auto}
             <span class="ancla" style="--x:85%;--i:5"></span>
           </div>
           <div class="horas" aria-hidden="true"><span>7:00</span><span>15:00</span><span>23:00</span></div>
-          <p class="mapa-nota" id="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
+          <p class="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
           <div class="leyenda" aria-hidden="true"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span class="anc"><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
         </div>
     </div>
   </div>
 </section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Mapa aparte">
+<section class="isla claro" aria-labelledby="t-isla-2">
+  <div class="isla-fondo" aria-hidden="true"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="100vw" alt="" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></div>
+  <div class="wrap">
+    <p class="puente" data-aparece>Y lo intentaste más de una vez.</p>
+    <div class="isla-grid">
+      <div class="isla-izq" data-aparece>
+        <h2 id="t-isla-2">Por qué nada de lo que probaste te duró</h2>
+        <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
+        <p>La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
+      </div>
+      <div class="isla-der" data-aparece>
+        <p class="grande">Es el Efecto Isla. Islas de calma repartidas en la semana, y entre isla e isla, catorce horas a la deriva. No te falta saber calmarte. Te falta lo que une una isla con la otra.</p>
+        <p class="nota">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="isla-aparte" aria-label="Tu día con Puntos de Anclaje">
+  <div class="wrap">
+    <div class="isla-centro" data-aparece>
+        <p class="hilo">Lo que te falta es <span class="trazo">un hilo<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></span>.</p>
+        <div class="mapa-dia mapa-claro">
+          <div class="mapa-cab">
+            <p class="etiqueta">Tu día, de 7:00 a 23:00</p>
+            <div class="conmutador" role="group" aria-label="Elegí cómo ver el día">
+              <button type="button" data-modo="hoy" aria-pressed="true">Hoy</button>
+              <button type="button" data-modo="anclado" aria-pressed="false">Con Puntos de Anclaje</button>
+            </div>
+          </div>
+          <div class="pista" role="img" aria-label="Línea del día con tres islas de calma. Al activar los Puntos de Anclaje aparecen seis pausas cortas y un hilo continuo que une las islas.">
+            <span class="deriva"></span>
+            <span class="hilo-linea"></span>
+            <span class="islita" style="--x:0%"></span>
+            <span class="islita grande" style="--x:50%"></span>
+            <span class="islita" style="--x:100%"></span>
+            <span class="ancla" style="--x:15%;--i:0"></span>
+            <span class="ancla" style="--x:27%;--i:1"></span>
+            <span class="ancla" style="--x:39%;--i:2"></span>
+            <span class="ancla" style="--x:61%;--i:3"></span>
+            <span class="ancla" style="--x:73%;--i:4"></span>
+            <span class="ancla" style="--x:85%;--i:5"></span>
+          </div>
+          <div class="horas" aria-hidden="true"><span>7:00</span><span>15:00</span><span>23:00</span></div>
+          <p class="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
+          <div class="leyenda" aria-hidden="true"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span class="anc"><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Foto partida">
+<section class="isla isla-partida claro" aria-labelledby="t-isla-3">
+  <div class="partida">
+    <figure class="partida-foto"><img src="img/temp-islas-mar.webp" srcset="img/temp-islas-mar-640.webp 640w, img/temp-islas-mar-1000.webp 1000w, img/temp-islas-mar.webp 1600w" sizes="(min-width:1024px) 50vw, 100vw" alt="Islas a lo lejos sobre un mar en calma" width="1600" height="1000" loading="lazy"><span class="foto-nota">Foto temporal</span></figure>
+    <div class="partida-texto">
+      <p class="puente" data-aparece>Y lo intentaste más de una vez.</p>
+      <div class="isla-izq" data-aparece>
+        <h2 id="t-isla-3">Por qué nada de lo que probaste te duró</h2>
+        <p>Meditación, libros, retiros, terapia, coaches. No fallaste: te sirvió mientras duró.</p>
+        <p>La calma de la mañana se esfumaba a las nueve. La del retiro, a los diez días.</p>
+      </div>
+      <div class="isla-der partida-der" data-aparece>
+        <p class="grande">Es el Efecto Isla. Islas de calma repartidas en la semana, y entre isla e isla, catorce horas a la deriva. No te falta saber calmarte. Te falta lo que une una isla con la otra.</p>
+        <p class="nota">Y no, no es falta de disciplina. Te sobra: mirá todo lo que construiste. Solo que la usaste entera para rendir.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="isla-centro" data-aparece>
+        <p class="hilo">Lo que te falta es <span class="trazo">un hilo<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 60 2, 140 12, 198 5" pathLength="300"/></svg></span>.</p>
+        <div class="mapa-dia mapa-claro">
+          <div class="mapa-cab">
+            <p class="etiqueta">Tu día, de 7:00 a 23:00</p>
+            <div class="conmutador" role="group" aria-label="Elegí cómo ver el día">
+              <button type="button" data-modo="hoy" aria-pressed="true">Hoy</button>
+              <button type="button" data-modo="anclado" aria-pressed="false">Con Puntos de Anclaje</button>
+            </div>
+          </div>
+          <div class="pista" role="img" aria-label="Línea del día con tres islas de calma. Al activar los Puntos de Anclaje aparecen seis pausas cortas y un hilo continuo que une las islas.">
+            <span class="deriva"></span>
+            <span class="hilo-linea"></span>
+            <span class="islita" style="--x:0%"></span>
+            <span class="islita grande" style="--x:50%"></span>
+            <span class="islita" style="--x:100%"></span>
+            <span class="ancla" style="--x:15%;--i:0"></span>
+            <span class="ancla" style="--x:27%;--i:1"></span>
+            <span class="ancla" style="--x:39%;--i:2"></span>
+            <span class="ancla" style="--x:61%;--i:3"></span>
+            <span class="ancla" style="--x:73%;--i:4"></span>
+            <span class="ancla" style="--x:85%;--i:5"></span>
+          </div>
+          <div class="horas" aria-hidden="true"><span>7:00</span><span>15:00</span><span>23:00</span></div>
+          <p class="mapa-nota" aria-live="polite">Tres islas de calma. Entre una y otra, horas a la deriva.</p>
+          <div class="leyenda" aria-hidden="true"><span><i style="background:#F7F8F5"></i>Islas de calma</span><span><i style="border:2px solid #8394C2"></i>A la deriva</span><span class="anc"><i style="background:#BC5436"></i>Puntos de Anclaje</span></div>
+        </div>
+    </div>
+  </div>
+</section>
+</div>
+  </div></div>
+</div>
 
 <!-- METODO -->
 <section class="metodo" id="metodo" aria-labelledby="t-metodo">
@@ -674,6 +885,29 @@ footer img{height:30px;width:auto}
   </div>
 </section>
 
+<!-- QUIEN SOY -->
+<section class="quien" id="quien" aria-labelledby="t-quien">
+  <div class="wrap">
+    <p class="puente" data-aparece>Quién está detrás del método.</p>
+    <div class="cols">
+      <a class="video" href="#" data-cta="video-ema" aria-label="Ver el video de Ema (pendiente de grabación)" data-aparece>
+        <img src="img/ema-camara.webp" alt="Ema hablando a cámara" width="400" height="720" loading="lazy">
+        <span class="play"><i aria-hidden="true"><svg width="12" height="14" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i>Video de Ema (pendiente)</span>
+      </a>
+      <div data-aparece>
+        <h2 id="t-quien">Quién soy: Ema Chingolani</h2>
+        <p class="fuerte">Jugué al fútbol hasta los 28. Si metía goles, me amaban. Si erraba, era el peor.</p>
+        <p>Cuando se terminó, no sabía quién era sin la camiseta. Llegaron la ansiedad, la soledad, la depresión. Y un cuerpo que, después de cuatro operaciones, dijo basta.</p>
+        <p>Armé esta metodología para salir de ahí. Hoy la enseño mientras recorro el mundo buscando formas cada vez más simples de aplicarla.</p>
+        <div class="accion">
+          <a class="btn" href="#reservar" data-cta="quien">Reservar 20 minutos con Ema</a>
+          <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PRUEBA -->
 <section class="prueba" aria-labelledby="t-prueba">
   <div class="wrap">
@@ -707,42 +941,22 @@ footer img{height:30px;width:auto}
   </div>
 </section>
 
-<!-- QUIEN SOY -->
-<section class="quien" id="quien" aria-labelledby="t-quien" style="padding-top:20px">
-  <div class="wrap">
-    <p class="puente" data-aparece>Quién está detrás del método.</p>
-    <div class="cols">
-      <a class="video" href="#" data-cta="video-ema" aria-label="Ver el video de Ema (pendiente de grabación)" data-aparece>
-        <img src="img/ema-camara.webp" alt="Ema hablando a cámara" width="400" height="720" loading="lazy">
-        <span class="play"><i aria-hidden="true"><svg width="12" height="14" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i>Video de Ema (pendiente)</span>
-      </a>
-      <div data-aparece>
-        <h2 id="t-quien">Quién soy: Ema Chingolani</h2>
-        <p class="fuerte">Jugué al fútbol hasta los 28. Si metía goles, me amaban. Si erraba, era el peor.</p>
-        <p>Cuando se terminó, no sabía quién era sin la camiseta. Llegaron la ansiedad, la soledad, la depresión. Y un cuerpo que, después de cuatro operaciones, dijo basta.</p>
-        <p>Armé esta metodología para salir de ahí. Hoy la enseño mientras recorro el mundo buscando formas cada vez más simples de aplicarla.</p>
-        <div class="accion">
-          <a class="btn" href="#reservar" data-cta="quien">Reservar 20 minutos con Ema</a>
-          <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
-        </div>
-      </div>
-    </div>
-    <div class="cifras" data-aparece>
-      <div class="cifra" data-to="8000" data-prefix="+"><b data-valor>+8.000</b><span>personas siguen a Ema en Instagram</span></div>
-      <div class="cifra" data-to="6"><b data-valor>6</b><span>meses para que la calma se instale</span></div>
-      <div class="cifra pend"><b>—</b><span>alumnos acompañados</span><em class="pendiente">Pendiente de Ema</em></div>
-      <div class="cifra pend"><b>—</b><span>países donde enseñó</span><em class="pendiente">Pendiente de Ema</em></div>
-    </div>
-  </div>
-</section>
-
-<!-- PARA QUIEN -->
-<section class="para claro" aria-labelledby="t-para">
+<!-- PARA QUIEN · 3 PROPUESTAS -->
+<div class="propuestas" data-propuestas="para" role="region" aria-label="Propuestas de diseño: Es para vos">
+  <div class="prop-barra"><div class="prop-barra-in">
+    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Terracota</span></span>
+    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
+    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Terracota">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Tarjetas">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Checklist">3</button></div>
+    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div></div>
+  <div class="prop-vista"><div class="prop-pista">
+<div class="prop-slide" role="tabpanel" data-nombre="Terracota">
+<section class="para claro" aria-labelledby="t-para-1">
   <div class="wrap">
     <p class="puente" data-aparece>Antes del precio, para quién es (y para quién no).</p>
     <div class="cols" data-aparece>
       <div>
-        <h2 id="t-para">Es para vos si</h2>
+        <h2 id="t-para-1">Es para vos si</h2>
         <ul>
           <li>Tu vida funciona, pero no la disfrutás.</li>
           <li>Probaste de todo y nada te duró.</li>
@@ -762,6 +976,43 @@ footer img{height:30px;width:auto}
     </div>
   </div>
 </section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Tarjetas">
+<section class="para-b" aria-labelledby="t-para-2">
+  <div class="wrap">
+    <div class="para-b-cab" data-aparece>
+      <p class="puente">Antes del precio, para quién es (y para quién no).</p>
+      <h2 id="t-para-2">¿Es para vos?</h2>
+    </div>
+    <div class="para-b-grid" data-aparece>
+      <div class="pb-card pb-si"><h3><span class="pb-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"/></svg></span>Es para vos si</h3><ul><li>Tu vida funciona, pero no la disfrutás.</li><li>Probaste de todo y nada te duró.</li><li>Querés dejar de darle al afuera el control de cómo te sentís.</li><li>Te comprometés con seis meses de trabajo real.</li></ul></div>
+      <div class="pb-card pb-no"><h3><span class="pb-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span>No es para vos si</h3><ul><li>Buscás una solución mágica y rápida.</li><li>Vas a hacerlo a medias y esperar resultados igual.</li><li>Esperás que alguien haga el trabajo por vos.</li><li>Necesitás un médico o un terapeuta antes que un mentor. Si es así, te lo digo en la llamada y te oriento.</li></ul></div>
+    </div>
+  </div>
+</section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Checklist">
+<section class="para-c claro" aria-labelledby="t-para-3">
+  <div class="wrap para-c-grid">
+    <div class="para-c-cab" data-aparece>
+      <p class="puente">Antes del precio, para quién es (y para quién no).</p>
+      <h2 id="t-para-3">¿Es para vos? Marcá lo que te pasa.</h2>
+      <p class="para-c-sub">Si te reconocés en tres o más, vale la pena que hablemos.</p>
+      <div class="para-c-no"><p class="etiqueta">No es para vos si</p><ul><li>Buscás una solución mágica y rápida.</li><li>Vas a hacerlo a medias y esperar resultados igual.</li><li>Esperás que alguien haga el trabajo por vos.</li><li>Necesitás un médico o un terapeuta antes que un mentor. Si es así, te lo digo en la llamada y te oriento.</li></ul></div>
+    </div>
+    <div class="para-c-lista" data-aparece>
+      <button type="button" class="pc-item" aria-pressed="false"><span class="pc-caja" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"/></svg></span><span>Tu vida funciona, pero no la disfrutás.</span></button><button type="button" class="pc-item" aria-pressed="false"><span class="pc-caja" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"/></svg></span><span>Probaste de todo y nada te duró.</span></button><button type="button" class="pc-item" aria-pressed="false"><span class="pc-caja" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"/></svg></span><span>Querés dejar de darle al afuera el control de cómo te sentís.</span></button><button type="button" class="pc-item" aria-pressed="false"><span class="pc-caja" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 12.5 10 17 19 7"/></svg></span><span>Te comprometés con seis meses de trabajo real.</span></button>
+      <div class="pc-resultado">
+        <div class="pc-medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <p class="pc-msg" aria-live="polite">Marcá las que te suenan.</p>
+        <a class="btn claro pc-cta" href="#reservar" data-cta="para-checklist">Reservar 20 minutos con Ema</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+  </div></div>
+</div>
 
 <!-- PRECIO -->
 <section class="precio claro" id="precio" aria-labelledby="t-precio">
@@ -865,25 +1116,27 @@ footer img{height:30px;width:auto}
 </section>
 
 <!-- PREGUNTAS -->
-<section class="faq" aria-labelledby="t-faq" style="padding-top:20px">
-  <div class="wrap cols">
-    <div>
+<section class="faq" aria-labelledby="t-faq">
+  <div class="wrap">
+    <div class="faq-cab">
       <p class="puente">Lo que más preguntan antes de empezar.</p>
       <h2 id="t-faq">Preguntas frecuentes</h2>
     </div>
-    <div>
-      <div class="lista-faq">
-        <details open><summary>¿Esto es terapia?</summary><div class="resp"><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></div></details>
+    <div class="lista-faq">
+      <div class="faq-col">
+        <details><summary>¿Esto es terapia?</summary><div class="resp"><p>No. Es una mentoría de desarrollo personal; se diferencia de la psicoterapia y no tiene función diagnóstica ni clínica. Si lo que estás pasando necesita un médico o un terapeuta antes que un mentor, Ema te lo dice en la llamada y te orienta.</p></div></details>
         <details><summary>¿Cuánto tiempo por día necesito?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: una práctica principal de X minutos y anclajes de 1 a 2 minutos repartidos en el día.</p></div></details>
         <details><summary>¿Necesito experiencia previa en meditación?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span></p></div></details>
         <details><summary>¿Qué pasa si me pierdo una clase grupal?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: queda grabada en la plataforma.</p></div></details>
+      </div>
+      <div class="faq-col">
         <details><summary>¿Qué pasa en la llamada de 20 minutos?</summary><div class="resp"><p>Ema te pregunta qué te trajo, te cuenta cómo funciona cada formato y te dice con honestidad si es para ti. No hay que comprar nada en la llamada.</p></div></details>
         <details><summary>¿Y si una respiración me marea o me incomoda?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Es una de las preguntas que más aparece en los comentarios de Instagram.</p></div></details>
         <details><summary>¿Es todo online? ¿Desde qué país puedo hacerlo?</summary><div class="resp"><p><span class="pendiente">Pendiente de Ema</span> Por ejemplo: sí, desde cualquier país.</p></div></details>
         <details><summary>¿Cómo se paga?</summary><div class="resp"><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></div></details>
       </div>
-      <div class="accion"><a class="btn" href="#reservar" data-cta="faq">Reservar 20 minutos con Ema</a></div>
     </div>
+    <div class="accion"><a class="btn" href="#reservar" data-cta="faq">Reservar 20 minutos con Ema</a></div>
   </div>
 </section>
 
@@ -963,22 +1216,57 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     window.dataLayer&&dataLayer.push({event:'senal_marcada',total:n});
   });
 })();
-// Mapa del dia: hoy vs. con Puntos de Anclaje. Al entrar en pantalla, a los dos segundos se ancla solo.
+// Mapa del dia (puede haber varios, uno por propuesta): hoy vs. con Puntos de Anclaje; se ancla solo a los dos segundos de verse
 (function(){
-  var mapa=document.getElementById('mapa-dia');if(!mapa)return;
-  var nota=document.getElementById('mapa-nota'),botones=mapa.querySelectorAll('.conmutador button'),tocado=false;
   var textos={hoy:'Tres islas de calma. Entre una y otra, horas a la deriva.',anclado:'Las mismas islas. Ahora hay un hilo entre una y otra: la calma no se corta.'};
-  function modo(m,manual){
-    mapa.classList.toggle('anclado',m==='anclado');
-    botones.forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-modo')===m?'true':'false');});
-    nota.textContent=textos[m];
-    if(manual){tocado=true;window.dataLayer&&dataLayer.push({event:'mapa_modo',modo:m});}
-  }
-  botones.forEach(function(b){b.addEventListener('click',function(){modo(b.getAttribute('data-modo'),true);});});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){io.disconnect();setTimeout(function(){if(!tocado)modo('anclado');},2200);}});},{threshold:.5});
-    io.observe(mapa);
-  } else {modo('anclado');}
+  [].forEach.call(document.querySelectorAll('.mapa-dia'),function(mapa){
+    var nota=mapa.querySelector('.mapa-nota'),botones=mapa.querySelectorAll('.conmutador button'),tocado=false;
+    function modo(m,manual){mapa.classList.toggle('anclado',m==='anclado');
+      [].forEach.call(botones,function(b){b.setAttribute('aria-pressed',b.getAttribute('data-modo')===m?'true':'false');});
+      if(nota)nota.textContent=textos[m];
+      if(manual){tocado=true;window.dataLayer&&dataLayer.push({event:'mapa_modo',modo:m});}}
+    [].forEach.call(botones,function(b){b.addEventListener('click',function(){modo(b.getAttribute('data-modo'),true);});});
+    if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){io.disconnect();setTimeout(function(){if(!tocado)modo('anclado');},2200);}},{threshold:.5});io.observe(mapa);}
+    else modo('anclado');
+  });
+})();
+// Propuestas de diseno: carril horizontal con barra flotante, flechas, numeros y deslizamiento
+(function(){
+  [].forEach.call(document.querySelectorAll('[data-propuestas]'),function(w){
+    var vista=w.querySelector('.prop-vista'),pista=w.querySelector('.prop-pista'),slides=[].slice.call(pista.children),
+        tabs=[].slice.call(w.querySelectorAll('.prop-tabs button')),num=w.querySelector('[data-prop-num]'),nom=w.querySelector('[data-prop-nombre]'),i=0;
+    function alto(){vista.style.height=slides[i].offsetHeight+'px';}
+    function ir(n,manual){i=(n+slides.length)%slides.length;pista.style.transform='translateX('+(-100*i)+'%)';
+      slides.forEach(function(s,k){var on=k===i;s.setAttribute('aria-hidden',on?'false':'true');
+        if(on){s.removeAttribute('inert');if(manual)[].forEach.call(s.querySelectorAll('[data-aparece]'),function(x){x.classList.add('in');});}
+        else s.setAttribute('inert','');});
+      tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');});
+      num.textContent=(i+1)+' de '+slides.length;nom.textContent=' · '+slides[i].getAttribute('data-nombre');alto();
+      if(manual){window.dataLayer&&dataLayer.push({event:'propuesta_vista',bloque:w.getAttribute('data-propuestas'),propuesta:i+1});
+        var t=w.getBoundingClientRect().top;if(t<0)window.scrollTo({top:t+scrollY-70,behavior:'smooth'});}}
+    [].forEach.call(w.querySelectorAll('[data-prop-dir]'),function(b){b.addEventListener('click',function(){ir(i+parseInt(b.getAttribute('data-prop-dir'),10),true);});});
+    tabs.forEach(function(t,k){t.addEventListener('click',function(){ir(k,true);});});
+    var x0=0,y0=0,on=false;
+    vista.addEventListener('pointerdown',function(e){if(e.target.closest('button,a,input,select,textarea'))return;x0=e.clientX;y0=e.clientY;on=true;});
+    vista.addEventListener('pointerup',function(e){if(!on)return;on=false;var dx=e.clientX-x0,dy=e.clientY-y0;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.6)ir(i+(dx<0?1:-1),true);});
+    vista.addEventListener('pointercancel',function(){on=false;});
+    if('ResizeObserver' in window){var ro=new ResizeObserver(alto);slides.forEach(function(s){ro.observe(s);});}
+    addEventListener('resize',alto);addEventListener('load',alto);
+    var q=0;try{q=parseInt(new URLSearchParams(location.search).get(w.getAttribute('data-propuestas')),10)-1;}catch(e){}
+    ir(q>=0&&q<slides.length?q:0,false);
+  });
+})();
+// Es para vos (propuesta checklist): marcar lo que te pasa y ver el resultado
+(function(){
+  var t=['Marcá las que te suenan.','Una ya dice algo.','Dos. Vale la pena mirarlo de cerca.','Tres. Esto es para vos.','Las cuatro. Es para vos: hablemos.'];
+  [].forEach.call(document.querySelectorAll('.para-c-lista'),function(l){
+    var items=l.querySelectorAll('.pc-item'),barras=l.querySelectorAll('.pc-medidor i'),msg=l.querySelector('.pc-msg');
+    [].forEach.call(items,function(b){b.addEventListener('click',function(){
+      b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+      var n=l.querySelectorAll('.pc-item[aria-pressed="true"]').length;
+      [].forEach.call(barras,function(x,k){x.classList.toggle('on',k<n);});msg.textContent=t[n];
+      window.dataLayer&&dataLayer.push({event:'para_checklist',total:n});});});
+  });
 })();
 
 // Video del testimonio: portada propia; los controles nativos aparecen al reproducir
@@ -1011,15 +1299,6 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     if(d.open){cerrar(d);return;}
     ds.forEach(function(x){if(x!==d&&x.open)cerrar(x);});abrir(d);
     window.dataLayer&&dataLayer.push({event:'faq_abierta',pregunta:d.querySelector('summary').textContent});});});
-})();
-// Cifras que suben al aparecer (el HTML ya trae el valor final por si falla el script)
-(function(){
-  var els=document.querySelectorAll('.cifra[data-to]');if(!els.length||!('IntersectionObserver' in window))return;
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  [].forEach.call(els,function(el){var b=el.querySelector('[data-valor]'),to=parseFloat(el.getAttribute('data-to')),pre=el.getAttribute('data-prefix')||'';b.textContent=pre+'0';
-    var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;io.disconnect();var t0=null;
-      function paso(t){t0=t0||t;var k=Math.min((t-t0)/1600,1),e=1-Math.pow(1-k,3);b.textContent=pre+Math.round(e*to).toLocaleString('es-AR');if(k<1)requestAnimationFrame(paso);}
-      requestAnimationFrame(paso);},{threshold:.6});io.observe(el);});
 })();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
