@@ -474,6 +474,110 @@ footer img{height:30px;width:auto}
 .fija .btn{width:100%;box-shadow:0 8px 24px rgba(27,47,99,.28)}
 
 /* Movimiento: todo respeta "reducir movimiento" y nada queda oculto si falla el script */
+/* ===== ¿Te suena familiar? · 3 propuestas ===== */
+.propuestas{scroll-margin-top:84px}
+.senal-card{position:relative;display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;font:inherit;font-size:17px;line-height:1.45;cursor:pointer;border-radius:18px;padding:18px 16px;background:#fff;border:1px solid var(--borde);color:var(--tinta);box-shadow:0 14px 30px -26px rgba(27,47,99,.45);transition:background-color .3s,color .3s,border-color .3s,transform .3s var(--ease),box-shadow .3s}
+.senal-card:hover{transform:translateY(-3px);box-shadow:0 22px 40px -26px rgba(27,47,99,.5)}
+.sc-num{flex:none;min-width:30px;font-family:var(--cond);font-size:28px;line-height:1;color:var(--terra)}
+.sc-txt{flex:1}
+.sc-check{flex:none;width:24px;height:24px;border-radius:50%;border:2px solid #D5DACB;display:grid;place-items:center;color:#fff;transition:background-color .3s,border-color .3s}
+.sc-check svg{opacity:0;transform:scale(.4);transition:opacity .25s,transform .3s var(--ease)}
+.senal-card[aria-pressed=true]{background:var(--azul);border-color:var(--azul);color:#fff}
+.senal-card[aria-pressed=true] .sc-num{color:var(--terra-claro)}
+.senal-card[aria-pressed=true] .sc-check{background:var(--terra);border-color:var(--terra)}
+.senal-card[aria-pressed=true] .sc-check svg{opacity:1;transform:none}
+.sv-medidor{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+.sv-medidor i{height:6px;border-radius:999px;background:#D5DACB;transition:background-color .35s}
+.sv-medidor i.on{background:var(--terra)}
+/* 1 · foto a toda altura */
+.vacio.v1{position:relative;overflow:hidden;isolation:isolate;background:var(--papel-2);padding:64px 0 72px}
+.vacio.v1::before{content:"";position:absolute;z-index:-1;right:-14%;top:-18%;width:70vw;max-width:820px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(188,84,54,.17),rgba(188,84,54,0) 65%);pointer-events:none}
+.v1-grid{display:grid;gap:28px}
+.v1-foto{position:relative;margin:0;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:var(--azul-osc)}
+.v1-foto img{width:100%;height:100%;object-fit:cover;object-position:62% 72%;transform-origin:62% 70%}
+.v1-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,47,99,0) 35%,rgba(27,47,99,.82));opacity:calc(.4 + var(--n,0)*.15);transition:opacity .6s}
+.v1-foto figcaption{position:absolute;z-index:2;left:12px;top:12px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
+.v1-contador{position:absolute;z-index:2;left:22px;bottom:18px;display:flex;align-items:baseline;gap:10px;color:#fff}
+.v1-contador b{font-family:var(--cond);font-weight:400;font-size:68px;line-height:1}
+.v1-contador span{font-size:15px;color:#E3E8F4}
+.v1 h2{font-size:clamp(30px,4vw,56px);max-width:16ch}
+.v1 .lead{margin-top:18px;max-width:26ch}
+.v1 .instr{margin-top:28px}
+.v1-cards{display:grid;gap:12px;margin-top:10px}
+/* 2 · bento */
+.vacio.v2{background:var(--papel);padding:64px 0 72px}
+.v2-bento{display:grid;gap:14px}
+.v2-bento > *{position:relative;margin:0;border-radius:24px;overflow:hidden}
+.b-titulo{background:var(--azul);color:#fff;padding:32px 26px}
+.b-titulo::after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.14),rgba(255,255,255,0) 42%);pointer-events:none}
+.b-titulo .puente{color:var(--terra-claro)}
+.b-titulo h2{position:relative;color:#fff;font-size:clamp(32px,4.4vw,64px);line-height:1.05;max-width:13ch}
+.b-titulo h2 span{display:block;color:var(--terra-claro);font-style:italic;font-weight:500}
+.b-foto{aspect-ratio:16/10;background:var(--azul-osc)}
+.b-foto img{width:100%;height:100%;object-fit:cover;object-position:62% 72%}
+.b-foto figcaption{position:absolute;left:12px;bottom:12px;background:rgba(247,248,245,.92);color:var(--tinta);font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px}
+.b-lead{background:var(--terra);color:#fff;padding:26px 24px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.b-lead p{font-family:var(--display);font-size:22px;line-height:1.3;color:#fff;max-width:none}
+.b-lead .b-falta{font-style:italic;font-size:27px;color:#FCE6DD}
+.b-eco{background:var(--papel-2);padding:22px}
+.b-eco .eco{min-height:3em}
+.b-ayuda{margin-top:14px;font-size:16px;color:var(--tinta-2)}
+.marcado .b-ayuda{display:none}
+.v2 .b-senal{flex-direction:column;gap:12px;padding:22px 22px 24px;min-height:150px;overflow:visible}
+.v2 .b-senal .sc-check{position:absolute;right:16px;top:18px}
+/* 3 · por fuera / por dentro */
+.vacio.v3{padding:0;background:var(--azul-osc)}
+.v3-split{display:grid}
+.v3-fuera{background:var(--papel);padding:64px var(--m) 52px}
+.v3-dentro{position:relative;overflow:hidden;isolation:isolate;background:var(--azul-osc);color:#fff;padding:56px var(--m) 64px}
+.v3-fondo{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;object-position:62% 72%;opacity:.3;filter:saturate(.7)}
+.v3-dentro::before{content:"";position:absolute;inset:-25%;z-index:-1;background:radial-gradient(circle at 50% 45%,rgba(27,47,99,.15),rgba(27,47,99,.9) 62%)}
+.v3 h2{font-size:clamp(30px,4vw,56px);max-width:14ch}
+.v3-titulo{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,56px);line-height:1.12;letter-spacing:-.02em;color:#fff}
+.v3-titulo em{font-style:italic;font-weight:500;color:var(--terra-claro)}
+.v3-logros{list-style:none;margin-top:28px;display:grid;gap:12px;max-width:520px}
+.v3-logros li{display:flex;align-items:center;gap:14px;padding:14px 18px;font-size:19px;color:var(--tinta);background:#fff;border:1px solid var(--borde);border-radius:16px;box-shadow:0 14px 30px -26px rgba(27,47,99,.45)}
+.lg-ico{width:30px;height:30px;flex:none}
+.v3-nota{margin-top:24px;font-family:var(--display);font-style:italic;font-size:21px;color:var(--terra-osc)}
+.v3-dentro .etiqueta{margin-top:24px;color:#C9D1E6}
+.v3-senales{display:grid;margin-top:8px}
+.senal-linea{display:grid;grid-template-columns:22px 1fr;gap:14px;align-items:start;width:100%;text-align:left;background:none;border:0;border-top:1px solid rgba(255,255,255,.16);padding:16px 4px;font:inherit;font-size:18px;line-height:1.5;color:#E3E8F4;cursor:pointer;transition:color .3s}
+.senal-linea:hover{color:#fff}
+.senal-linea .punto{position:relative;width:22px;height:22px;margin-top:3px;border-radius:50%;border:2px solid var(--terra-claro)}
+.senal-linea .punto::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--terra-claro);transform:scale(0);transition:transform .35s var(--ease)}
+.senal-linea[aria-pressed=true]{color:#fff}
+.senal-linea[aria-pressed=true] .punto::after{transform:scale(1)}
+.v3 .sv-medidor i{background:rgba(255,255,255,.2)}
+.v3 .sv-medidor i.on{background:var(--terra-claro)}
+.v3 .eco{color:var(--terra-claro)}
+/* WhatsApp flotante */
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:31;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;text-decoration:none;box-shadow:0 12px 28px -10px rgba(0,0,0,.45);transition:transform .3s var(--ease),bottom .3s var(--ease)}
+.wa-flotante:hover{transform:scale(1.07)}
+.wa-flotante svg{width:30px;height:30px}
+.wa-tip{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(6px,-50%);white-space:nowrap;background:var(--tinta);color:#fff;font-size:14px;font-weight:700;padding:8px 12px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s var(--ease)}
+.wa-flotante:hover .wa-tip,.wa-flotante:focus-visible .wa-tip{opacity:1;transform:translate(0,-50%)}
+.fija.on ~ .wa-flotante{bottom:84px}
+@media (min-width:760px){
+  .wa-flotante{right:24px;bottom:24px;width:62px;height:62px}
+  .v1-cards{grid-template-columns:1fr 1fr}
+  .v2-bento{grid-template-columns:1fr 1fr}
+  .b-titulo,.b-foto{grid-column:1/-1}
+}
+@media (min-width:1024px){
+  .vacio.v1{padding:96px 0}
+  .v1-grid{grid-template-columns:5fr 7fr;gap:64px;align-items:stretch}
+  .v1-foto{aspect-ratio:auto;min-height:560px}
+  .vacio.v2{padding:96px 0}
+  .v2-bento{grid-template-columns:repeat(12,1fr)}
+  .b-titulo{grid-column:1/8;grid-row:1;padding:48px}
+  .b-foto{grid-column:8/13;grid-row:1/3;aspect-ratio:auto;min-height:420px}
+  .b-lead{grid-column:1/5;grid-row:2;padding:32px}
+  .b-eco{grid-column:5/8;grid-row:2;padding:28px}
+  .v2 .b-senal{grid-column:span 3;grid-row:3}
+  .v3-split{grid-template-columns:1fr 1fr;min-height:760px}
+  .v3-fuera{padding:110px 56px 96px max(var(--m),calc((100vw - var(--ancho))/2 + var(--m)))}
+  .v3-dentro{padding:110px max(var(--m),calc((100vw - var(--ancho))/2 + var(--m))) 96px 56px}
+}
 @media (prefers-reduced-motion:no-preference){
   .js [data-aparece]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .js [data-aparece].in{opacity:1;transform:none}
@@ -484,6 +588,22 @@ footer img{height:30px;width:auto}
   .js .revela.lista .palabra{display:inline-block;opacity:0;transform:translateY(.35em);filter:blur(6px);animation:palabra .8s var(--ease) forwards;animation-delay:calc(var(--d,0ms) + var(--i)*55ms)}
   @keyframes palabra{to{opacity:1;transform:none;filter:blur(0)}}
   .bajar-linea i{animation:caer 2.4s var(--ease) infinite}
+  @keyframes subir{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+  .js .v1-cards .senal-card,.js .v2-bento > *{opacity:0}
+  .js .in .v1-cards .senal-card,.js .v2-bento.in > *{animation:subir .7s var(--ease) both;animation-delay:calc(var(--i,0)*90ms + .15s)}
+  .js .v1-foto.in img,.js .v2-bento.in .b-foto img,.v3-fondo{animation:lento 26s ease-in-out infinite alternate}
+  .b-titulo::after{animation:luz 14s ease-in-out infinite alternate}
+  @keyframes luz{to{transform:translate(18%,14%)}}
+  .vacio.v1::before{animation:respirar 12s ease-in-out infinite}
+  .v3-dentro::before{animation:respirar 11s ease-in-out infinite}
+  .js .v3-logros li{opacity:0;translate:-12px 0;transition:opacity .5s var(--ease) calc(var(--i)*170ms + .2s),translate .5s var(--ease) calc(var(--i)*170ms + .2s)}
+  .js .in .v3-logros li{opacity:1;translate:0 0}
+  .lg-ico path{stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .5s var(--ease) calc(var(--i)*170ms + .5s)}
+  .in .lg-ico path{stroke-dashoffset:0}
+  .js .v3-senales .senal-linea{opacity:0;filter:blur(6px);translate:0 8px;transition:opacity .7s var(--ease) calc(var(--i)*150ms + .35s),filter .7s var(--ease) calc(var(--i)*150ms + .35s),translate .7s var(--ease) calc(var(--i)*150ms + .35s),color .3s}
+  .js .in .v3-senales .senal-linea{opacity:1;filter:none;translate:0 0}
+  .wa-flotante::before{content:"";position:absolute;inset:0;border-radius:50%;animation:wa-pulso 2.8s ease-out infinite}
+  @keyframes wa-pulso{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%,100%{box-shadow:0 0 0 16px rgba(37,211,102,0)}}
   @keyframes caer{from{transform:translateY(-110%)}to{transform:translateY(260%)}}
   .respira .anillo{animation:respirar 9s ease-in-out infinite}
   .respira .anillo.chico{animation-delay:-.7s}
@@ -639,29 +759,71 @@ footer img{height:30px;width:auto}
   </div>
 </section>
 
-<!-- EL VACIO -->
-<section class="vacio" id="sigue" aria-labelledby="t-vacio">
-  <div class="wrap">
-    <p class="puente" data-aparece>¿Te suena familiar?</p>
-    <div class="vacio-grid">
-      <div class="vacio-cab" data-aparece>
-        <h2 id="t-vacio">Por fuera, todo resuelto. Por dentro, un vacío.</h2>
-        <figure class="temporal f-vacio"><img src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 45vw, 92vw" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
-      </div>
-      <div class="vacio-txt" data-aparece>
-        <p class="lead">Lo lograste. El trabajo, la vida que querías. <span class="falta">Y aun así, algo falta.</span></p>
+<!-- EL VACIO · 3 PROPUESTAS -->
+<div class="propuestas" id="sigue" data-propuestas="vacio" role="region" aria-label="Propuestas de diseño: Te suena familiar">
+  <div class="prop-barra"><div class="prop-barra-in">
+    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Foto a toda altura</span></span>
+    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
+    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Foto a toda altura">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Bento">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Por fuera / Por dentro">3</button></div>
+    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div></div>
+  <div class="prop-vista"><div class="prop-pista">
+<div class="prop-slide" role="tabpanel" data-nombre="Foto a toda altura">
+<section class="vacio v1" aria-labelledby="t-vacio-1">
+  <div class="wrap v1-grid">
+    <figure class="v1-foto" data-aparece><img src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 40vw, 92vw" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption><div class="v1-contador" aria-hidden="true"><b data-cuenta>0</b><span>de 4 señales</span></div></figure>
+    <div class="v1-texto">
+      <p class="puente" data-aparece>¿Te suena familiar?</p>
+      <h2 id="t-vacio-1" data-aparece>Por fuera, todo resuelto. Por dentro, un vacío.</h2>
+      <p class="lead" data-aparece>Lo lograste. El trabajo, la vida que querías. <span class="falta">Y aun así, algo falta.</span></p>
+      <div class="v1-senales" data-senales data-aparece>
         <p class="etiqueta instr">Marcá las que te suenan</p>
-        <ul class="senales">
-          <li style="--i:0"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Dormís bien, comés limpio, entrenás… y te levantás pesado.</span></button></li>
-          <li style="--i:1"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</span></button></li>
-          <li style="--i:2"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</span></button></li>
-          <li style="--i:3"><button type="button" class="senal" aria-pressed="false"><span class="punto" aria-hidden="true"></span><span>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span></button></li>
-        </ul>
+        <div class="v1-cards"><button type="button" class="senal-card " aria-pressed="false" style="--i:0"><span class="sc-num">01</span><span class="sc-txt">Dormís bien, comés limpio, entrenás… y te levantás pesado.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card " aria-pressed="false" style="--i:1"><span class="sc-num">02</span><span class="sc-txt">Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card " aria-pressed="false" style="--i:2"><span class="sc-num">03</span><span class="sc-txt">Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card " aria-pressed="false" style="--i:3"><span class="sc-num">04</span><span class="sc-txt">Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button></div>
         <p class="eco" aria-live="polite"></p>
       </div>
     </div>
   </div>
 </section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Bento">
+<section class="vacio v2" aria-labelledby="t-vacio-2">
+  <div class="wrap">
+    <div class="v2-bento" data-senales data-aparece>
+      <div class="b-titulo" style="--i:0"><p class="puente">¿Te suena familiar?</p><h2 id="t-vacio-2">Por fuera, todo resuelto. <span>Por dentro, un vacío.</span></h2></div>
+      <figure class="b-foto" style="--i:1"><img src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 40vw, 92vw" alt="Una roca sola en un mar en calma" width="1000" height="1250" loading="lazy"><figcaption>Foto temporal</figcaption></figure>
+      <div class="b-lead" style="--i:2"><p>Lo lograste. El trabajo, la vida que querías.</p><p class="b-falta">Y aun así, algo falta.</p></div>
+      <div class="b-eco" style="--i:3"><p class="etiqueta">Marcá las que te suenan</p><div class="sv-medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></div><p class="b-ayuda">Tocá las tarjetas de abajo para marcar las tuyas.</p><p class="eco" aria-live="polite"></p></div>
+      <button type="button" class="senal-card b-senal" aria-pressed="false" style="--i:4"><span class="sc-num">01</span><span class="sc-txt">Dormís bien, comés limpio, entrenás… y te levantás pesado.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card b-senal" aria-pressed="false" style="--i:5"><span class="sc-num">02</span><span class="sc-txt">Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card b-senal" aria-pressed="false" style="--i:6"><span class="sc-num">03</span><span class="sc-txt">Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button><button type="button" class="senal-card b-senal" aria-pressed="false" style="--i:7"><span class="sc-num">04</span><span class="sc-txt">Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span><span class="sc-check" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 12.5 10 17 19 7"/></svg></span></button>
+    </div>
+  </div>
+</section>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Por fuera / Por dentro">
+<section class="vacio v3" aria-labelledby="t-vacio-3">
+  <div class="v3-split">
+    <div class="v3-fuera">
+      <div class="v3-in" data-aparece>
+        <p class="puente">¿Te suena familiar?</p>
+        <h2 id="t-vacio-3">Por fuera, todo resuelto.</h2>
+        <ul class="v3-logros"><li style="--i:0"><svg class="lg-ico" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#6C854A" stroke-width="2"/><path d="M9 15.5l4 4 8-9" fill="none" stroke="#6C854A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" pathLength="24"/></svg><span>El trabajo que querías.</span></li><li style="--i:1"><svg class="lg-ico" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#6C854A" stroke-width="2"/><path d="M9 15.5l4 4 8-9" fill="none" stroke="#6C854A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" pathLength="24"/></svg><span>La vida que armaste.</span></li><li style="--i:2"><svg class="lg-ico" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#6C854A" stroke-width="2"/><path d="M9 15.5l4 4 8-9" fill="none" stroke="#6C854A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" pathLength="24"/></svg><span>Una rutina sana.</span></li><li style="--i:3"><svg class="lg-ico" viewBox="0 0 30 30" aria-hidden="true"><circle cx="15" cy="15" r="13" fill="none" stroke="#6C854A" stroke-width="2"/><path d="M9 15.5l4 4 8-9" fill="none" stroke="#6C854A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" pathLength="24"/></svg><span>Metas cumplidas, una tras otra.</span></li></ul>
+        <p class="v3-nota">Lo lograste. Y aun así, algo falta.</p>
+      </div>
+    </div>
+    <div class="v3-dentro">
+      <img class="v3-fondo" aria-hidden="true" src="img/temp-isla-roca.webp" srcset="img/temp-isla-roca-640.webp 640w, img/temp-isla-roca.webp 1000w" sizes="(min-width:1024px) 50vw, 100vw" alt="" width="1000" height="1250" loading="lazy">
+      <div class="v3-in" data-senales data-aparece>
+        <p class="v3-titulo">Por dentro, <em>un vacío.</em></p>
+        <p class="etiqueta">Marcá las que te suenan</p>
+        <div class="v3-senales"><button type="button" class="senal-linea" aria-pressed="false" style="--i:0"><span class="punto" aria-hidden="true"></span><span>Dormís bien, comés limpio, entrenás… y te levantás pesado.</span></button><button type="button" class="senal-linea" aria-pressed="false" style="--i:1"><span class="punto" aria-hidden="true"></span><span>Un domingo libre y no podés frenar: la cabeza sigue en los pendientes, y si parás, aparece la culpa.</span></button><button type="button" class="senal-linea" aria-pressed="false" style="--i:2"><span class="punto" aria-hidden="true"></span><span>Café, podcast, audiolibro. Siempre algo más, para no quedarte a solas con lo que sentís.</span></button><button type="button" class="senal-linea" aria-pressed="false" style="--i:3"><span class="punto" aria-hidden="true"></span><span>Y cuando algo se te escapa de las manos, reaccionás. Aunque sabés exactamente lo que "deberías" hacer.</span></button></div>
+        <div class="sv-medidor" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <p class="eco" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+  </div></div>
+</div>
 
 <!-- EFECTO ISLA · 3 PROPUESTAS -->
 <div class="propuestas" data-propuestas="isla" role="region" aria-label="Propuestas de diseño: Efecto Isla">
@@ -1162,6 +1324,7 @@ footer img{height:30px;width:auto}
 </footer>
 
 <div class="fija" aria-hidden="true"><a class="btn" href="#reservar" data-cta="barra-celular" tabindex="-1">Reservar 20 minutos con Ema</a></div>
+<a class="wa-flotante" href="https://wa.me/393778479886" target="_blank" rel="noopener" data-cta="whatsapp-flotante" aria-label="Escribir a Ema por WhatsApp (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="wa-tip" aria-hidden="true">¿Dudas? Escribile a Ema</span></a>
 
 <script>
 // Medicion: cada boton manda su seccion a GTM (GA4 + Pixel se configuran ahi). Scroll 50 % y 90 %.
@@ -1204,16 +1367,20 @@ addEventListener('scroll',u,{passive:true});u();})();
 (function(){var p=document.querySelector('.progreso');if(!p)return;
 function u(){var h=document.documentElement.scrollHeight-innerHeight;p.style.transform='scaleX('+(h>0?Math.min(1,scrollY/h):0)+')';}
 addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})();
-// Senales: marcar las que te pasan
+// Senales (todas las propuestas de "Te suena familiar"): marcar, eco, medidor y contador
 (function(){
-  var lista=document.querySelector('.senales'),eco=document.querySelector('.eco');if(!lista||!eco)return;
   var frases={1:'Una ya alcanza para notarlo.',2:'Dos. No es casualidad.',3:'Tres de cuatro. No es falta de disciplina.',4:'Las cuatro. Lo que falta no es voluntad: es un hilo.'};
-  lista.addEventListener('click',function(e){
-    var b=e.target.closest('.senal');if(!b)return;
-    var on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on?'true':'false');
-    var n=lista.querySelectorAll('.senal[aria-pressed="true"]').length;
-    if(n){eco.textContent=frases[n];eco.classList.add('on');}else{eco.classList.remove('on');}
-    window.dataLayer&&dataLayer.push({event:'senal_marcada',total:n});
+  [].forEach.call(document.querySelectorAll('[data-senales]'),function(c){
+    var sec=c.closest('section'),eco=c.querySelector('.eco'),barras=c.querySelectorAll('.sv-medidor i'),cuenta=sec.querySelector('[data-cuenta]');
+    c.addEventListener('click',function(e){
+      var b=e.target.closest('.senal-card,.senal-linea,.senal');if(!b||!c.contains(b))return;
+      b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');
+      var n=c.querySelectorAll('[aria-pressed="true"]').length;
+      if(eco){if(n){eco.textContent=frases[n];eco.classList.add('on');}else eco.classList.remove('on');}
+      [].forEach.call(barras,function(x,k){x.classList.toggle('on',k<n);});
+      if(cuenta)cuenta.textContent=n;sec.style.setProperty('--n',n);c.classList.toggle('marcado',n>0);
+      window.dataLayer&&dataLayer.push({event:'senal_marcada',total:n});
+    });
   });
 })();
 // Mapa del dia (puede haber varios, uno por propuesta): hoy vs. con Puntos de Anclaje; se ancla solo a los dos segundos de verse
