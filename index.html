@@ -434,7 +434,12 @@ section{padding:72px 0;scroll-margin-top:72px}
 .plan li.no{color:#8A939E}
 .plan li.no::before{background:transparent;border:2px solid #B9BFC7}
 .plan .btn{width:100%}
-.plan .directo{display:block;margin-top:8px;padding:12px 0;text-align:center;font-size:16px;font-weight:700}
+.plan-ctas{display:grid;gap:10px}
+.seis-cta{margin-top:28px}
+.seis-cta .btn{white-space:normal;text-align:center}
+.quien{padding-bottom:40px}
+.prueba{padding-top:40px}
+.cierre-bajada{margin:18px auto 0;font-size:clamp(18px,1.8vw,22px);line-height:1.5;color:#D9DFEE;max-width:44ch}
 .precio .notas{margin-top:20px;font-size:16px;color:#D9DFEE;display:grid;gap:6px}
 
 .reservar .caja{display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
@@ -597,7 +602,7 @@ footer img{height:30px;width:auto}
 @media (max-width:479px){.top .mas{display:none}.top .btn{padding:0 16px}.red{width:36px;height:36px}}
 /* Preguntas: dos botones centrados */
 .faq-ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:40px}
-.faq-ctas .btn-h{flex:1 1 220px;max-width:340px}
+.faq-ctas .btn{flex:1 1 220px;max-width:300px}
 /* Lead magnet · comunes */
 .lm{padding:56px 0}
 .lm h2{font-size:clamp(26px,3.2vw,40px);line-height:1.15;max-width:22ch}
@@ -831,7 +836,7 @@ footer img{height:30px;width:auto}
     <div class="top-der">
       <a class="red" href="https://www.instagram.com/emachingolani/" target="_blank" rel="noopener" data-cta="header-instagram" aria-label="Instagram de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a>
       <a class="red" href="https://www.youtube.com/@emachingolani" target="_blank" rel="noopener" data-cta="header-youtube" aria-label="Canal de YouTube de Ema (se abre en una pestaña nueva)"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
-      <a class="btn" href="#reservar" data-cta="encabezado">Reservar<span class="mas">&nbsp;20 minutos</span></a>
+      <a class="btn" href="#reservar" data-cta="encabezado">Agendar<span class="mas">&nbsp;una llamada gratuita</span></a>
     </div>
   </div>
   <span class="progreso" aria-hidden="true"></span>
@@ -1129,11 +1134,8 @@ footer img{height:30px;width:auto}
         <div class="meses"><span>Mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>Mes 6</span></div>
         <div class="hitos"><div><b>Semana 1</b><span>Lo sentís.</span></div><div><b>Mes 6</b><span>Lo tenés instalado.</span></div></div>
       </div>
+      <div class="seis-cta"><a class="btn claro" href="#reservar" data-cta="metodo">Agenda una llamada gratuita conmigo</a></div>
       <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
-    </div>
-    <div class="accion" data-aparece>
-      <a class="btn" href="#reservar" data-cta="metodo">Reservar 20 minutos con Ema</a>
-      <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
     </div>
   </div>
 </section>
@@ -1351,8 +1353,7 @@ footer img{height:30px;width:auto}
           <li class="no">Sesión 1:1 cada 15 días</li>
           <li class="no">WhatsApp directo con Ema</li>
         </ul>
-        <a class="btn" href="#reservar" data-cta="precio-grupal">Reservar 20 minutos con Ema</a>
-        <a class="directo" href="#" data-cta="pago-grupal">Si ya lo tenés claro, entrás directo →</a>
+        <div class="plan-ctas"><a class="btn" href="#reservar" data-cta="precio-grupal-agendar">Agendar una llamada</a><a class="btn contorno" href="#" data-pago="grupal" data-cta="precio-grupal-comprar">Comprar ahora</a></div>
       </article>
       <article class="plan uno">
         <h3>Mentoría 1:1</h3>
@@ -1367,12 +1368,10 @@ footer img{height:30px;width:auto}
           <li>Sesión 1:1 con Ema cada 15 días</li>
           <li>WhatsApp directo con Ema (lunes a viernes)</li>
         </ul>
-        <a class="btn" href="#reservar" data-cta="precio-1a1">Reservar 20 minutos con Ema</a>
-        <p class="directo" style="font-weight:400">1:1: veinte minutos de llamada y te digo si es para vos.</p>
+        <div class="plan-ctas"><a class="btn" href="#reservar" data-cta="precio-1a1-agendar">Agendar una llamada</a><a class="btn contorno" href="#" data-pago="1a1" data-cta="precio-1a1-comprar">Comprar ahora</a></div>
       </article>
     </div>
     <div class="notas" data-aparece>
-      <p>Si hay duda entre la grupal y la 1:1, la llamada de 20 minutos sirve justo para decidirlo.</p>
       <p><span class="pendiente">Pendiente de Ema</span> moneda final, pago con tarjeta desde cualquier país, garantía y un testimonio corto.</p>
     </div>
   </div>
@@ -1452,7 +1451,7 @@ footer img{height:30px;width:auto}
         <details><summary>¿Cómo se paga?</summary><div class="resp"><p>La mentoría grupal, en 6 cuotas por Mercado Pago. La mentoría 1:1, por Stripe. <span class="pendiente">moneda por confirmar</span></p></div></details>
       </div>
     </div>
-    <div class="faq-ctas"><a class="btn-h primario" href="#reservar" data-cta="faq-agendar">Agendar una llamada</a><a class="btn-h" href="#precio" data-cta="faq-comprar">Comprar ahora</a></div>
+    <div class="faq-ctas"><a class="btn" href="#reservar" data-cta="faq-agendar">Agendar una llamada</a><a class="btn contorno" href="#precio" data-cta="faq-comprar">Comprar ahora</a></div>
   </div>
 </section>
 
@@ -1461,9 +1460,9 @@ footer img{height:30px;width:auto}
   <div class="wrap" data-aparece>
     <img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy">
     <h2 id="t-cierre">La calma ya la conocés. Ahora hacé que se quede.</h2>
+    <p class="cierre-bajada">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
     <div class="accion">
       <a class="btn claro" href="#reservar" data-cta="cierre">Reservar 20 minutos con Ema</a>
-      <p class="sin-miedo">Una conversación para ver si es para ti. Sin compromiso de compra.</p>
     </div>
   </div>
   <svg class="dia" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="30" x2="1200" y2="30" stroke="#BC5436" stroke-width="4" stroke-linecap="round"/></svg>
@@ -1490,6 +1489,7 @@ window.dataLayer=window.dataLayer||[];
 document.documentElement.classList.add('js');
 document.addEventListener('click',function(e){var a=e.target.closest('[data-cta]');if(a){window.dataLayer.push({event:'clic_cta',seccion:a.getAttribute('data-cta')});}});
 (function(){var hitos={50:false,90:false};window.addEventListener('scroll',function(){var p=(window.scrollY+window.innerHeight)/document.documentElement.scrollHeight*100;[50,90].forEach(function(h){if(!hitos[h]&&p>=h){hitos[h]=true;window.dataLayer.push({event:'scroll_profundidad',porcentaje:h});}});},{passive:true});})();
+document.addEventListener('click',function(e){var a=e.target.closest('[data-pago]');if(!a)return;e.preventDefault();window.dataLayer&&dataLayer.push({event:'begin_checkout',plan:a.getAttribute('data-pago')});alert('Maqueta: aquí se conecta el link de pago de la mentoría '+(a.getAttribute('data-pago')==='1a1'?'1:1 (Stripe).':'grupal (Mercado Pago).'));});
 function enviarAudio(e){e.preventDefault();window.dataLayer.push({event:'generate_lead',origen:'audio'});alert('Maqueta: aquí el formulario se conecta a systeme.io.');return false;}
 // Aparecer al entrar en pantalla, sin dejar nada oculto si falla
 (function(){var els=document.querySelectorAll('[data-aparece]');if(!('IntersectionObserver' in window)){els.forEach(function(x){x.classList.add('in')});return;}
