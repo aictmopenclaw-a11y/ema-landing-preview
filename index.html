@@ -668,6 +668,12 @@ footer img{height:30px;width:auto}
 .gal-slide figcaption{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:10px;background:rgba(247,248,245,.94);color:var(--azul);font-size:14px;font-weight:700;padding:7px 14px 7px 8px;border-radius:999px}
 .gal-recorte figcaption{padding-left:14px}
 .gal-slide figcaption i{width:28px;height:28px;border-radius:50%;background:var(--terra);display:grid;place-items:center}
+.gal-video{overflow:hidden;background:#000}
+.gal-video video{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.1);transform-origin:100% 50%;background:#000}
+.gal-video .play-btn{background:linear-gradient(180deg,rgba(27,47,99,0) 45%,rgba(27,47,99,.55) 100%)}
+.gal-video .play-btn i{transition:opacity .3s,transform .25s var(--ease)}
+.gal-video.reproduciendo .play-btn{background:none}
+.gal-video.reproduciendo .play-btn i,.gal-video.reproduciendo .play-btn .dur{opacity:0}
 .gal-pend{display:grid;place-items:center;text-align:center;padding:28px;background:linear-gradient(160deg,var(--azul),var(--azul-osc));color:#fff}
 .gal-pend img{width:46px;height:auto;margin:0 auto 18px;opacity:.9}
 .gal-pend .pendiente{display:table;margin:0 auto 12px}
@@ -1364,6 +1370,10 @@ html[data-menu="3"] .prop-barra{top:108px}
         <div class="gal-vista"><div class="gal-pista">
           <figure class="gal-slide"><img src="img/ema-camara.webp" alt="Ema hablando a cámara" width="400" height="720" loading="lazy"><figcaption><i aria-hidden="true"><svg width="10" height="12" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i>Video de Ema (pendiente)</figcaption></figure>
           <figure class="gal-slide gal-recorte"><img src="img/ema-retrato.webp" alt="Ema sonriendo al aire libre, con gorra y collar de semillas" width="372" height="784" loading="lazy"><figcaption>Ema, al aire libre</figcaption></figure>
+          <figure class="gal-slide gal-video"><video src="video/ema-futbol.mp4" poster="img/ema-futbol-poster.jpg" preload="none" playsinline width="352" height="624"></video><button class="play-btn" type="button" data-cta="galeria-video" aria-label="Reproducir el video de Ema jugando al fútbol, 13 segundos"><i aria-hidden="true"><svg width="18" height="20" viewBox="0 0 14 16"><path d="M0 0l14 8-14 8z" fill="#fff"/></svg></i><span class="dur" aria-hidden="true">0:13</span></button></figure>
+          <figure class="gal-slide"><img src="img/ema-recuerdo-2018-auto.jpg" alt="Ema en 2018, dentro de un auto" width="618" height="1100" loading="lazy"></figure>
+          <figure class="gal-slide"><img src="img/ema-selfie-ascensor.jpg" alt="Ema sacándose una selfie en el espejo de un ascensor" width="618" height="1100" loading="lazy"></figure>
+          <figure class="gal-slide"><img src="img/ema-mano-cogollo.jpg" alt="Foto de archivo de Ema" width="618" height="1100" loading="lazy"></figure>
           <figure class="gal-slide gal-pend"><div><img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy"><span class="pendiente">Foto pendiente</span><b>Ema guiando una práctica de respiración</b></div></figure>
           <figure class="gal-slide gal-pend"><div><img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy"><span class="pendiente">Foto pendiente</span><b>Ema en la naturaleza: India, Tailandia o un retiro</b></div></figure>
           <figure class="gal-slide gal-pend"><div><img src="img/monograma-blanco.webp" alt="" width="166" height="197" loading="lazy"><span class="pendiente">Foto pendiente</span><b>Ema en una sesión 1:1 por videollamada</b></div></figure>
@@ -1805,12 +1815,19 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     var quieto=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     [].forEach.call(slides,function(s,k){s.setAttribute('aria-roledescription','foto');s.setAttribute('aria-label',(k+1)+' de '+slides.length);
       var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir a la foto '+(k+1));b.onclick=function(){ir(k,true);};wrap.appendChild(b);});
+    var vids=[].slice.call(g.querySelectorAll('.gal-video'));
     function ir(n,manual){i=(n+slides.length)%slides.length;pista.style.transform='translateX('+(-100*i)+'%)';
+      vids.forEach(function(f){if(f!==slides[i])f.querySelector('video').pause();});
       [].forEach.call(wrap.children,function(b,k){b.setAttribute('aria-current',k===i?'true':'false');});
       if(manual){window.dataLayer&&dataLayer.push({event:'galeria_ema',foto:i+1});reiniciar();}}
     function parar(){if(timer){clearInterval(timer);timer=null;}}
-    function arrancar(){parar();if(!quieto&&visible)timer=setInterval(function(){ir(i+1);},5000);}
+    function arrancar(){parar();if(!quieto&&visible&&!g.querySelector('.gal-video.reproduciendo'))timer=setInterval(function(){ir(i+1);},5000);}
     function reiniciar(){parar();setTimeout(arrancar,8000);}
+    vids.forEach(function(f){var vd=f.querySelector('video'),b=f.querySelector('.play-btn'),et=b.getAttribute('aria-label');
+      b.addEventListener('click',function(){if(vd.paused){var p=vd.play();if(p&&p.catch)p.catch(function(){});}else vd.pause();});
+      vd.addEventListener('play',function(){f.classList.add('reproduciendo');b.setAttribute('aria-label','Pausar el video');parar();window.dataLayer&&dataLayer.push({event:'galeria_video',accion:'play'});});
+      vd.addEventListener('pause',function(){f.classList.remove('reproduciendo');b.setAttribute('aria-label',et);});
+      vd.addEventListener('ended',function(){vd.currentTime=0;arrancar();});});
     [].forEach.call(g.querySelectorAll('[data-gal-dir]'),function(b){b.onclick=function(){ir(i+parseInt(b.getAttribute('data-gal-dir'),10),true);};});
     g.addEventListener('pointerenter',parar);g.addEventListener('pointerleave',arrancar);
     var x0=0,y0=0,on=false,v=g.querySelector('.gal-vista');
