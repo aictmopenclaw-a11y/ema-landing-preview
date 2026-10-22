@@ -757,6 +757,41 @@ html[data-menu="3"] .prop-barra{top:108px}
   .top-nav a:hover,.top-nav a.activo{color:#fff}
   .top-nav a:hover::after,.top-nav a.activo::after{transform:none}
 }
+/* Seis meses · 3 animaciones */
+.metodo .propuestas[data-propuestas="seis"]{margin-top:20px}
+.metodo .propuestas[data-propuestas="seis"] .seis{margin-top:0}
+.s1-pista{position:relative;height:60px;margin:0 14px}
+.s1-base{position:absolute;left:0;right:0;top:11px;height:6px;border-radius:999px;background:rgba(255,255,255,.2)}
+.s1-seg{position:absolute;top:11px;left:calc(var(--k)*20%);width:20%;height:6px;background:var(--terra-claro)}
+.s1-seg:first-of-type{border-radius:999px 0 0 999px}
+.s1-hito{position:absolute;top:0;left:calc(var(--m)*20%);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;white-space:nowrap}
+.s1-hito i{width:28px;height:28px;border-radius:50%;background:var(--terra-claro);border:3px solid var(--terra-claro);box-shadow:0 0 0 5px var(--verde-osc)}
+.s1-hito b{font-size:13px;font-weight:600;letter-spacing:.04em;color:#fff}
+.s1 .hitos{margin-top:8px}
+.s2-ejes{display:flex;justify-content:space-between;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#DCE4D0}
+.s2-svg{display:block;width:100%;height:110px;margin-top:6px;overflow:visible}
+.s2-base{stroke:rgba(255,255,255,.2);stroke-width:1.5;stroke-dasharray:3 7}
+.s2-ola{fill:none;stroke:var(--terra-claro);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.s2-meses{display:flex;justify-content:space-between;margin-top:6px}
+.s2-mes{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:13px;color:#fff;letter-spacing:.04em}
+.s2-mes:first-child{align-items:flex-start}.s2-mes:last-child{align-items:flex-end}
+.s2-mes i{width:12px;height:12px;border-radius:50%;background:var(--terra-claro)}
+.s2 .hitos{margin-top:14px}
+.s3{display:grid;gap:24px;align-items:center}
+.s3-anillo{position:relative;width:170px;height:170px;margin:0 auto}
+.s3-anillo svg{width:100%;height:100%;transform:rotate(-90deg)}
+.s3-fondo{fill:none;stroke:rgba(255,255,255,.18);stroke-width:8}
+.s3-progreso{fill:none;stroke:var(--terra-claro);stroke-width:8;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:0;transition:stroke-dashoffset .9s var(--ease)}
+.s3-num{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.s3-num span{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#DCE4D0}
+.s3-num b{font-family:var(--cond);font-weight:400;font-size:88px;line-height:.9;color:#fff}
+.s3-etapas{list-style:none;display:grid;gap:12px}
+.s3-etapas li{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 16px;padding:14px 18px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);transition:background-color .5s,border-color .5s,opacity .5s}
+.s3-etapas li b{font-family:var(--display);font-size:19px;color:#fff}
+.s3-etapas li span{font-size:15px;color:#DCE4D0}
+.s3-etapas li.apagado{opacity:.38}
+.s3-etapas li.on{background:rgba(242,194,178,.16);border-color:rgba(242,194,178,.5)}
+@media (min-width:760px){.s3{grid-template-columns:auto 1fr;gap:48px}.s3-anillo{margin:0}}
 @media (prefers-reduced-motion:no-preference){
   .js [data-aparece]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
   .js [data-aparece].in{opacity:1;transform:none}
@@ -768,6 +803,22 @@ html[data-menu="3"] .prop-barra{top:108px}
   @keyframes palabra{to{opacity:1;transform:none;filter:blur(0)}}
   .bajar-linea i{animation:caer 2.4s var(--ease) infinite}
   @keyframes subir{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
+  .js .s1-seg{transform:scaleX(0);transform-origin:0 50%;transition:transform 1s cubic-bezier(.45,0,.55,1) calc(var(--k)*1.1s + .9s)}
+  .js .in .s1-seg{transform:none}
+  .js .s1-hito i{background:var(--verde-osc);border-color:rgba(255,255,255,.4);transform:scale(.85);transition:background-color .45s,border-color .45s,transform .55s var(--ease);transition-delay:calc(var(--m)*1.1s + .5s)}
+  .js .in .s1-hito i{background:var(--terra-claro);border-color:var(--terra-claro);transform:scale(1.1)}
+  .js .s1-hito b{color:rgba(255,255,255,.45);transition:color .45s calc(var(--m)*1.1s + .5s)}
+  .js .in .s1-hito b{color:#fff}
+  .js .s1 .hitos > div,.js .s2 .hitos > div{opacity:0;transform:translateY(8px);transition:opacity .6s var(--ease) .6s,transform .6s var(--ease) .6s}
+  .js .s1 .hitos > div:last-child{transition-delay:6.4s}
+  .js .s2 .hitos > div:last-child{transition-delay:7s}
+  .js .in .s1 .hitos > div,.js .in .s2 .hitos > div{opacity:1;transform:none}
+  .js .s2-ola{stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 6.6s cubic-bezier(.35,0,.5,1) .5s}
+  .js .in .s2-ola{stroke-dashoffset:0}
+  .js .s2-mes{opacity:.35;transition:opacity .5s calc(var(--m)*1.25s + .6s)}
+  .js .s2-mes i{transform:scale(0);transition:transform .5s var(--ease) calc(var(--m)*1.25s + .6s)}
+  .js .in .s2-mes{opacity:1}
+  .js .in .s2-mes i{transform:none}
   .js .trabajo .pilar{opacity:0}
   .js .trabajo.in .pilar{animation:subir .7s var(--ease) both;animation-delay:calc(var(--i)*160ms + .25s)}
   .lm-a::before{animation:brillo 6s ease-in-out infinite}
@@ -1204,6 +1255,15 @@ html[data-menu="3"] .prop-barra{top:108px}
         <article class="pilar" style="--i:2"><span class="num">03</span><h4>Autonomía emocional</h4><p>El resultado: dejás de depender de lo que pasa afuera. Elegís cómo estar, y lo sostenés.</p></article>
       </div>
     </div>
+<div class="propuestas" data-propuestas="seis" role="region" aria-label="Propuestas de diseño: Seis meses">
+  <div class="prop-barra"><div class="prop-barra-in">
+    <span class="prop-etq">Propuesta <b data-prop-num>1 de 3</b><span class="prop-nombre" data-prop-nombre> · Mes a mes</span></span>
+    <button type="button" class="prop-flecha" data-prop-dir="-1" aria-label="Propuesta anterior"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 6 9 12 15 18"/></svg></button>
+    <div class="prop-tabs" role="tablist"><button type="button" role="tab" data-prop="0" aria-selected="true" aria-label="Ver propuesta 1: Mes a mes">1</button><button type="button" role="tab" data-prop="1" aria-selected="false" aria-label="Ver propuesta 2: Ola que se calma">2</button><button type="button" role="tab" data-prop="2" aria-selected="false" aria-label="Ver propuesta 3: Contador">3</button></div>
+    <button type="button" class="prop-flecha" data-prop-dir="1" aria-label="Propuesta siguiente"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 6 15 12 9 18"/></svg></button>
+  </div></div>
+  <div class="prop-vista"><div class="prop-pista">
+<div class="prop-slide" role="tabpanel" data-nombre="Mes a mes">
     <div class="seis" data-aparece>
       <div class="seis-grid">
         <h3>Seis meses que duran para <em>siempre</em></h3>
@@ -1212,13 +1272,53 @@ html[data-menu="3"] .prop-barra{top:108px}
           <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
         </div>
       </div>
-      <div class="seis-linea" aria-hidden="true">
-        <div class="barra"><i></i></div>
-        <div class="meses"><span>Mes 1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>Mes 6</span></div>
+      <div class="seis-linea s1" aria-hidden="true">
+        <div class="s1-pista"><span class="s1-base"></span><span class="s1-seg" style="--k:0"></span><span class="s1-seg" style="--k:1"></span><span class="s1-seg" style="--k:2"></span><span class="s1-seg" style="--k:3"></span><span class="s1-seg" style="--k:4"></span><span class="s1-hito" style="--m:0"><i></i><b>Mes 1</b></span><span class="s1-hito" style="--m:1"><i></i><b>Mes 2</b></span><span class="s1-hito" style="--m:2"><i></i><b>Mes 3</b></span><span class="s1-hito" style="--m:3"><i></i><b>Mes 4</b></span><span class="s1-hito" style="--m:4"><i></i><b>Mes 5</b></span><span class="s1-hito" style="--m:5"><i></i><b>Mes 6</b></span></div>
         <div class="hitos"><div><b>Semana 1</b><span>Lo sentís.</span></div><div><b>Mes 6</b><span>Lo tenés instalado.</span></div></div>
       </div>
       <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
     </div>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Ola que se calma">
+    <div class="seis" data-aparece>
+      <div class="seis-grid">
+        <h3>Seis meses que duran para <em>siempre</em></h3>
+        <div>
+          <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
+          <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
+        </div>
+      </div>
+      <div class="seis-linea s2" aria-hidden="true">
+        <div class="s2-ejes"><span>Aceleración</span><span>Calma</span></div>
+        <svg class="s2-svg" viewBox="0 0 1000 120" preserveAspectRatio="none"><line class="s2-base" x1="0" y1="60" x2="1000" y2="60" vector-effect="non-scaling-stroke"/><path class="s2-ola" d="M0 60.0 L4 73.6 L8 85.5 L12 94.3 L16 99.2 L20 99.7 L24 95.9 L28 88.3 L32 77.8 L36 65.7 L40 53.1 L44 41.5 L48 32.0 L52 25.5 L56 22.5 L60 23.4 L64 27.8 L68 35.2 L72 45.0 L76 55.9 L80 67.1 L84 77.4 L88 85.9 L92 91.8 L96 94.8 L100 94.6 L104 91.4 L108 85.4 L112 77.4 L116 68.0 L120 58.1 L124 48.6 L128 40.2 L132 33.6 L136 29.3 L140 27.5 L144 28.3 L148 31.6 L152 37.1 L156 44.2 L160 52.3 L164 60.9 L168 69.2 L172 76.7 L176 82.8 L180 87.2 L184 89.5 L188 89.8 L192 87.9 L196 84.2 L200 79.0 L204 72.6 L208 65.5 L212 58.2 L216 51.1 L220 44.8 L224 39.6 L228 35.7 L232 33.4 L236 32.8 L240 33.8 L244 36.3 L248 40.1 L252 45.0 L256 50.6 L260 56.7 L264 62.7 L268 68.5 L272 73.7 L276 78.0 L280 81.3 L284 83.4 L288 84.3 L292 84.0 L296 82.5 L300 79.9 L304 76.5 L308 72.3 L312 67.7 L316 62.8 L320 58.0 L324 53.3 L328 49.1 L332 45.4 L336 42.5 L340 40.3 L344 39.0 L348 38.6 L352 39.1 L356 40.4 L360 42.4 L364 45.0 L368 48.1 L372 51.5 L376 55.2 L380 59.0 L384 62.6 L388 66.1 L392 69.3 L396 72.1 L400 74.4 L404 76.2 L408 77.4 L412 78.0 L416 78.1 L420 77.7 L424 76.7 L428 75.3 L432 73.5 L436 71.3 L440 69.0 L444 66.4 L448 63.8 L452 61.1 L456 58.6 L460 56.1 L464 53.8 L468 51.7 L472 49.9 L476 48.3 L480 47.1 L484 46.2 L488 45.6 L492 45.4 L496 45.4 L500 45.8 L504 46.4 L508 47.2 L512 48.3 L516 49.5 L520 50.9 L524 52.4 L528 53.9 L532 55.6 L536 57.2 L540 58.8 L544 60.3 L548 61.8 L552 63.3 L556 64.6 L560 65.8 L564 66.8 L568 67.8 L572 68.6 L576 69.3 L580 69.8 L584 70.2 L588 70.4 L592 70.5 L596 70.5 L600 70.4 L604 70.2 L608 69.9 L612 69.5 L616 69.1 L620 68.5 L624 68.0 L628 67.4 L632 66.7 L636 66.0 L640 65.4 L644 64.7 L648 64.0 L652 63.3 L656 62.6 L660 62.0 L664 61.3 L668 60.7 L672 60.1 L676 59.6 L680 59.1 L684 58.6 L688 58.1 L692 57.7 L696 57.3 L700 57.0 L704 56.7 L708 56.4 L712 56.2 L716 55.9 L720 55.8 L724 55.6 L728 55.5 L732 55.4 L736 55.3 L740 55.2 L744 55.2 L748 55.1 L752 55.1 L756 55.1 L760 55.2 L764 55.2 L768 55.2 L772 55.3 L776 55.3 L780 55.4 L784 55.5 L788 55.5 L792 55.6 L796 55.7 L800 55.8 L804 55.9 L808 56.0 L812 56.1 L816 56.1 L820 56.2 L824 56.3 L828 56.4 L832 56.5 L836 56.6 L840 56.7 L844 56.8 L848 56.8 L852 56.9 L856 57.0 L860 57.1 L864 57.2 L868 57.2 L872 57.3 L876 57.4 L880 57.5 L884 57.5 L888 57.6 L892 57.7 L896 57.7 L900 57.8 L904 57.9 L908 58.0 L912 58.0 L916 58.1 L920 58.2 L924 58.2 L928 58.3 L932 58.4 L936 58.4 L940 58.5 L944 58.6 L948 58.6 L952 58.7 L956 58.8 L960 58.8 L964 58.9 L968 59.0 L972 59.0 L976 59.1 L980 59.2 L984 59.2 L988 59.3 L992 59.4 L996 59.4 L1000 59.5" pathLength="1000" vector-effect="non-scaling-stroke"/></svg>
+        <div class="s2-meses"><span class="s2-mes" style="--m:0"><i></i>Mes 1</span><span class="s2-mes" style="--m:1"><i></i>Mes 2</span><span class="s2-mes" style="--m:2"><i></i>Mes 3</span><span class="s2-mes" style="--m:3"><i></i>Mes 4</span><span class="s2-mes" style="--m:4"><i></i>Mes 5</span><span class="s2-mes" style="--m:5"><i></i>Mes 6</span></div>
+        <div class="hitos"><div><b>Semana 1</b><span>Lo sentís.</span></div><div><b>Mes 6</b><span>Lo tenés instalado.</span></div></div>
+      </div>
+      <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
+    </div>
+</div>
+<div class="prop-slide" role="tabpanel" data-nombre="Contador">
+    <div class="seis" data-aparece>
+      <div class="seis-grid">
+        <h3>Seis meses que duran para <em>siempre</em></h3>
+        <div>
+          <p>El cambio lo sentís en la primera semana. Pero sentirlo no es tenerlo instalado. En seis meses, la calma deja de ser un esfuerzo y se vuelve tu forma natural de funcionar.</p>
+          <p>Vas a seguir yendo por tus metas. Solo que ya no te van a quitar el sueño.</p>
+        </div>
+      </div>
+      <div class="seis-linea s3" aria-hidden="true">
+        <div class="s3-anillo"><svg viewBox="0 0 120 120"><circle class="s3-fondo" cx="60" cy="60" r="52"/><circle class="s3-progreso" cx="60" cy="60" r="52" pathLength="600"/></svg><div class="s3-num"><span>Mes</span><b data-mes>6</b></div></div>
+        <ol class="s3-etapas">
+          <li data-desde="1" class="on"><b>Semana 1</b><span>Lo sentís.</span></li>
+          <li data-desde="2" class="on"><b>Meses 2 a 5</b><span>La calma se vuelve hábito.</span></li>
+          <li data-desde="6" class="on"><b>Mes 6</b><span>Lo tenés instalado.</span></li>
+        </ol>
+      </div>
+      <p class="pendiente">Pendiente de Ema: qué pasa en cada etapa de los 6 meses</p>
+    </div>
+</div>
+  </div></div>
+</div>
   </div>
 </section>
 
@@ -1637,7 +1737,7 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
     function ir(n,manual){i=(n+slides.length)%slides.length;pista.style.transform='translateX('+(-100*i)+'%)';
       slides.forEach(function(s,k){var on=k===i;s.setAttribute('aria-hidden',on?'false':'true');
         if(on){s.removeAttribute('inert');if(manual)[].forEach.call(s.querySelectorAll('[data-aparece]'),function(x){x.classList.add('in');});}
-        else s.setAttribute('inert','');});
+        else{s.setAttribute('inert','');if(manual)[].forEach.call(s.querySelectorAll('[data-aparece]'),function(x){x.classList.remove('in');});}});
       tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false');});
       num.textContent=(i+1)+' de '+slides.length;nom.textContent=' · '+slides[i].getAttribute('data-nombre');alto();
       if(manual){window.dataLayer&&dataLayer.push({event:'propuesta_vista',bloque:w.getAttribute('data-propuestas'),propuesta:i+1});
@@ -1741,6 +1841,20 @@ addEventListener('scroll',u,{passive:true});addEventListener('resize',u);u();})(
   poner(document.documentElement.getAttribute('data-menu')||'1',false);
   bs.forEach(function(b){b.addEventListener('click',function(){poner(b.getAttribute('data-m'),true);});});
   [].forEach.call(sel.querySelectorAll('[data-mp-dir]'),function(b){b.addEventListener('click',function(){var n=((parseInt(actual,10)-1+parseInt(b.getAttribute('data-mp-dir'),10)+3)%3)+1;poner(String(n),true);});});
+})();
+// Seis meses (propuesta contador): cuenta del mes 1 al 6, un mes por segundo, al aparecer
+(function(){
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  [].forEach.call(document.querySelectorAll('.s3'),function(s){
+    var card=s.closest('[data-aparece]'),num=s.querySelector('[data-mes]'),prog=s.querySelector('.s3-progreso'),lis=s.querySelectorAll('.s3-etapas li'),t=null;
+    function pintar(m){num.textContent=Math.max(m,1);prog.style.strokeDashoffset=600-m*100;
+      [].forEach.call(lis,function(li){var d=+li.getAttribute('data-desde');li.classList.toggle('on',m>=d);li.classList.toggle('apagado',m<d);});}
+    function correr(){clearInterval(t);var m=0;pintar(0);t=setInterval(function(){m++;pintar(m);if(m>=6)clearInterval(t);},1000);}
+    function reiniciar(){clearInterval(t);pintar(0);}
+    pintar(0);
+    new MutationObserver(function(){card.classList.contains('in')?correr():reiniciar();}).observe(card,{attributes:true,attributeFilter:['class']});
+    if(card.classList.contains('in'))correr();
+  });
 })();
 // Calendario de ejemplo: horarios definidos en hora de Madrid y mostrados en la zona de quien reserva
 (function(){
